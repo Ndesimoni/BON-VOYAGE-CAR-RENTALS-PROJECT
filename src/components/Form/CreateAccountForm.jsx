@@ -4,43 +4,6 @@ import FormErrors from "../FormErrors";
 import { useNavigate } from "react-router-dom";
 import WrongCredentials from "../WrongCredentials";
 
-// import styled from "styled-components";
-// import Button from "../ui/Reuseable_Ui/Button";
-
-// const RegisterSectionStyles = styled.fieldset({
-//   display: "flex",
-//   justifyContent: "center",
-//   alignItems: "center",
-//   padding: "15px 15px 0px 15px",
-// });
-
-// const DivSection = styled.div({
-//   margin: " 5px",
-//   lineHeight: "23px",
-// });
-
-// const InputStyle = styled.input({
-//   width: "260px",
-//   padding: "2px",
-//   border: "1px solid #d2d2d2",
-//   borderRadius: "3px",
-// });
-
-// const TextArea = styled.textarea({
-//   padding: "1px",
-//   border: "1px solid #d2d2d2",
-//   borderRadius: "3px",
-// });
-
-// const LogIn = styled.div({
-//   display: "flex",
-//   justifyContent: "center",
-//   alignItems: "center",
-//   padding: "15px",
-// });
-
-//todo this is the register component
-
 const RegisterAccount = () => {
   const [showLogin, setShowLogin] = useState(false);
   const [wrongCredentials, setWrongCredentials] = useState("");
@@ -91,33 +54,6 @@ const RegisterAccount = () => {
   }
 
   return (
-    // <<<<<<< HEAD
-    //     <form>
-    //       <>
-    //         {currentLog ? (
-    //           <RegisterSectionStyles className="flex flex-col ">
-    //             <h2 className="header_2 text-red-600"> Register Account </h2>
-
-    //             <DivSection>
-    //               <p> First Name</p>
-    //               <InputStyle
-    //                 id="first-name"
-    //                 name="first-name"
-    //                 type="text"
-    //                 required
-    //               />
-    //             </DivSection>
-    //             <DivSection>
-    //               <p> Last Name:</p>
-    //               <InputStyle
-    //                 id="last-name"
-    //                 name="last-name"
-    //                 type="text"
-    //                 required
-    //               />
-    //             </DivSection>
-    // =======
-
     <>
       {!showLogin ? (
         <form
@@ -143,7 +79,6 @@ const RegisterAccount = () => {
               <FormErrors>{errors.firstName.message}</FormErrors>
             )}
           </div>
-          {/* >>>>>>> 7f0fb741b90dc0e713df819053e057ef8f778a4e */}
 
           <div className="grid grid-cols-[1fr_2fr_1fr]  items-center">
             <label htmlFor="lastName" className="capitalize ">
@@ -211,60 +146,6 @@ const RegisterAccount = () => {
             )}
           </div>
 
-          {/* <<<<<<< HEAD
-            <DivSection>
-              <input
-                id="terms-and-conditions"
-                type="checkbox"
-                required
-                name="terms-and-conditions"
-                className="inline"
-              />{" "}
-              <span> I accept the terms and conditions</span>
-            </DivSection>
-          </RegisterSectionStyles>
-        ) : (
-          //todo this is the LogIn section
-          <LogIn className="flex flex-col">
-            <h2 className="header_2  text-red-600"> Log In </h2>
-            <DivSection>
-              <p> Email:</p>{" "}
-              <InputStyle
-                type="email"
-                required
-                placeholder="email or username"
-              />
-            </DivSection>
-
-            <DivSection>
-              <p> Password:</p>{" "}
-              <InputStyle
-                type="password"
-                pattern="[a-z0-5]{8,}"
-                placeholder="password"
-              />
-            </DivSection>
-          </LogIn>
-        )}
-      </>
-
-      <div className="flex justify-center items-center flex-col">
-        <p>
-          have and Account ?
-          <span
-            onClick={showLogin}
-            className=" capitalize font-bold text-blue-600 cursor-pointer hover:text-green-400"
-          >
-            Log In
-          </span>
-        </p>
-
-        <div>
-          <Button>submit</Button>
-        </div>
-      </div>
-    </form>
-======= */}
           <div>
             <span>Already have an account? </span>
             <span
@@ -329,7 +210,6 @@ const RegisterAccount = () => {
         </form>
       )}
     </>
-    // >>>>>>> 7f0fb741b90dc0e713df819053e057ef8f778a4e
   );
 };
 

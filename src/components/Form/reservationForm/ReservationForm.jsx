@@ -5,7 +5,6 @@ import ReservationDropdown from "./ReservationDropdown";
 import { useNavigate } from "react-router-dom";
 import { useFormData } from "../../../lib/UrlCustomHook";
 
-
 const ReservationFormStyles = styled.div({
   backgroundColor: "white",
   width: "1000px",
@@ -16,12 +15,12 @@ const ReservationFormStyles = styled.div({
 
 const ReservationForm = () => {
   const [showReservationForm, setShowReservationForm] = useState(false);
-  const [bookAsGuestForm, SetBookAsGuestForm] = useState(false);
+  // const [bookAsGuestForm, SetBookAsGuestForm] = useState(false);
   const [showInformation, setShowInformation] = useState(false);
+  const [searchCar, setSearchCar] = useState("");
   const navigate = useNavigate();
-  const [searchCar, setSearchCar] = useState('');
-  // coming from custom hook 
-  const { formData, handleChange } = useFormData()
+  // coming from custom hook
+  const { formData, handleChange } = useFormData();
 
   function handleClick(e) {
     const closestParent = e.target.closest("form");
@@ -29,23 +28,28 @@ const ReservationForm = () => {
     setShowReservationForm(false);
   }
 
-  function GuestReservation() {
-    SetBookAsGuestForm(!false);
-  }
+  // function GuestReservation() {
+  //   SetBookAsGuestForm(!false);
+  // }
 
   useEffect(() => {
     document.body.addEventListener("click", handleClick, true);
     return () => document.body.removeEventListener("click", handleClick);
   }, [showReservationForm]);
 
+  // function onHandleInformation() {
+  //   setShowInformation(!showInformation);
+  // }
+
+  // to update state based on the current state, always pass in a callback function . The solution you implemented above is still good but it doesn't look ideal and professional
   function onHandleInformation() {
-    setShowInformation(!showInformation);
+    setShowInformation((show) => !show);
   }
 
   function handleSearch() {
-    if (searchCar === "") return
+    if (searchCar === "") return;
     navigate(
-      `${searchCar === "all-cars" && "all-available-cars" || searchCar === "all-vehicle-category" && "all-vehicle-category"} `,
+      `${(searchCar === "all-cars" && "all-available-cars") || (searchCar === "all-vehicle-category" && "all-vehicle-category")} `
     );
   }
 
@@ -59,46 +63,64 @@ const ReservationForm = () => {
         <span className="text-red-600 italic"> * Required Field</span>
       </label>
 
-      <select
-        // name="stateOfOperation}"
-        // value={stateOpp}
-        id=""
-        className="w-full h-10 border-gray-200 border placeholder:pl-4 px-5 appearance-none"
-        type="text"
+      <input
+        readOnly
         placeholder="Click to start a reservation"
+        className="w-full h-10 border-gray-200 border placeholder:pl-4 px-5 "
         onClick={() => {
           setShowReservationForm(true);
         }}
-
-        name="stateOfOperation"
-        value={formData.stateOfOperation}
-        onChange={handleChange}
-      >
-        <option value="" disabled selected hidden>
-          Choose a state of operation...
-        </option>
-        <option value="marryland"> marryland</option>
-        <option value="minnesota"> minnesota</option>
-        <option value="tennessee"> tennessee</option>
-        <option value="virginia"> virginia</option>
-      </select>
+      />
 
       {/* //todo // this is for the both dropdowns   */}
       {/* this is the dropdown */}
-      <div> {showReservationForm && <ReservationDropdown formData={formData} handleChange={handleChange} />}</div>
+
+      {/* <div>
+        {" "}
+        {showReservationForm && (
+          <ReservationDropdown
+            formData={formData}
+            handleChange={handleChange}
+          />
+        )}
+      </div> */}
+
+      {/* No need for a div element */}
+      {showReservationForm && (
+        <ReservationDropdown formData={formData} handleChange={handleChange} />
+      )}
 
       {/* this is the for book as gust dropdown */}
-      <div> {bookAsGuestForm && <ReservationDropdown formData={formData} handleChange={handleChange} />}</div>
+      {/* <div>
+        {" "}
+        {bookAsGuestForm && (
+          <ReservationDropdown
+            formData={formData}
+            handleChange={handleChange}
+          />
+        )}
+      </div> */}
+      {
+        // To implement the reservationDropdown to bookAsGuest, just use the state value of showReservationForm. Creating a new state (bookAsGuestForm) creates a wasted render and the body click to hide the form will not work.
+        //NB: Always try to reuse state variables and logic to avoid wasted renders as this will increase performance of your app
+      }
 
       <div className="flex justify-between items-center">
         <div className="flex items-center gap-1 text-sm mt-5 mb-5 ">
-
-
-          <div className="flex gap-2" onClick={GuestReservation}>
+          {/* <div className="flex gap-2" onClick={GuestReservation}>
             <button className="booking_btn p-[5px]">book as guest</button>
-          </div>
+          </div> */}
 
-          <div onClick={onHandleInformation} className="relative">
+          {/* no need to put button inside of a div if you do not have other elements in that same div. You are just occupying a node in the DOM which is increases bundle size for a large application */}
+
+          <button
+            onClick={() => setShowReservationForm(true)}
+            className="booking_btn p-[5px]"
+          >
+            book as guest
+          </button>
+
+          {/* <div onClick={onHandleInformation} className="relative">
             {showInformation && (
               <div className="absolute bottom-5 w-80 ml-5 bg-blue-300 p-6 rounded-r-full rounded-t-full ">
                 <p>
@@ -111,6 +133,29 @@ const ReservationForm = () => {
               </div>
             )}
             <CiCircleQuestion size={20} color="green" />
+          </div> */}
+
+          {
+            //When an event handler is added to a parent element, when the event is delegated from the parents to all its children. The onHandleInformation event handle will be called when you click on the <p> element and even on the <strong> element. This triggers rerendering of your app. And this has strong implications on performance.
+            //just simply add the event handler to the icon element.
+          }
+          <div className="relative">
+            {showInformation && (
+              <div className="absolute bottom-5 w-80 ml-5 bg-blue-300 p-6 rounded-r-full rounded-t-full ">
+                <p>
+                  booking as guest is for everyone, want to enjoy our amazing
+                  discount and offers ?
+                  <strong>
+                    please create and account to enjoy our discount
+                  </strong>{" "}
+                </p>
+              </div>
+            )}
+            <CiCircleQuestion
+              onClick={onHandleInformation}
+              size={20}
+              color="green"
+            />
           </div>
         </div>
 
