@@ -96,5 +96,5 @@ React Router
 ## color
 
 ### this is the hover color for all buttons and links backgrounds
-# BON-VOYAGE-CAR-RENTALS-PROJECT
+
 # BON-VOYAGE-CAR-RENTALS-PROJECT
