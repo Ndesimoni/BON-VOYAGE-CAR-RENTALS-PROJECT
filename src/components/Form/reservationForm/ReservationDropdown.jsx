@@ -51,6 +51,8 @@ function ReservationDropdown() {
     handleSubmit,
     formState: { errors },
   } = useForm();
+  const s = useForm();
+  console.log(s);
 
   function handleForm(data) {
     //we destructure the category from the data that we receive from our form
