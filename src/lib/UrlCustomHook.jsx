@@ -74,6 +74,8 @@ const dataValidation = {
   pickUpDate: "",
   dropOffDate: "",
   termConditions: "",
+  IdCard: null,
+  age: "",
   carName: "",
   carImage: "",
   price: "",

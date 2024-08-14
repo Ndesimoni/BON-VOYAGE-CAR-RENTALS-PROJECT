@@ -15,7 +15,7 @@ const ReservationFormStyles = styled.div({
 
 const ReservationForm = () => {
   const [showReservationForm, setShowReservationForm] = useState(false);
-  const [bookAsGuestForm, SetBookAsGuestForm] = useState(false);
+  // const [bookAsGuestForm, SetBookAsGuestForm] = useState(false);
   const [showInformation, setShowInformation] = useState(false);
   const navigate = useNavigate();
   const [searchCar, setSearchCar] = useState("");
@@ -29,7 +29,7 @@ const ReservationForm = () => {
   }
 
   function GuestReservation() {
-    SetBookAsGuestForm(!false);
+    setShowReservationForm(true);
   }
 
   useEffect(() => {
@@ -58,45 +58,26 @@ const ReservationForm = () => {
         <span className="text-red-600 italic"> * Required Field</span>
       </label>
 
-      <select
+      <input
         // name="stateOfOperation}"
         // value={stateOpp}
         id=""
         className="w-full h-10 border-gray-200 border placeholder:pl-4 px-5 appearance-none"
         type="text"
-        placeholder="Click to start a reservation"
+        placeholder="Click here to start a reservation"
         onClick={() => {
           setShowReservationForm(true);
         }}
-        name="stateOfOperation"
-        value={formData.stateOfOperation}
-        onChange={handleChange}
-      >
-        <option value="" disabled selected hidden>
-          Choose a state of operation...
-        </option>
-        <option value="marryland"> marryland</option>
-        <option value="minnesota"> minnesota</option>
-        <option value="tennessee"> tennessee</option>
-        <option value="virginia"> virginia</option>
-      </select>
+        // name="stateOfOperation"
+        // value={formData.stateOfOperation}
+        // onChange={handleChange}
+      />
 
       {/* //todo // this is for the both dropdowns   */}
-      {/* this is the dropdown */}
+      {/* this is the dropdown it will fire for booth book as guest and for nor mal booking*/}
       <div>
         {" "}
         {showReservationForm && (
-          <ReservationDropdown
-            formData={formData}
-            handleChange={handleChange}
-          />
-        )}
-      </div>
-
-      {/* this is the for book as gust dropdown */}
-      <div>
-        {" "}
-        {bookAsGuestForm && (
           <ReservationDropdown
             formData={formData}
             handleChange={handleChange}

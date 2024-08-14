@@ -7,7 +7,7 @@ const VehicleContain = ({
   filledFormBooking,
 }) => {
   // function onHandleHaveAccountBooking() {}
-  console.log(usersReservationDetails);
+  // console.log(usersReservationDetails);
 
   const matchingNavigationPath =
     usersReservationDetails === null ||
