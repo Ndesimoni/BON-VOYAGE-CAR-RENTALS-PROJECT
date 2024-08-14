@@ -19,6 +19,42 @@
       "carImage": "car-10.jpg",
       "price": 89,
       "paymentStatus": "pay later"
+    },
+    {
+      "id": "4532",
+      "stateOfOperation": "minnesota",
+      "firstName": "nde",
+      "lastName": "Simoni che",
+      "email": "ndesimoniche@gmail.com",
+      "phone": "0551906739",
+      "category": "Economy-Cars",
+      "pickUpLocation": "",
+      "dropOffLocation": "",
+      "pickUpDate": "",
+      "dropOffDate": "",
+      "termConditions": "",
+      "carName": "Dodge Grand Caravan Red",
+      "carImage": "suv-2.jpg",
+      "price": 100,
+      "paymentStatus": "pay later"
+    },
+    {
+      "id": "2d1c",
+      "stateOfOperation": "minnesota",
+      "firstName": "nde",
+      "lastName": "Simoni che",
+      "email": "ndesimoniche@gmail.com",
+      "phone": "0551906739",
+      "category": "Economy-Cars",
+      "pickUpLocation": "",
+      "dropOffLocation": "",
+      "pickUpDate": "",
+      "dropOffDate": "",
+      "termConditions": "",
+      "carName": "Toyota Camry Black",
+      "carImage": "car-10.jpg",
+      "price": 89,
+      "paymentStatus": "pay later"
     }
   ],
   "userDataVirginia": []
