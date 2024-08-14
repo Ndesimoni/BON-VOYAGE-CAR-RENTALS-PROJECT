@@ -40,8 +40,6 @@ export const Label = styled.label({
   display: "block",
 });
 
-
-
 function ReservationDropdown({ formData, handleChange }) {
   const [isChecked, setChecked] = useState(false);
   const navigate = useNavigate();
@@ -53,6 +51,7 @@ function ReservationDropdown({ formData, handleChange }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(formData);
     //changed the route path to params.
     navigate(`/All-vehicle-category/${formData.category}`, {
       state: formData,

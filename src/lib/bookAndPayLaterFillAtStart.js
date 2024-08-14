@@ -15,9 +15,11 @@ export function bookAndPayLaterFillAtStart(
       carName: carDetailsFormFilled.name,
       carImage: carDetailsFormFilled.image,
       price: carDetailsFormFilled.price,
+      paymentStatus: "pay later",
     };
+    // console.log(newValue);
 
-    //todo this holds the endPoint of the route
+    //todo this holds the endPoint of the routes matching data base
     const postToDataBase =
       (newValue.stateOfOperation === "tennessee" && "userDataTennessee") ||
       (newValue.stateOfOperation === "minnesota" && "userDataMinnesota") ||
@@ -30,6 +32,7 @@ export function bookAndPayLaterFillAtStart(
         //todo set the loading state
         setLoading(true);
 
+        //  todo post to data base
         const response = await fetch(
           `http://localhost:5000/${postToDataBase}`,
           {
@@ -41,7 +44,7 @@ export function bookAndPayLaterFillAtStart(
           }
         );
 
-        //todo set the loading state fasle
+        //todo set the loading state false
         setLoading(false);
 
         //todo set the loading state true
@@ -87,10 +90,10 @@ export function bookAndPayLaterFillAtStart(
         //todo set the loading state false
         setLoading(false);
 
-        // //todo navigate to home after time out
-        setTimeout(() => {
-          navigate("/");
-        }, 500);
+        // // //todo navigate to home after time out
+        // setTimeout(() => {
+        //   navigate("/");
+        // }, 500);
       } catch (error) {
         //   todo Error
         // todo this is the sweet alert popup success

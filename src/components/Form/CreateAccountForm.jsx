@@ -44,15 +44,23 @@ import WrongCredentials from "../WrongCredentials";
 const RegisterAccount = () => {
   const [showLogin, setShowLogin] = useState(false);
   const [wrongCredentials, setWrongCredentials] = useState("");
+  const [admin, setAdmin] = useState(false);
 
   const navigate = useNavigate();
 
   const { register, formState, handleSubmit, reset } = useForm();
   const { errors } = formState;
+
   function handleClickLogin() {
     setShowLogin(true);
     reset();
   }
+
+  function handleClickAdmin() {
+    setAdmin(true);
+    setShowLogin(true);
+  }
+
   function handleSubmitLogin(data) {
     const userData = JSON.parse(localStorage.getItem("userData"));
 
@@ -91,33 +99,6 @@ const RegisterAccount = () => {
   }
 
   return (
-    // <<<<<<< HEAD
-    //     <form>
-    //       <>
-    //         {currentLog ? (
-    //           <RegisterSectionStyles className="flex flex-col ">
-    //             <h2 className="header_2 text-red-600"> Register Account </h2>
-
-    //             <DivSection>
-    //               <p> First Name</p>
-    //               <InputStyle
-    //                 id="first-name"
-    //                 name="first-name"
-    //                 type="text"
-    //                 required
-    //               />
-    //             </DivSection>
-    //             <DivSection>
-    //               <p> Last Name:</p>
-    //               <InputStyle
-    //                 id="last-name"
-    //                 name="last-name"
-    //                 type="text"
-    //                 required
-    //               />
-    //             </DivSection>
-    // =======
-
     <>
       {!showLogin ? (
         <form
@@ -143,7 +124,6 @@ const RegisterAccount = () => {
               <FormErrors>{errors.firstName.message}</FormErrors>
             )}
           </div>
-          {/* >>>>>>> 7f0fb741b90dc0e713df819053e057ef8f778a4e */}
 
           <div className="grid grid-cols-[1fr_2fr_1fr]  items-center">
             <label htmlFor="lastName" className="capitalize ">
@@ -211,60 +191,6 @@ const RegisterAccount = () => {
             )}
           </div>
 
-          {/* <<<<<<< HEAD
-            <DivSection>
-              <input
-                id="terms-and-conditions"
-                type="checkbox"
-                required
-                name="terms-and-conditions"
-                className="inline"
-              />{" "}
-              <span> I accept the terms and conditions</span>
-            </DivSection>
-          </RegisterSectionStyles>
-        ) : (
-          //todo this is the LogIn section
-          <LogIn className="flex flex-col">
-            <h2 className="header_2  text-red-600"> Log In </h2>
-            <DivSection>
-              <p> Email:</p>{" "}
-              <InputStyle
-                type="email"
-                required
-                placeholder="email or username"
-              />
-            </DivSection>
-
-            <DivSection>
-              <p> Password:</p>{" "}
-              <InputStyle
-                type="password"
-                pattern="[a-z0-5]{8,}"
-                placeholder="password"
-              />
-            </DivSection>
-          </LogIn>
-        )}
-      </>
-
-      <div className="flex justify-center items-center flex-col">
-        <p>
-          have and Account ?
-          <span
-            onClick={showLogin}
-            className=" capitalize font-bold text-blue-600 cursor-pointer hover:text-green-400"
-          >
-            Log In
-          </span>
-        </p>
-
-        <div>
-          <Button>submit</Button>
-        </div>
-      </div>
-    </form>
-======= */}
           <div>
             <span>Already have an account? </span>
             <span
@@ -273,7 +199,16 @@ const RegisterAccount = () => {
             >
               Log in
             </span>
+            <br />
+            <span>Dashboard log in: </span>
+            <span
+              className="text-green-600 hover:underline cursor-pointer"
+              onClick={handleClickAdmin}
+            >
+              Admin only
+            </span>
           </div>
+
           <button className="text-stone-100 bg-red-500 w-1/3 rounded-md">
             sign up
           </button>
@@ -289,7 +224,7 @@ const RegisterAccount = () => {
           </h1>
           <div className="grid grid-cols-[1fr_2fr_1fr] items-center ">
             <label htmlFor="userEmail" className="capitalize font-semibold">
-              Email
+              Email:
             </label>
             <input
               type="email"
@@ -307,7 +242,7 @@ const RegisterAccount = () => {
 
           <div className="grid grid-cols-[1fr_2fr_1fr]  items-center">
             <label htmlFor="userPassword" className="capitalize font-semibold">
-              password
+              password :
             </label>
             <input
               type="password"
@@ -322,6 +257,32 @@ const RegisterAccount = () => {
               <FormErrors>{errors.password.message}</FormErrors>
             )}
           </div>
+
+          {/* //todo i have added this one field for admin, which is the state operation */}
+
+          {admin && (
+            <div className="grid grid-cols-[1fr_2fr_1fr]  items-center">
+              <label
+                htmlFor="userPassword"
+                className="capitalize font-semibold"
+              >
+                State:
+              </label>
+              <input
+                type="password"
+                id="userPassword"
+                name="password"
+                {...register("password", {
+                  required: "Required field",
+                })}
+                className="ml-auto focus:outline-none border-2 border-stone-200 rounded-md px-2 py-1  focus:border-red-200 w-full"
+              />
+              {errors?.password && (
+                <FormErrors>{errors.password.message}</FormErrors>
+              )}
+            </div>
+          )}
+
           {wrongCredentials && (
             <WrongCredentials>{wrongCredentials}</WrongCredentials>
           )}

@@ -77,6 +77,7 @@ const dataValidation = {
   carName: "",
   carImage: "",
   price: "",
+  paymentStatus: "",
 };
 
 //todo this is the form input data

@@ -5,7 +5,6 @@ import ReservationDropdown from "./ReservationDropdown";
 import { useNavigate } from "react-router-dom";
 import { useFormData } from "../../../lib/UrlCustomHook";
 
-
 const ReservationFormStyles = styled.div({
   backgroundColor: "white",
   width: "1000px",
@@ -19,9 +18,9 @@ const ReservationForm = () => {
   const [bookAsGuestForm, SetBookAsGuestForm] = useState(false);
   const [showInformation, setShowInformation] = useState(false);
   const navigate = useNavigate();
-  const [searchCar, setSearchCar] = useState('');
-  // coming from custom hook 
-  const { formData, handleChange } = useFormData()
+  const [searchCar, setSearchCar] = useState("");
+  // coming from custom hook
+  const { formData, handleChange } = useFormData();
 
   function handleClick(e) {
     const closestParent = e.target.closest("form");
@@ -43,9 +42,9 @@ const ReservationForm = () => {
   }
 
   function handleSearch() {
-    if (searchCar === "") return
+    if (searchCar === "") return;
     navigate(
-      `${searchCar === "all-cars" && "all-available-cars" || searchCar === "all-vehicle-category" && "all-vehicle-category"} `,
+      `${(searchCar === "all-cars" && "all-available-cars") || (searchCar === "all-vehicle-category" && "all-vehicle-category")} `
     );
   }
 
@@ -69,7 +68,6 @@ const ReservationForm = () => {
         onClick={() => {
           setShowReservationForm(true);
         }}
-
         name="stateOfOperation"
         value={formData.stateOfOperation}
         onChange={handleChange}
@@ -85,15 +83,29 @@ const ReservationForm = () => {
 
       {/* //todo // this is for the both dropdowns   */}
       {/* this is the dropdown */}
-      <div> {showReservationForm && <ReservationDropdown formData={formData} handleChange={handleChange} />}</div>
+      <div>
+        {" "}
+        {showReservationForm && (
+          <ReservationDropdown
+            formData={formData}
+            handleChange={handleChange}
+          />
+        )}
+      </div>
 
       {/* this is the for book as gust dropdown */}
-      <div> {bookAsGuestForm && <ReservationDropdown formData={formData} handleChange={handleChange} />}</div>
+      <div>
+        {" "}
+        {bookAsGuestForm && (
+          <ReservationDropdown
+            formData={formData}
+            handleChange={handleChange}
+          />
+        )}
+      </div>
 
       <div className="flex justify-between items-center">
         <div className="flex items-center gap-1 text-sm mt-5 mb-5 ">
-
-
           <div className="flex gap-2" onClick={GuestReservation}>
             <button className="booking_btn p-[5px]">book as guest</button>
           </div>

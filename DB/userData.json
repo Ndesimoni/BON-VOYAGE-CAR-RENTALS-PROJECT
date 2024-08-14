@@ -1,6 +1,25 @@
 {
   "userDataMarryLand": [],
   "userDataTennessee": [],
-  "userDataMinnesota": [],
+  "userDataMinnesota": [
+    {
+      "id": "0d1e",
+      "stateOfOperation": "minnesota",
+      "firstName": "nde",
+      "lastName": "Simoni che",
+      "email": "ndesimoniche@gmail.com",
+      "phone": "0551906739",
+      "category": "Economy-Cars",
+      "pickUpLocation": "7900 International Drive Suit 300 Bloomington MN 55425",
+      "dropOffLocation": "1959 for Campbell Blvd, #1 Clarksville, TN 37042",
+      "pickUpDate": "2024-08-08",
+      "dropOffDate": "2024-08-31",
+      "termConditions": "",
+      "carName": "Toyota Camry Black",
+      "carImage": "car-10.jpg",
+      "price": 89,
+      "paymentStatus": "pay later"
+    }
+  ],
   "userDataVirginia": []
 }
