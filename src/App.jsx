@@ -201,6 +201,7 @@ const App = () => {
             <Route path="/dashboard" element={<UserDashboard />} />
 
             <Route path="/book-now" element={<BookNow />} />
+            <Route path="/book-now/:carDetails" element={<BookNow />} />
           </Route>
 
           <Route path="*" element={<PageNotFound />} />

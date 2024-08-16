@@ -2,7 +2,7 @@ import styled from "styled-components";
 import ReservationForm from "../Form/reservationForm/ReservationForm";
 
 const MainImageDivStyle = styled.div({
-  backgroundImage: "url(./bon-bg-main-img.jpeg)",
+  backgroundImage: "url(/bon-bg-main-img.jpeg)",
   display: "flex",
   justifyContent: "center",
   alignItems: "center",

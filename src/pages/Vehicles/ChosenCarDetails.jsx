@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { useMyContext } from "../../AppContext";
 
 export const CarDetails = styled.p({
   textTransform: "capitalize",
@@ -15,15 +14,15 @@ export const CarInfo = styled.div({
   fontFamily: "monospace",
 });
 
-const ChosenCarDetails = () => {
+const ChosenCarDetails = ({ carDetails }) => {
   //we just immediately destructure the properties that we need from our updated object
-  const {
-    reservationFormInfo: { name, price, type, image },
-  } = useMyContext();
+  const { image, name, price, type } = carDetails;
+
   return (
     //todo the corresponded will be match
     <div className="flex items-start flex-col">
-      <img src={image} alt="selected car" />
+      <img src={`/${image}`} alt={name} />
+      {/* <img src="/suv-3.jpg" alt={name} /> */}
 
       <CarInfo>
         <CarDetails>name : {name}</CarDetails>

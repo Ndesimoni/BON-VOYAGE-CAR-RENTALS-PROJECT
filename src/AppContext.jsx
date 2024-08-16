@@ -17,6 +17,7 @@ function ContextProvider({ children }) {
 }
 
 export default AppContext;
+
 function useMyContext() {
   const context = useContext(AppContext);
   if (context === undefined)

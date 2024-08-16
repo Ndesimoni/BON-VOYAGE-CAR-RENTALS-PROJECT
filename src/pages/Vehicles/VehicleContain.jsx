@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { createSearchParams, useNavigate } from "react-router-dom";
 import { useMyContext } from "../../AppContext";
 
 const VehicleContain = ({ car }) => {
@@ -6,17 +6,29 @@ const VehicleContain = ({ car }) => {
   const navigate = useNavigate();
 
   function handleBooking() {
-    navigate("/book-now");
-
     //we are updating the state of our reservationFormInfo with our selected car object.
 
     //this update is based on our current form state.
 
     // we ddo this update based on current state because we are going to need this data in the bookNow component to display our current vehicle image and the users form credentials
+
     setReservationFormInfo((curInfo) => {
-      console.log(car);
       return { ...curInfo, ...car };
     });
+    // console.log(car);
+
+    // navigate({
+    //   pathname: `/book-now/${car.description.replace(" ", "-")}`,
+    //   search: `?car-name=${car.name.replaceAll(" ", "-")}&car-price=${car.price}&car-image=${car.image}`,
+    // });
+
+    navigate({
+      pathname: `/book-now/${car.description.replace(" ", "-")}`,
+      search: `?${createSearchParams(car)}`,
+    });
+    // navigate(
+    //   `/book-now/${car.description.replaceAll(" ", "-")}/car-name=${car.name.replaceAll(" ", "-")}&&image=${car.image}`
+    // );
   }
 
   return (
