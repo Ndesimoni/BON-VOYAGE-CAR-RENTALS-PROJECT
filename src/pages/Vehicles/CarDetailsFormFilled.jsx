@@ -33,15 +33,15 @@ const CarDetailsFormFilled = () => {
   };
 
   return (
-    <div>
+    <div className="border p-3">
       <h1 className="font-extrabold text-3xl pb-5 capitalize p-2">
-        {/* make reservation for {name} */}
+        make reservation for : {reservationFormInfo.name}
       </h1>
       <h2 className="px-3 capitalize font-bold text-red-600">
         please check if your booking information is correct ?
       </h2>
 
-      <div className="py-3 mb-3 px-3">
+      <div className="py-3 mb-3 px-3 ">
         <CarInfoDetails>
           name:{" "}
           <UserDetailStyle>

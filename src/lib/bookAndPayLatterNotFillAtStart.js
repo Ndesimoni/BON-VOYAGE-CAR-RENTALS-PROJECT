@@ -47,7 +47,7 @@ const bookAndPayLatterNotFillAtStart = (
     Vehicle Category:${data.category} \n Booking ID:${data.id} \n Government Issued ID Card:${data.id}`,
         },
       };
-      setIsLoading(true);
+
       //todo  API request to email
       const res = await axios.post(
         "https://api.emailjs.com/api/v1.0/email/send",
@@ -83,10 +83,6 @@ const bookAndPayLatterNotFillAtStart = (
     }
   };
   fetchData();
-
-  //   if (reservationFormInfo.stateOfOperation) {
-
-  //   }
 };
 
 export default bookAndPayLatterNotFillAtStart;

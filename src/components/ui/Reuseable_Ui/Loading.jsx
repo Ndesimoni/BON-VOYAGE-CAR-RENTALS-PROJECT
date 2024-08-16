@@ -2,8 +2,9 @@ import ReactLoading from "react-loading";
 
 export default function Loading() {
   return (
-    <div className="flex justify-center items-center flex-col-reverse w-full h-[100vh] -z-30">
+    <div className="flex justify-center items-center flex-col-reverse w-full h-[100vh]">
       <h2 className="text-red-500 capitalize">Bon voyage to success</h2>
+
       <ReactLoading
         type="spinningBubbles"
         color="#0000FF"

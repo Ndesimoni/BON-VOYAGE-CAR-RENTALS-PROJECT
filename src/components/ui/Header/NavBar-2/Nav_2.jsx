@@ -68,7 +68,7 @@ function Nav_2() {
           </div>
 
           <img
-            src={data?.[activeLink].img}
+            src={`/${data?.[activeLink].img}`}
             alt="drop down images"
             className="object-fill h-[30vh] w-full"
           />

@@ -22,7 +22,7 @@ const CarDetailsFormNotFilled = ({ carDetails }) => {
   }
 
   return (
-    <form onSubmit={handleSubmit(handleFormSubmit)}>
+    <form onSubmit={handleSubmit(handleFormSubmit)} className="border p-6">
       <h1 className="font-extrabold text-3xl pb-5 capitalize p-2">
         Reserve a Vehicle
       </h1>
