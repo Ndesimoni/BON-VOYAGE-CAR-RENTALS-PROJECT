@@ -5,22 +5,28 @@ import { useMyContext } from "../../AppContext";
 import CarDetailsFormFilled from "./CarDetailsFormFilled";
 import CarDetailsFormNotFilled from "./CarDetailsFormNotFilled";
 import ChosenCarDetails from "./ChosenCarDetails";
+import Loading from "../../components/ui/Reuseable_Ui/Loading";
 
 function BookNow() {
-  const { reservationFormInfo } = useMyContext();
-  // const { carDetails } = useParams();
+  const { isLoading, reservationFormInfo } = useMyContext();
+  // here w get the code from the url query params and turn it to and object
   const [searchParams] = useSearchParams();
   const carDetails = Object.fromEntries([...searchParams]);
-  console.log(carDetails);
 
   return (
     <div className="grid grid-cols-[0.5fr_1fr] gap-10 mb-10">
-      <ChosenCarDetails carDetails={carDetails} />
+      {isLoading && <Loading />}
 
-      {reservationFormInfo?.firstName ? (
-        <CarDetailsFormFilled />
-      ) : (
-        <CarDetailsFormNotFilled />
+      {!isLoading && (
+        <>
+          <ChosenCarDetails carDetails={carDetails} />
+
+          {reservationFormInfo?.firstName ? (
+            <CarDetailsFormFilled />
+          ) : (
+            <CarDetailsFormNotFilled carDetails={carDetails} />
+          )}
+        </>
       )}
     </div>
   );

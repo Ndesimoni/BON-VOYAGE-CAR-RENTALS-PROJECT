@@ -15,20 +15,11 @@ const VehicleContain = ({ car }) => {
     setReservationFormInfo((curInfo) => {
       return { ...curInfo, ...car };
     });
-    // console.log(car);
-
-    // navigate({
-    //   pathname: `/book-now/${car.description.replace(" ", "-")}`,
-    //   search: `?car-name=${car.name.replaceAll(" ", "-")}&car-price=${car.price}&car-image=${car.image}`,
-    // });
 
     navigate({
       pathname: `/book-now/${car.description.replace(" ", "-")}`,
       search: `?${createSearchParams(car)}`,
     });
-    // navigate(
-    //   `/book-now/${car.description.replaceAll(" ", "-")}/car-name=${car.name.replaceAll(" ", "-")}&&image=${car.image}`
-    // );
   }
 
   return (

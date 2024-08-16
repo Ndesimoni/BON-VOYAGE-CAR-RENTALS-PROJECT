@@ -9,16 +9,18 @@ import {
 } from "../../components/Form/reservationForm/ReservationDropdown";
 import { useMyContext } from "../../AppContext";
 
-const CarDetailsFormNotFilled = () => {
+const CarDetailsFormNotFilled = ({ carDetails }) => {
   const { setReservationFormInfo } = useMyContext();
+
   const { register, handleSubmit, formState } = useForm();
   const { errors } = formState;
 
   function handleFormSubmit(data) {
     setReservationFormInfo((curInfo) => {
-      return { ...curInfo, ...data };
+      return { ...curInfo, ...data, ...carDetails };
     });
   }
+
   return (
     <form onSubmit={handleSubmit(handleFormSubmit)}>
       <h1 className="font-extrabold text-3xl pb-5 capitalize p-2">
