@@ -45,13 +45,16 @@ import Contact from "./components/Contact";
 import Services from "./pages/Reservations/Services";
 import SellACar from "./pages/Business/SellACar";
 import UserDashboard from "./components/UserDashboard";
-// import Cars from "./components/ui/Header/NavBar-2/Cars";
+
 import ReserveForThirdPartyAndHolidayOffers from "./pages/Reservations/ReserveForThirdPartyAndHolidayOffers";
 import Vehicle from "./pages/Vehicles/Vehicle";
 import AllCars from "./pages/Vehicles/AllCars";
-import UsersChosenCar from "./pages/Vehicles/UsersChosenCar";
 
-// import BookingForm from "./components/Form/BookingForm";
+//When a user clicks the book now button, it takes the user to the book now page as defined in the book-now route below
+import BookNow from "./pages/Vehicles/BookNow";
+
+//providing context to our entire application
+import { ContextProvider } from "./AppContext";
 
 const App = () => {
   // const state = useLocation();
@@ -60,7 +63,13 @@ const App = () => {
     <div>
       <BrowserRouter>
         <Routes>
-          <Route element={<AppLayOut />}>
+          <Route
+            element={
+              <ContextProvider>
+                <AppLayOut />
+              </ContextProvider>
+            }
+          >
             {/* <Route index element={<Navigate replace to="home" />} /> */}
             {/* this are children nested routes */}
             <Route path="/" element={<HomePage />} />
@@ -112,7 +121,6 @@ const App = () => {
 
             {/* this is all-available-cars routes */}
             <Route path="all-available-cars" element={<AllCars />} />
-            <Route path="all-available-cars/:id" element={<UsersChosenCar />} />
 
             {/* //todo  forms */}
             <Route path="view-car-fleet" element={<CarFleet />} />
@@ -177,9 +185,7 @@ const App = () => {
               path="Time-to-report-stolen"
               element={<TimeToReportStolen />}
             />
-            {
-              //added short best short term car rental blog and car crash knowledge blog and linked the route
-            }
+
             <Route
               path="/best-short-term-car-rental-in-lanham"
               element={<BestShortTerm />}
@@ -193,6 +199,8 @@ const App = () => {
             }
             <Route path="/Contact-us" element={<Contact />} />
             <Route path="/dashboard" element={<UserDashboard />} />
+
+            <Route path="/book-now" element={<BookNow />} />
           </Route>
 
           <Route path="*" element={<PageNotFound />} />

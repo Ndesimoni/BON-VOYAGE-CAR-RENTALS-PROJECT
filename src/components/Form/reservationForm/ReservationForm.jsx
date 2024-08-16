@@ -15,7 +15,7 @@ const ReservationFormStyles = styled.div({
 
 const ReservationForm = () => {
   const [showReservationForm, setShowReservationForm] = useState(false);
-  // const [bookAsGuestForm, SetBookAsGuestForm] = useState(false);
+
   const [showInformation, setShowInformation] = useState(false);
   const navigate = useNavigate();
   const [searchCar, setSearchCar] = useState("");
@@ -68,9 +68,6 @@ const ReservationForm = () => {
         onClick={() => {
           setShowReservationForm(true);
         }}
-        // name="stateOfOperation"
-        // value={formData.stateOfOperation}
-        // onChange={handleChange}
       />
 
       {/* //todo // this is for the both dropdowns   */}
@@ -108,7 +105,7 @@ const ReservationForm = () => {
         </div>
 
         {/* //todo this is the search car section */}
-        <div className="text-xs text-white p-1">
+        <div className="text-xs text-white p-1 flex items-end">
           <button
             onClick={handleSearch}
             className="border border-r-none px-2 py-1 bg-red-500 font-semibold ring-offset ring-1 "
@@ -116,19 +113,21 @@ const ReservationForm = () => {
             Search
           </button>
 
-          <select
-            name=""
-            value={searchCar}
-            onChange={(e) => setSearchCar(e.target.value)}
-            id=""
-            className="appearance-none border p-1  bg-green-600 text-xs "
-          >
-            <option value="" disabled selected hidden>
-              Choose Categories
-            </option>
-            <option value="all-cars">all cars</option>
-            <option value="all-vehicle-category">all vehicle categories</option>
-          </select>
+          <div>
+            <p className="text-stone-900">Choose Categories</p>
+            <select
+              name=""
+              value={searchCar}
+              onChange={(e) => setSearchCar(e.target.value)}
+              id=""
+              className="appearance-none border p-1  bg-green-600 text-xs "
+            >
+              <option value="all-cars">all cars</option>
+              <option value="all-vehicle-category">
+                all vehicle categories
+              </option>
+            </select>
+          </div>
         </div>
       </div>
     </ReservationFormStyles>

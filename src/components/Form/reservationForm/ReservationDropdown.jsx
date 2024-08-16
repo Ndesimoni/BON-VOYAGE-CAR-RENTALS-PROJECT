@@ -1,8 +1,8 @@
-// import { useState } from "react";
 import { carMakeList } from "../../../../DB/Local_Data_Base";
 import styled from "styled-components";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import { useMyContext } from "../../../AppContext";
 
 // import { useNavigate } from "react-router-dom";
 
@@ -43,37 +43,24 @@ export const Label = styled.label({
   display: "block",
 });
 
-// function ReservationDropdown({ formData, handleChange }) {
-
 function ReservationDropdown() {
-  // const { register, handleSubmit, reset, getValues, formState } = useForm();
   const { register, handleSubmit, formState } = useForm();
-  // console.log(getValues);
+
+  const { setReservationFormInfo } = useMyContext();
 
   const { errors } = formState;
-  // console.log(errors);
-  // console.log(reset);
-  // const [isChecked, setChecked] = useState(false);
+
   const navigate = useNavigate();
-
-  // const handleCheckBox = (e) => {
-  //   const { name, checked } = e.target;
-  //   setChecked({ ...formData, [name]: checked });
-  // };
-
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   console.log(formData);
-  //   //changed the route path to params.
-  //   navigate(`/All-vehicle-category/${formData.category}`, {
-  //     state: formData,
-  //   });
-  // };
 
   const submitFormInputField = (data) => {
     console.log(data);
     const formData = data;
     navigate(`/All-vehicle-category/${data.category}`, { state: formData });
+
+    //When a user fills the form and submits, we setReservationFormInfo to our data coming from the form submission
+
+    //if the reservationFormInfo = {},then it means user did not fill the form, so we will now use this condition to build our BookNow page.
+    setReservationFormInfo(data);
   };
 
   const errorState = (error) => {
@@ -179,7 +166,8 @@ function ReservationDropdown() {
           {/* this is for Type of car */}
 
           <ItemStyle>
-            <Label>Vehicle Category</Label>
+            <Label>choose a vehicle category</Label>
+            {/* <Label>Vehicle Category</Label> */}
             <Select
               {...register("category", {
                 required: {
@@ -189,13 +177,7 @@ function ReservationDropdown() {
               })}
             >
               {carMakeList.map((items, index) => (
-                <>
-                  <option value="" disabled selected hidden>
-                    Choose a vehicle category ...
-                  </option>
-
-                  <option key={index}>{items.category}</option>
-                </>
+                <option key={index}>{items.category}</option>
               ))}
             </Select>
             <p className="text-red-500">
@@ -212,7 +194,7 @@ function ReservationDropdown() {
           <div>
             {/* this is for pick up location */}
             <ItemStyle>
-              <Label>Pick-up Location</Label>
+              <Label>Choose a Pick-up Location</Label>
 
               <Select
                 {...register("pickUpLocation", {
@@ -222,9 +204,9 @@ function ReservationDropdown() {
                   },
                 })}
               >
-                <option value="" disabled selected hidden>
+                {/* <option value="" disabled selected hidden>
                   Choose a pick up location...
-                </option>
+                </option> */}
                 <option>9500 Good Luck Road MD 20707</option>
                 <option>
                   7900 International Drive Suit 300 Bloomington MN 55425
@@ -261,7 +243,7 @@ function ReservationDropdown() {
 
             {/* this is for pick up location */}
             <ItemStyle>
-              <Label> Choose a State :</Label>
+              <Label> Choose a State of operation</Label>
 
               <Select
                 {...register("stateOfOperation", {
@@ -271,9 +253,9 @@ function ReservationDropdown() {
                   },
                 })}
               >
-                <option value="" disabled selected hidden>
+                {/* <option value="" disabled selected hidden>
                   Choose a state of operation...
-                </option>
+                </option> */}
                 <option value="marryland"> marryland</option>
                 <option value="minnesota"> minnesota</option>
                 <option value="tennessee"> tennessee</option>
@@ -289,7 +271,7 @@ function ReservationDropdown() {
           {/* this is for drop off */}
           <div>
             <ItemStyle>
-              <Label>Drop Off Location</Label>
+              <Label>Choose a Drop Off Location</Label>
               <Select
                 {...register("dropOffLocation", {
                   required: {
@@ -298,9 +280,9 @@ function ReservationDropdown() {
                   },
                 })}
               >
-                <option value="" disabled selected hidden>
+                {/* <option value="" disabled selected hidden>
                   Choose a drop oof location...
-                </option>
+                </option> */}
 
                 <option>9500 Good Luck Road MD 20707</option>
 
@@ -419,13 +401,3 @@ function ReservationDropdown() {
 }
 
 export default ReservationDropdown;
-
-{
-  /* <option value="" disabled selected hidden>
-          Choose a state of operation...
-        </option>
-        <option value="marryland"> marryland</option>
-        <option value="minnesota"> minnesota</option>
-        <option value="tennessee"> tennessee</option>
-        <option value="virginia"> virginia</option> */
-}

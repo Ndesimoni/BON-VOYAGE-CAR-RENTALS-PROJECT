@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import Nav_2Items from "./Nav_2Items";
 import { nav_2_data as data } from "../../../../../DB/Local_Data_Base";
@@ -19,14 +19,19 @@ function Nav_2() {
     );
   }
 
+  function handleClickHome() {
+    setActiveLink(null);
+    navigate("/");
+  }
+
   return (
     <div className="relative bg-black">
       <ul className="grid grid-cols-6 items-center gap-[1px]">
         <li
-          onClick={() => setActiveLink(null)}
+          onClick={handleClickHome}
           className="bg-[#ebebebed] text-lg text-center cursor-pointer py-5 capitalize "
         >
-          <Link to="/">Home</Link>
+          Home
         </li>
         {data.map((item, i) => (
           <Nav_2Items key={item.title} setActiveLink={setActiveLink} index={i}>

@@ -1,11 +1,17 @@
 import { CarFleetSVGs } from "../../../DB/Local_Data_Base";
 import { useNavigate } from "react-router-dom";
+import { useMyContext } from "../../AppContext";
 
 const CarFleet = () => {
+  const { setReservationFormInfo } = useMyContext();
+
   const navigate = useNavigate();
 
   function handleSubmit(activeFleet) {
     navigate(`All-vehicle-category/${activeFleet}`, { state: activeFleet });
+
+    //this resets the state of the drop-down-orm, showing that the user did not fill the dropdown form
+    setReservationFormInfo({});
   }
 
   //todo this is navigating to the all allVehicleCategory component

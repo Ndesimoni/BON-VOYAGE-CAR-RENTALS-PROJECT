@@ -1,18 +1,23 @@
-// import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useMyContext } from "../../AppContext";
 
-const VehicleContain = ({
-  car,
-  usersReservationDetails,
-  onHandleBookingAsGuest,
-  filledFormBooking,
-}) => {
-  // function onHandleHaveAccountBooking() {}
-  // console.log(usersReservationDetails);
+const VehicleContain = ({ car }) => {
+  const { setReservationFormInfo } = useMyContext();
+  const navigate = useNavigate();
 
-  const matchingNavigationPath =
-    usersReservationDetails === null ||
-    usersReservationDetails.stateOfOperation === undefined ||
-    usersReservationDetails.stateOfOperation === "";
+  function handleBooking() {
+    navigate("/book-now");
+
+    //we are updating the state of our reservationFormInfo with our selected car object.
+
+    //this update is based on our current form state.
+
+    // we ddo this update based on current state because we are going to need this data in the bookNow component to display our current vehicle image and the users form credentials
+    setReservationFormInfo((curInfo) => {
+      console.log(car);
+      return { ...curInfo, ...car };
+    });
+  }
 
   return (
     <div className="shadow-lg relative">
@@ -29,17 +34,8 @@ const VehicleContain = ({
       </p>
 
       <div className="flex justify-around items-center pb-4">
-        {/* //todo  this will check for the incoming usersReservationDetails from all directions and then render the button that matches */}
         {
-          <button
-            // onClick={onHandleHaveAccountBooking}
-
-            onClick={() => {
-              !matchingNavigationPath && filledFormBooking(car);
-              matchingNavigationPath && onHandleBookingAsGuest(car);
-            }}
-            className="booking_btn mb-5"
-          >
+          <button onClick={handleBooking} className="booking_btn mb-5">
             Book now
           </button>
         }
