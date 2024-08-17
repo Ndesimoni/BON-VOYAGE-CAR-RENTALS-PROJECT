@@ -7,8 +7,8 @@ import CarDetailsFormNotFilled from "./CarDetailsFormNotFilled";
 import ChosenCarDetails from "./ChosenCarDetails";
 import Loading from "../../components/ui/Reuseable_Ui/Loading";
 
-function BookNow() {
-  const { isLoading, reservationFormInfo } = useMyContext();
+function BookNow({ notFilled }) {
+  const { isLoading, } = useMyContext();
   // here w get the code from the url query params and turn it to and object
   const [searchParams] = useSearchParams();
   const carDetails = Object.fromEntries([...searchParams]);
@@ -24,11 +24,11 @@ function BookNow() {
           <>
             <ChosenCarDetails carDetails={carDetails} />
 
-            {reservationFormInfo?.firstName ? (
-              <CarDetailsFormFilled />
-            ) : (
-              <CarDetailsFormNotFilled carDetails={carDetails} />
-            )}
+            {carDetails.firstName && (
+              <CarDetailsFormFilled carDetails={carDetails} />
+            ) || (
+                <CarDetailsFormNotFilled carDetails={carDetails} NotFille={notFilled} />
+              )}
           </>
         )}
       </div>

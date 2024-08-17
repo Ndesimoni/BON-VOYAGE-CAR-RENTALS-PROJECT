@@ -8,8 +8,10 @@ import {
     Select,
 } from "../../components/Form/reservationForm/ReservationDropdown";
 import { useMyContext } from "../../AppContext";
+// import { useState } from "react";
 
 const CarDetailsFormNotFilled = ({ carDetails }) => {
+    // const [notFilled, setNotFilled] = useState()
     const { setReservationFormInfo } = useMyContext();
 
     const { register, handleSubmit, formState } = useForm();
@@ -20,6 +22,11 @@ const CarDetailsFormNotFilled = ({ carDetails }) => {
             return { ...curInfo, ...data, ...carDetails };
         });
     }
+
+    // const onHandleNotFilled = () => {
+    //     setNotFilled(notFilled)
+
+    // }
 
     return (
         <form onSubmit={handleSubmit(handleFormSubmit)} className="border p-6">
@@ -281,28 +288,66 @@ const CarDetailsFormNotFilled = ({ carDetails }) => {
                 </ItemStyle>
             </div>
 
-            <div className=" ml-3 flex items-center gap-2">
-                <input type="checkbox" className="h-4 w-4 hover:bg-slate-500 " />
+
+            <div className=" ml-3 flex items-center gap-2 mb-2">
+                <div>
+                    <input
+                        type="checkbox"
+                        className="h-4 w-4 hover:bg-slate-500 "
+                        {...register("termConditions", {
+                            required: {
+                                value: true,
+                                message: "agree to the terms and condition",
+                            },
+                        })}
+                    />
+                    <p className="text-red-500">
+                        {errors?.termConditions && errors?.termConditions?.message}
+                    </p>
+                </div>
 
                 <Label>
-                    By clicking this button, you confirm our privacy terms and conditions
+                    By clicking this button, you confirm our privacy terms and
+                    conditions
                 </Label>
             </div>
-            <div className="flex p-2 gap-2">
-                <ItemStyle>
-                    <button className="booking_btn bg-green-600" type="button">
-                        book & pay now
-                    </button>
-                </ItemStyle>
 
-                <ItemStyle>
-                    <button className="booking_btn" type="submit">
-                        book & pay later
-                    </button>
-                </ItemStyle>
-            </div>
+
+            <button
+                className="ml-3 border border-red-500 px-4 py-2 uppercase bg-red-500 text-red-50 rounded-md"
+            // onClick={onHandleNotFilled}
+
+            >
+                Reserve now
+            </button>
+
+
         </form>
     );
 };
 
 export default CarDetailsFormNotFilled;
+
+
+
+
+// <div className=" ml-3 flex items-center gap-2">
+// <input type="checkbox" className="h-4 w-4 hover:bg-slate-500 " />
+
+// <Label>
+//     By clicking this button, you confirm our privacy terms and conditions
+// </Label>
+// </div>
+// <div className="flex p-2 gap-2">
+// <ItemStyle>
+//     <button className="booking_btn bg-green-600" type="button">
+//         book & pay now
+//     </button>
+// </ItemStyle>
+
+// <ItemStyle>
+//     <button className="booking_btn" type="submit">
+//         book & pay later
+//     </button>
+// </ItemStyle>
+// </div>
