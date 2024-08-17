@@ -2,7 +2,7 @@ import { createSearchParams, useNavigate } from "react-router-dom";
 import { useMyContext } from "../../AppContext";
 
 const VehicleContain = ({ car }) => {
-  const { setReservationFormInfo } = useMyContext();
+  const { reservationFormInfo, setReservationFormInfo } = useMyContext();
   const navigate = useNavigate();
 
   function handleBooking() {
@@ -12,14 +12,18 @@ const VehicleContain = ({ car }) => {
 
     // we ddo this update based on current state because we are going to need this data in the bookNow component to display our current vehicle image and the users form credentials
 
+
+    const confirmReservationDetails = { ...reservationFormInfo, ...car }
+
     setReservationFormInfo((curInfo) => {
-      return { ...curInfo, ...car };
+      return { ...curInfo, ...car, };
     });
 
     navigate({
       pathname: `/book-now/${car.description.replace(" ", "-")}`,
-      search: `?${createSearchParams(car)}`,
+      search: `?${createSearchParams(confirmReservationDetails)}`,
     });
+
   }
 
   return (

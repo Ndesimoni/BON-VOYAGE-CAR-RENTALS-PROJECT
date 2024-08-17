@@ -7,18 +7,25 @@ import {
   Label,
   Select,
 } from "../../components/Form/reservationForm/ReservationDropdown";
-import { useMyContext } from "../../AppContext";
+import { useSearchParams } from "react-router-dom";
 
 const CarDetailsFormNotFilled = ({ carDetails }) => {
-  const { setReservationFormInfo } = useMyContext();
+  //use the useSearchParams() hook provided by react-router-dom  to update our url
+
+  //This method takes in an object with key value pairs of the search params that we want to set in the url.
+  const [searchParams, setSearchParams] = useSearchParams();
 
   const { register, handleSubmit, formState } = useForm();
   const { errors } = formState;
 
   function handleFormSubmit(data) {
-    setReservationFormInfo((curInfo) => {
-      return { ...curInfo, ...data, ...carDetails };
-    });
+    console.log(searchParams);
+
+    //we get the data from the form, and the carDetails, the we reconstruct this into a single object.
+    const newUrl = { ...data, ...carDetails };
+
+    // we then pass this object as an argument into the setSearchParams function
+    setSearchParams(newUrl);
   }
 
   return (
@@ -109,7 +116,7 @@ const CarDetailsFormNotFilled = ({ carDetails }) => {
             placeholder="boyz@email.com"
             className="w-full"
             {...register("email", {
-              required: "this field is required",
+              require: "this field is required",
               pattern: {
                 value:
                   /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
@@ -281,19 +288,31 @@ const CarDetailsFormNotFilled = ({ carDetails }) => {
         </ItemStyle>
       </div>
 
-      <div className=" ml-3 flex items-center gap-2 mb-6">
-        <input type="checkbox" className="h-4 w-4 hover:bg-slate-500 " />
+      <div className=" ml-3 flex items-center gap-2 mb-2">
+        <div>
+          <input
+            type="checkbox"
+            className="h-4 w-4 hover:bg-slate-500 "
+            {...register("termConditions", {
+              required: {
+                value: true,
+                message: "agree to the terms and condition",
+              },
+            })}
+          />
+          <p className="text-red-500">
+            {errors?.termConditions && errors?.termConditions?.message}
+          </p>
+        </div>
 
         <Label>
           By clicking this button, you confirm our privacy terms and conditions
         </Label>
       </div>
 
-      <ItemStyle>
-        <button className="booking_btn" type="submit">
-          Reserve Now
-        </button>
-      </ItemStyle>
+      <button className="ml-3 border border-red-500 px-4 py-2 uppercase bg-red-500 text-red-50 rounded-md">
+        Reserve now
+      </button>
     </form>
   );
 };
