@@ -15,7 +15,9 @@ function BookNow() {
 
   return (
     <div className="flex justify-center items-center">
+
       {isLoading && <Loading />}
+
       <div className="grid grid-cols-[0.5fr_1fr] gap-10 mb-10">
         {!isLoading && (
           <>
