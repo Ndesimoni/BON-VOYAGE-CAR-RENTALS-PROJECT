@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { useMyContext } from "../../AppContext";
 import bookAndPayLatterNotFillAtStart from "../../lib/bookAndPayLatterNotFillAtStart";
 import { useNavigate } from "react-router-dom";
+import { ItemStyle } from "../../components/Form/reservationForm/ReservationDropdown";
 
 export const UserDetailStyle = styled.span({
   textTransform: "capitalize",
@@ -31,7 +32,7 @@ const CarDetailsFormFilled = () => {
     bookAndPayLatterNotFillAtStart(reservationFormInfo, setIsLoading, navigate);
     console.log("yooooo man ");
   };
-
+  console.log(submitForm);
   return (
     <div className="border p-3">
       <h1 className="font-extrabold text-3xl pb-5 capitalize p-2">
@@ -83,12 +84,19 @@ const CarDetailsFormFilled = () => {
         </CarInfoDetails>
       </div>
 
-      <button
-        className="ml-4 border border-red-500 px-4 py-2 uppercase bg-red-500 text-red-50 rounded-md"
-        onClick={submitForm}
-      >
-        Reserve now
-      </button>
+      <div className="flex p-2 gap-2">
+        <ItemStyle>
+          <button className="booking_btn bg-green-600" type="button">
+            book & pay now
+          </button>
+        </ItemStyle>
+
+        <ItemStyle>
+          <button className="booking_btn" type="submit">
+            book & pay later
+          </button>
+        </ItemStyle>
+      </div>
     </div>
   );
 };

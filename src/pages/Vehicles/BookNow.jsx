@@ -15,17 +15,7 @@ function BookNow() {
 
   return (
     <div className="flex justify-center items-center">
-      {isLoading && (
-        <Loading />
-
-        // <di className="w-full h-[100vh]">
-        //   {" "}
-        //   Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam vel
-        //   accusamus nulla, vitae ea perspiciatis earum et quisquam porro
-        //   inventore mollitia atque sit id corrupti. Voluptatem laudantium eos
-        //   cupiditate nobis.
-        // </di>
-      )}
+      {isLoading && <Loading />}
 
       <div className="grid grid-cols-[0.5fr_1fr] gap-10 mb-10">
         {!isLoading && (

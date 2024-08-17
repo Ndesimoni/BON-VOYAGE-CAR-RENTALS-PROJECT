@@ -68,7 +68,7 @@ function ReservationDropdown() {
   };
 
   return (
-    <div className="flex text-lg mx-1 absolute justify-center ">
+    <div className="flex text-lg mx-1 absolute justify-center z-10">
       {/* //todo this is the form starting */}
       <form
         onSubmit={handleSubmit(submitFormInputField, errorState)}

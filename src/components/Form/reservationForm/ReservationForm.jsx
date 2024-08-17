@@ -3,7 +3,6 @@ import { CiCircleQuestion } from "react-icons/ci";
 import { useEffect, useState } from "react";
 import ReservationDropdown from "./ReservationDropdown";
 import { useNavigate } from "react-router-dom";
-import { useFormData } from "../../../lib/UrlCustomHook";
 
 const ReservationFormStyles = styled.div({
   backgroundColor: "white",
@@ -20,7 +19,6 @@ const ReservationForm = () => {
   const navigate = useNavigate();
   const [searchCar, setSearchCar] = useState("");
   // coming from custom hook
-  const { formData, handleChange } = useFormData();
 
   function handleClick(e) {
     const closestParent = e.target.closest("form");
@@ -43,9 +41,8 @@ const ReservationForm = () => {
 
   function handleSearch() {
     if (searchCar === "") return;
-    navigate(
-      `${(searchCar === "all-cars" && "all-available-cars") || (searchCar === "all-vehicle-category" && "all-vehicle-category")} `
-    );
+
+    navigate(`/${searchCar}`);
   }
 
   return (
@@ -72,15 +69,7 @@ const ReservationForm = () => {
 
       {/* //todo // this is for the both dropdowns   */}
       {/* this is the dropdown it will fire for booth book as guest and for nor mal booking*/}
-      <div>
-        {" "}
-        {showReservationForm && (
-          <ReservationDropdown
-            formData={formData}
-            handleChange={handleChange}
-          />
-        )}
-      </div>
+      <div> {showReservationForm && <ReservationDropdown />}</div>
 
       <div className="flex justify-between items-center">
         <div className="flex items-center gap-1 text-sm mt-5 mb-5 ">
@@ -88,9 +77,9 @@ const ReservationForm = () => {
             <button className="booking_btn p-[5px]">book as guest</button>
           </div>
 
-          <div onClick={onHandleInformation} className="relative">
+          <div className="relative">
             {showInformation && (
-              <div className="absolute bottom-5 w-80 ml-5 bg-blue-300 p-6 rounded-r-full rounded-t-full ">
+              <div className="absolute bottom-5 w-80 ml-5 bg-blue-300 p-6 rounded-r-full rounded-t-full  ">
                 <p>
                   booking as guest is for everyone, want to enjoy our amazing
                   discount and offers ?
@@ -100,7 +89,11 @@ const ReservationForm = () => {
                 </p>
               </div>
             )}
-            <CiCircleQuestion size={20} color="green" />
+            <CiCircleQuestion
+              size={20}
+              color="green"
+              onClick={onHandleInformation}
+            />
           </div>
         </div>
 
@@ -114,15 +107,14 @@ const ReservationForm = () => {
           </button>
 
           <div>
-            <p className="text-stone-900">Choose Categories</p>
             <select
-              name=""
               value={searchCar}
               onChange={(e) => setSearchCar(e.target.value)}
               id=""
               className="appearance-none border p-1  bg-green-600 text-xs "
             >
-              <option value="all-cars">all cars</option>
+              <option value="">Choose category</option>
+              <option value="all-available-cars">all available cars</option>
               <option value="all-vehicle-category">
                 all vehicle categories
               </option>
