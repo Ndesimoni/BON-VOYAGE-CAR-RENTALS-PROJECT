@@ -105,6 +105,9 @@ const HomePage = () => {
       >
         {/* this is the offering section which hold the image, description and button */}
 
+
+
+
         <OfferingContains
           image="https://www.enterprisetrucks.com/content/dam/truckrental/en_us/homepage/Truck_T16_Eng_Branch-Lineup-375x210-new.jpeg"
           h3="Dependable vehicles, great service"
@@ -118,7 +121,7 @@ const HomePage = () => {
           h3="Dependable vehicles, great service"
           description="Enterprise specializes in commercial grade cargo vans and trucks to deliver the dependability, flexibility and service you need to keep moving."
           button="View Truck Rental Vehicles"
-          roteLinks="Standard-Cars"
+          routeLinks="Standard-Cars"
         />
 
         <OfferingContains
@@ -194,21 +197,20 @@ const HomePage = () => {
         />
       </TypesOfDealsOffered>
 
+
+
       {/* //todo this is the  first Offering section in home page */}
       <Offerings
         heading="Latest Offerings"
         description="Trust your local Enterprise experts to help you find the light and medium-duty vehicles you need, including pickup trucks, box trucks, moving trucks and cargo vans."
       >
         {/* this is the offering section which hold the image, description and button */}
-
-
         <OfferingContains
           image="https://www.enterprisetrucks.com/content/dam/truckrental/en_us/homepage/Truck_T16_Eng_Branch-Lineup-375x210-new.jpeg"
           h3="Dependable vehicles, great service"
           description="Enterprise specializes in commercial grade cargo vans and trucks to deliver the dependability, flexibility and service you need to keep moving."
           button="View Truck Rental Vehicles"
           routeLinks="Economy-Cars"
-
         />
 
         <OfferingContains
@@ -216,7 +218,7 @@ const HomePage = () => {
           h3="Dependable vehicles, great service"
           description="Enterprise specializes in commercial grade cargo vans and trucks to deliver the dependability, flexibility and service you need to keep moving."
           button="View Truck Rental Vehicles"
-          roteLinks="Standard-Cars"
+          routeLinks="Standard-Cars"
         />
 
         <OfferingContains

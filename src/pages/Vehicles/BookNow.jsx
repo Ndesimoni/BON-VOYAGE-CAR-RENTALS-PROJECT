@@ -7,28 +7,32 @@ import CarDetailsFormNotFilled from "./CarDetailsFormNotFilled";
 import ChosenCarDetails from "./ChosenCarDetails";
 import Loading from "../../components/ui/Reuseable_Ui/Loading";
 
-function BookNow({ notFilled }) {
-  const { isLoading, } = useMyContext();
+
+
+function BookNow() {
+  const { isLoading } = useMyContext();
+
   // here w get the code from the url query params and turn it to and object
   const [searchParams] = useSearchParams();
   const carDetails = Object.fromEntries([...searchParams]);
 
   return (
     <div className="flex justify-center items-center">
-      {isLoading && (
-        <Loading />
-      )}
+
+
+      {isLoading && <Loading />}
+
 
       <div className="grid grid-cols-[0.5fr_1fr] gap-10 mb-10">
         {!isLoading && (
           <>
             <ChosenCarDetails carDetails={carDetails} />
 
-            {carDetails.firstName && (
+
+            {(carDetails.firstName && (
               <CarDetailsFormFilled carDetails={carDetails} />
-            ) || (
-                <CarDetailsFormNotFilled carDetails={carDetails} NotFille={notFilled} />
-              )}
+            )) || <CarDetailsFormNotFilled carDetails={carDetails} />}
+
           </>
         )}
       </div>

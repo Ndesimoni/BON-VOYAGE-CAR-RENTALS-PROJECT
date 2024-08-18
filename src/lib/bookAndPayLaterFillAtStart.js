@@ -44,12 +44,6 @@ export function bookAndPayLaterFillAtStart(
           }
         );
 
-        //todo set the loading state false
-        setLoading(false);
-
-        //todo set the loading state true
-        setLoading(true);
-
         const data = await response.json();
         //todo  data to sent to email
         const sendDataToEmail = {
@@ -67,11 +61,6 @@ export function bookAndPayLaterFillAtStart(
           Vehicle Category:${data.category} \n Booking ID:${data.id} \n Government Issued ID Card:${data.id}`,
           },
         };
-        //todo set the loading state false
-        setLoading(false);
-
-        //todo set the loading state true
-        setLoading(true);
 
         //todo  API request to email
         const res = await axios.post(
