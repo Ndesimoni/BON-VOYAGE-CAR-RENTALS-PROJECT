@@ -20,3 +20,9 @@ const Offerings = ({ children, heading, description }) => {
 };
 
 export default Offerings;
+
+
+
+
+
+

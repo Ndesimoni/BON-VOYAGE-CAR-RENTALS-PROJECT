@@ -33,7 +33,6 @@ const CarDetailsFormFilled = ({ carDetails }) => {
     const submitForm = (e) => {
         e.preventDefault();
         bookAndPayLatterNotFillAtStart(carDetails, setIsLoading, navigate);
-        console.log("yooooo man ");
     };
 
     return (

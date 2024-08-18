@@ -18,10 +18,7 @@ const CarDetailsFormNotFilled = ({ carDetails }) => {
     const { register, handleSubmit, formState } = useForm();
     const { errors } = formState;
 
-
     function handleFormSubmit(data) {
-
-
         //we get the data from the form, and the carDetails, the we reconstruct this into a single object.
         const newUrl = { ...data, ...carDetails };
 
