@@ -67,7 +67,8 @@ const HomePage = () => {
       {/* //todo this is the  first image view in home page */}
       <ImageTextView
         backgroundImage1="url(/about-1.jpg)"
-        backgroundImage2="url(/home.jpg)"
+        backgroundImage2="url(/exthree-1.jpg)"
+
         h3=" Drive your way to success"
         heading="Trust Bon Voyage to give you the best traveling experience"
         description="Travel is a new way of perceiving your life. It's a good passion to build it. It's a good passion to build it. Unsafe travel is a lesson for life, while safe travel is a lifetime memory. Rent a BonVoyage Car Rental."
@@ -107,9 +108,9 @@ const HomePage = () => {
 
 
 
-
+        {/* https://www.enterprisetrucks.com/content/dam/truckrental/en_us/homepage/Truck_T16_Eng_Branch-Lineup-375x210-new.jpeg */}
         <OfferingContains
-          image="https://www.enterprisetrucks.com/content/dam/truckrental/en_us/homepage/Truck_T16_Eng_Branch-Lineup-375x210-new.jpeg"
+          image="https://www.enterprisetrucks.com/content/dam/truckrental/en_us/homepage/Truck_T16_Eng_Branch-Lineup-375x210-new.jpeg "
           h3="Dependable vehicles, great service"
           description="Enterprise specializes in commercial grade cargo vans and trucks to deliver the dependability, flexibility and service you need to keep moving."
           button="View Truck Rental Vehicles"
@@ -144,8 +145,8 @@ const HomePage = () => {
       {/* //todo this is the  second Image Text View section in home page */}
       <ImageTextView
         backgroundImage1="url(/help.jpg)"
-        backgroundImage2="url(/cars-1.jpg)"
-        h3=" drive your way to success"
+        backgroundImage2="url(/home.jpg)"
+        h3="We're here for you because we care "
         heading="Trust Bon Voyage to give you the best traveling experience"
         description="Travel is a new way of perceiving your life. It's a good passion to build it. It's a good passion to build it. Unsafe travel is a lesson for life, while safe travel is a lifetime memory. Rent a BonVoyage Car Rental."
       >
@@ -156,7 +157,7 @@ const HomePage = () => {
         <p className="text-white text-xl mb-8">
           When renting a car with BonVoyage,
           <br />
-          you get free access to 24/7 customer support for every iss
+          you get free access to 24/7 customer support for every issues
         </p>
         <Link to="Contact-Us" className="text-white bg-stone-900 uppercase py-2 px-4 border border-white hover:opacity-50 transition-all">
           Contact Us

@@ -6,12 +6,18 @@ const ImageTextView = ({
   description,
   children,
 }) => {
+
+  const bgImage1 = `linear-gradient(rgba(0, 0, 0, 0.527), rgba(0, 0, 0, 0.3)), ${backgroundImage1}`
+  const bgImage2 = `linear-gradient(rgba(0, 0, 0, 0.527), rgba(0, 0, 0, 0.3)), ${backgroundImage2}`
+
+
+
   return (
     <div>
       <div
         className="bg-cover bg-center h-[300px] relative mb-10 z-0"
         style={{
-          backgroundImage: backgroundImage1,
+          backgroundImage: bgImage1,
         }}
       >
         <h3 className="top-1/2 absolute text-white text-3xl font-bold left-20">
@@ -26,15 +32,16 @@ const ImageTextView = ({
 
       <div className="mb-20">
         <div
-          className="h-[280px] relative bg-cover bg-center "
+          className="h-[280px] relative bg-cover bg-center  "
           style={{
-            backgroundImage: backgroundImage2,
+            backgroundImage: bgImage2,
+
           }}
         >
           <div className="absolute top-6 left-20">{children}</div>
         </div>
       </div>
-    </div>
+    </div >
   );
 };
 

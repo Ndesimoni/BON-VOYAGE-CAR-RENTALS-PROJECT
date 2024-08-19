@@ -23,8 +23,6 @@
       "description": "SUVs",
       "name": "Chevrolet Sonic Ltz",
       "price": 70
-<<<<<<< HEAD
-=======
     },
     {
       "id": "fcf0",
@@ -67,7 +65,27 @@
       "description": "SUVs",
       "name": "Chevrolet Sonic Ltz",
       "price": "70"
->>>>>>> uptodate
+    },
+    {
+      "id": "e86e",
+      "firstName": "nde",
+      "lastName": "Simoni che",
+      "email": "ndesimoniche@gmail.com",
+      "phone": "0551906739",
+      "category": "SUVs",
+      "pickUpLocation": "9500 Good Luck Road MD 20707",
+      "pickUpDate": "2024-08-23",
+      "stateOfOperation": "tennessee",
+      "dropOffLocation": "9500 Good Luck Road MD 20707",
+      "dropOffDate": "2024-08-22",
+      "IdCard": "[object FileList]",
+      "age": "23",
+      "termConditions": "true",
+      "type": "suv",
+      "image": "suv-13.jpg",
+      "name": "Nissan Rogue White",
+      "description": "SUVs",
+      "price": "80"
     }
   ],
   "userDataMinnesota": [
