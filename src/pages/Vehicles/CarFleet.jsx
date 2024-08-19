@@ -26,7 +26,7 @@ const CarFleet = () => {
   }
 
   var settings = {
-    dots: true,
+    dots: false,
     infinite: true,
     speed: 500,
     slidesToShow: 4,
@@ -62,9 +62,9 @@ const CarFleet = () => {
   };
 
   return (
-    <div className="p-2">
+    <div className="p-10">
       <div className="flex justify-center items-center">
-        <h2 className="header_2 capitalize text-2xl">Meet The Fleet</h2>
+        <h2 className="header_2 mt-3  capitalize text-2xl">Meet The Fleet</h2>
       </div>
 
       <Slider {...settings}>
@@ -89,18 +89,18 @@ const CarFleet = () => {
         ))}
       </Slider>
 
-      <div className="flex justify-center items-center py-5 gap-3">
-        <button className="header_2 capitalize text-xl text-white bg-stone-900 py-2 px-4 rounded-lg hover:opacity-80 transition-all hover:bg-red-600 hover:text-black">
+      <div className="flex justify-center items-center py-5 gap-3  my-5">
+        <button className="header_2 capitalize text-sm text-white bg-stone-900 py-1 px-4 rounded-lg hover:opacity-80 transition-all hover:bg-red-600 hover:text-black">
           <SlArrowLeft />
         </button>
         <button
           onClick={allVehicleCategory}
-          className="header_2 capitalize text-xl text-white bg-stone-900 py-2 px-4 rounded-lg hover:opacity-80 transition-all hover:bg-red-600 hover:text-black"
+          className="header_2 capitalize  text-sm text-white bg-stone-900 py-1 px-4 rounded-lg hover:opacity-80 transition-all hover:bg-red-600 hover:text-black"
         >
           <h2> View all Vehicle</h2>
         </button>
 
-        <button className="header_2 capitalize text-xl text-white bg-stone-900 py-2 px-4 rounded-lg hover:opacity-80 transition-all hover:bg-red-600 hover:text-black">
+        <button className="header_2 capitalize  text-sm text-white bg-stone-900 py-1 px-4 rounded-lg hover:opacity-80 transition-all hover:bg-red-600 hover:text-black">
           <SlArrowRight />
         </button>
       </div>

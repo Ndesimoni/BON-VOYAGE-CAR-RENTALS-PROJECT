@@ -16,12 +16,12 @@ export const DivStyles = styled.div({
 
 const TypesOfDealContain = ({ Icons, title, NextArrow, description, linkPath }) => {
   return (
-    <DivStyles>
-      <div className="my-5 text-red-600 hover:text-green-600 ">
+    <DivStyles className="hover:shadow-lg transition duration-300 ease-in-out">
+      <div className="my-5 text-red-600">
         <Icons size={60} />
       </div>
 
-      <Link to={linkPath} className="header_3 uppercase hover:text-green-600 ">
+      <Link to={linkPath} className="header_3 uppercase hover:text-green-600 hover:shadow-lg transition duration-300 ease-in-out ">
         <span> {title} </span>
         <NextArrow className="w-6 h-6" />
       </Link>

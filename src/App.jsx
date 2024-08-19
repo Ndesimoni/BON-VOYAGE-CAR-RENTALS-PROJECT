@@ -55,6 +55,7 @@ import BookNow from "./pages/Vehicles/BookNow";
 
 //providing context to our entire application
 import { ContextProvider } from "./AppContext";
+import ReviewsAndTouristicSitesPage from "./pages/ReviewsAndTouristicSitesPage";
 
 const App = () => {
   // const state = useLocation();
@@ -202,6 +203,10 @@ const App = () => {
 
             <Route path="/book-now" element={<BookNow />} />
             <Route path="/book-now/:carDetails" element={<BookNow />} />
+
+            {/* reviews and touristic sites */}
+            <Route path="/bon-voyage-reviews" element={<ReviewsAndTouristicSitesPage />} />
+            <Route path="/bon-voyage-touristic-site" element={<ReviewsAndTouristicSitesPage />} />
           </Route>
 
           <Route path="*" element={<PageNotFound />} />

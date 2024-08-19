@@ -101,42 +101,39 @@ const HomePage = () => {
 
       {/* //todo this is the  first Offering section in home page */}
       <Offerings
-        heading="Latest Offerings"
-        description="Trust your local Enterprise experts to help you find the light and medium-duty vehicles you need, including pickup trucks, box trucks, moving trucks and cargo vans."
+        heading="Latest  car Offering "
+        description="With our expertise knowledge, we help you find the best car that matches your need, including pickup trucks,  SUVs, and sports car ."
       >
         {/* this is the offering section which hold the image, description and button */}
 
-
-
-        {/* https://www.enterprisetrucks.com/content/dam/truckrental/en_us/homepage/Truck_T16_Eng_Branch-Lineup-375x210-new.jpeg */}
         <OfferingContains
-          image="https://www.enterprisetrucks.com/content/dam/truckrental/en_us/homepage/Truck_T16_Eng_Branch-Lineup-375x210-new.jpeg "
-          h3="Dependable vehicles, great service"
-          description="Enterprise specializes in commercial grade cargo vans and trucks to deliver the dependability, flexibility and service you need to keep moving."
+          image="economyCars.jpg"
+          h3="See Top best Economy cars with great service"
+          description="Our range of economy cars perfect for budget-conscious travelers. Our economy vehicles are designed to provide reliable movement without breaking the bank."
           button="View Truck Rental Vehicles"
           routeLinks="Economy-Cars"
         />
 
         <OfferingContains
-          image="https://www.enterprisetrucks.com/content/dam/truckrental/en_us/homepage/Truck_T16_Eng_Branch-Lineup-375x210-new.jpeg"
-          h3="Dependable vehicles, great service"
-          description="Enterprise specializes in commercial grade cargo vans and trucks to deliver the dependability, flexibility and service you need to keep moving."
+          image="standardCars Small.jpeg"
+          h3=" Standard dependable vehicles, great service"
+          description="These vehicles offer ample space for both passengers and luggage, making them ideal for business trips, family vacations, or weekend getaways.  "
           button="View Truck Rental Vehicles"
           routeLinks="Standard-Cars"
         />
 
         <OfferingContains
-          image="https://www.enterprisetrucks.com/content/dam/truckrental/en_us/homepage/Truck_T16_Eng_Branch-Lineup-375x210-new.jpeg"
-          h3="Dependable vehicles, great service"
-          description="Enterprise specializes in commercial grade cargo vans and trucks to deliver the dependability, flexibility and service you need to keep moving."
+          image="car-9.jpg"
+          h3=" experience high-end Luxury car service"
+          description="Experience the comfort and style with our premium car rentals. From sleek sedans to spacious SUVs, our fleet offers the perfect vehicle for discerning travelers."
           button="View Truck Rental Vehicles"
           routeLinks="Premium-Cars"
         />
 
         <OfferingContains
-          image="https://www.enterprisetrucks.com/content/dam/truckrental/en_us/homepage/Truck_T16_Eng_Branch-Lineup-375x210-new.jpeg"
-          h3="Dependable vehicles, great service"
-          description="Enterprise specializes in commercial grade cargo vans and trucks to deliver the dependability, flexibility and service you need to keep moving."
+          image="SuvsCar.jpg"
+          h3="rnt amazing luxury and budget friendly  SUVs, "
+          description="Our SUVs  cater to both adventure seekers and families looking to vacate or camp on holidays. with large space, comfort, and power for your on-the-go lifestyle."
           button="View Truck Rental Vehicles"
           routeLinks="SUVs"
         />
@@ -202,41 +199,45 @@ const HomePage = () => {
 
       {/* //todo this is the  first Offering section in home page */}
       <Offerings
-        heading="Latest Offerings"
-        description="Trust your local Enterprise experts to help you find the light and medium-duty vehicles you need, including pickup trucks, box trucks, moving trucks and cargo vans."
+        heading="Bon voyage make the world a better place"
+        description="With bon voyage lets come together and connect, network share ideas and build relationships that last a life time  "
       >
         {/* this is the offering section which hold the image, description and button */}
+
         <OfferingContains
-          image="https://www.enterprisetrucks.com/content/dam/truckrental/en_us/homepage/Truck_T16_Eng_Branch-Lineup-375x210-new.jpeg"
-          h3="Dependable vehicles, great service"
-          description="Enterprise specializes in commercial grade cargo vans and trucks to deliver the dependability, flexibility and service you need to keep moving."
+          image="bon-voyage-customer-satisfaction Small.jpeg"
+          h3="see our customers reviews"
+          description="enjoy the beauty travel with bon voyage "
           button="View Truck Rental Vehicles"
-          routeLinks="Economy-Cars"
+          routeLinksForBetterPlace="bon-voyage-reviews"
+        />
+
+
+        <OfferingContains
+          image="bon-voyage-contactuspage.jpg"
+          h3="have complains contact us  "
+          description="visit our contact page to leave a complain "
+          button="View Truck Rental Vehicles"
+          routeLinksForBetterPlace="Contact-us"
         />
 
         <OfferingContains
-          image="https://www.enterprisetrucks.com/content/dam/truckrental/en_us/homepage/Truck_T16_Eng_Branch-Lineup-375x210-new.jpeg"
-          h3="Dependable vehicles, great service"
-          description="Enterprise specializes in commercial grade cargo vans and trucks to deliver the dependability, flexibility and service you need to keep moving."
+          image="bon-voyage-place-to-visite-1.jpg"
+          h3="best places to visit in marry land"
+          description="enjoy the beauty travel with bon voyage"
           button="View Truck Rental Vehicles"
-          routeLinks="Standard-Cars"
+          routeLinksForBetterPlace="bon-voyage-touristic-site"
         />
 
-        <OfferingContains
-          image="https://www.enterprisetrucks.com/content/dam/truckrental/en_us/homepage/Truck_T16_Eng_Branch-Lineup-375x210-new.jpeg"
-          h3="Dependable vehicles, great service"
-          description="Enterprise specializes in commercial grade cargo vans and trucks to deliver the dependability, flexibility and service you need to keep moving."
-          button="View Truck Rental Vehicles"
-          routeLinks="Premium-Cars"
-        />
 
         <OfferingContains
-          image="https://www.enterprisetrucks.com/content/dam/truckrental/en_us/homepage/Truck_T16_Eng_Branch-Lineup-375x210-new.jpeg"
-          h3="Dependable vehicles, great service"
-          description="Enterprise specializes in commercial grade cargo vans and trucks to deliver the dependability, flexibility and service you need to keep moving."
+          image="bon-voyage-about-us.jpg"
+          h3="bon voyage make the world a better place"
+          description="see more about bon voyage car rentals"
           button="View Truck Rental Vehicles"
-          routeLinks="SUVs"
+          routeLinksForBetterPlace="How-we-operate"
         />
+
       </Offerings>
 
     </div>

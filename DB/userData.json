@@ -691,6 +691,25 @@
       "description": "luxury",
       "name": "Chevrolet Camaro Convertible Yellow",
       "price": "150"
+    },
+    {
+      "id": "3ada",
+      "stateOfOperation": "minnesota",
+      "firstName": "nde",
+      "lastName": "Simoni che",
+      "email": "ndesimoniche@gmail.com",
+      "phone": "0551906739",
+      "pickUpLocation": "9500 Good Luck Road MD 20707",
+      "pickUpDate": "2024-08-30",
+      "dropOffLocation": "9500 Good Luck Road MD 20707",
+      "dropOffDate": "2024-08-22",
+      "IdCard": "[object FileList]",
+      "age": "27",
+      "type": "car",
+      "image": "car-8.jpg",
+      "description": "Luxury-Cars",
+      "name": "SXT Dodge Charger",
+      "price": "120"
     }
   ],
   "userDataVirginia": []

@@ -101,7 +101,7 @@
   }
 
   .header_2 {
-    @apply items-center text-lg font-bold py-3  uppercase;
+    @apply items-center text-base font-semibold py-3  uppercase;
   }
 
   .header_3 {
@@ -123,6 +123,11 @@
 }
 
 .slick-arrow:before {
+  color: red;
+  font-size: 50px;
+}
+
+.slick-arrow:after {
   color: red;
   font-size: 50px;
 }
