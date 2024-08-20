@@ -10,7 +10,7 @@ const Button = ({ children, routeLinks, routeLinksForBetterPlace }) => {
   return (
     <button
       onClick={() => handleClick(routeLinks)}
-      className=" bg-red-600 text-white px-3 py-1 uppercase text-sm hover:bg-stone-900 hover:text-white transition-all mr-auto rounded-md my-3 hover:shadow-lg  duration-300 ease-in-out "
+      className=" bg-red-600 text-white px-3 py-1 uppercase text-sm hover:bg-stone-900 hover:text-white transition-all mr-auto rounded-md my-2 hover:shadow-lg duration-300 ease-in-out "
     >
       {children}
     </button>

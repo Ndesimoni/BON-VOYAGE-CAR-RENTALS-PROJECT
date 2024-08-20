@@ -11,7 +11,7 @@ const AppLayOut = () => {
   return (
     <>
       <Header />
-      <main className="mt-36 py-[2px]  bg-slate-50">
+      <main className="py-[.5px]  bg-slate-50">
         {showMessageForm ? (
           <Message
             setShowMessageForm={setShowMessageForm}

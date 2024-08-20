@@ -29,11 +29,21 @@ const CarFleet = () => {
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 4,
+    slidesToShow: 5,
     slidesToScroll: 1,
     initialSlide: 0,
 
     responsive: [
+      {
+        breakpoint: 1600,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true,
+        },
+      },
+
       {
         breakpoint: 1024,
         settings: {
@@ -43,6 +53,7 @@ const CarFleet = () => {
           dots: true,
         },
       },
+
       {
         breakpoint: 600,
         settings: {
@@ -62,16 +73,18 @@ const CarFleet = () => {
   };
 
   return (
-    <div className="p-10">
+    <div className=" mt-10 mb-20">
       <div className="flex justify-center items-center">
-        <h2 className="header_2 mt-3  capitalize text-2xl">Meet The Fleet</h2>
+        <h2 className="header_2 mt-3  text-[#279142d7] capitalize text-2xl">
+          Meet The Fleet
+        </h2>
       </div>
 
       <Slider {...settings}>
         {CarFleetSVGs.map((items, index) => (
           <div
             key={index}
-            className="flex flex-col justify-center items-center  "
+            className="flex flex-col justify-center items-center "
           >
             <div className="flex flex-row justify-center items-center ">
               <img src={items.image} alt={items.title} />
@@ -89,18 +102,18 @@ const CarFleet = () => {
         ))}
       </Slider>
 
-      <div className="flex justify-center items-center py-5 gap-3  my-5">
-        <button className="header_2 capitalize text-sm text-white bg-stone-900 py-1 px-4 rounded-lg hover:opacity-80 transition-all hover:bg-red-600 hover:text-black">
+      <div className="flex justify-center items-center py-5 gap-3  my-10">
+        <button className="header_2 capitalize text-sm text-white bg-[#279142d7] py-1 px-4 rounded-lg hover:opacity-80 transition-all hover:bg-red-600 hover:text-black">
           <SlArrowLeft />
         </button>
         <button
           onClick={allVehicleCategory}
-          className="header_2 capitalize  text-sm text-white bg-stone-900 py-1 px-4 rounded-lg hover:opacity-80 transition-all hover:bg-red-600 hover:text-black"
+          className="header_2 capitalize  text-sm text-white bg-red-500 py-1 px-4 rounded-lg hover:opacity-80 transition-all hover:bg-black hover:text-white"
         >
           <h2> View all Vehicle</h2>
         </button>
 
-        <button className="header_2 capitalize  text-sm text-white bg-stone-900 py-1 px-4 rounded-lg hover:opacity-80 transition-all hover:bg-red-600 hover:text-black">
+        <button className="header_2 capitalize  text-sm text-white bg-[#279142d7] py-1 px-4 rounded-lg hover:opacity-80 transition-all hover:bg-red-500 hover:text-black">
           <SlArrowRight />
         </button>
       </div>

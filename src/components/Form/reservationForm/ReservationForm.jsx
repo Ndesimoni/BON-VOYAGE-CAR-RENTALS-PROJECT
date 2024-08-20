@@ -47,7 +47,12 @@ const ReservationForm = () => {
 
   return (
     <ReservationFormStyles>
-      <h1 className="font-extrabold text-4xl py-5">Reserve a Vehicle</h1>
+      <h1 className="font-extrabold capitalize text-xl py-5">
+        Reserve vehicle with !{" "}
+        <span className="font-extrabold text-4xl uppercase text-green-600">
+          Bon Voyage{" "}
+        </span>
+      </h1>
       <label className="flex items-center justify-between ">
         <p className="font-semibold text-sm">
           Pic-up & Return Location ( City, State or Airport )*

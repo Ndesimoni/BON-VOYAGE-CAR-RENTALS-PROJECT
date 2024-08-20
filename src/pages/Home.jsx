@@ -1,14 +1,13 @@
-// import Header from "@/components/ui/Header/Header";
-
+// external packages
 import { IoPricetagsOutline } from "react-icons/io5";
 import { IoIosCar } from "react-icons/io";
-
 import { IoKeyOutline } from "react-icons/io5";
-
 import { IoMdBuild } from "react-icons/io";
-
 import { MdNavigateNext } from "react-icons/md";
+import { Link } from "react-router-dom";
+// import { motion } from "framer-motion"
 
+// components
 import MainImage from "@/components/ui/MainImage";
 import CarFleet from "./Vehicles/CarFleet";
 import MoreServices from "../components/Services/MoreServices";
@@ -18,7 +17,6 @@ import Offerings from "../components/Services/offering/Offerings";
 import OfferingContains from "../components/Services/offering/OfferingContains";
 import TypesOfDealsOffered from "../components/Services/DealsOffered/TypesOfDealsOffered";
 import TypesOfDealContain from "../components/Services/DealsOffered/TypesOfDealContain";
-import { Link } from "react-router-dom";
 
 const HomePage = () => {
   return (
@@ -32,7 +30,7 @@ const HomePage = () => {
           Icons={IoPricetagsOutline}
           title="deals"
           NextArrow={MdNavigateNext}
-          linkPath='best-short-term-car-rental-in-lanham'
+          linkPath="best-short-term-car-rental-in-lanham"
           description=" Rent-To-Own is the smart alternative to car financing for those with bad or less than perfect credit."
         />
 
@@ -68,7 +66,6 @@ const HomePage = () => {
       <ImageTextView
         backgroundImage1="url(/about-1.jpg)"
         backgroundImage2="url(/exthree-1.jpg)"
-
         h3=" Drive your way to success"
         heading="Trust Bon Voyage to give you the best traveling experience"
         description="Travel is a new way of perceiving your life. It's a good passion to build it. It's a good passion to build it. Unsafe travel is a lesson for life, while safe travel is a lifetime memory. Rent a BonVoyage Car Rental."
@@ -84,20 +81,17 @@ const HomePage = () => {
         </p>
         <Link
           to="all-available-cars"
-          className="text-white bg-stone-900 uppercase py-2 px-4 border border-white hover:opacity-50 transition-all"
+          className="text-white bg-red-500 uppercase py-2 px-4 border border-white hover:opacity-50 transition-all hover:bg-black  hover:text-green-400"
         >
           all available cars
         </Link>
         <Link
           to="all-vehicle-category"
-          className="ml-10 text-white bg-stone-900 uppercase py-2 px-4 border border-white hover:opacity-50 transition-all"
+          className="ml-10 text-white bg-red-500 uppercase border-white hover:opacity-50 py-2 px-4 border hover:bg-black  hover:text-green-400 transition-all"
         >
           Vehicle collection
         </Link>
       </ImageTextView>
-
-      {/* //todo this is the  first More Services section in home page */}
-      <MoreServices />
 
       {/* //todo this is the  first Offering section in home page */}
       <Offerings
@@ -108,32 +102,32 @@ const HomePage = () => {
 
         <OfferingContains
           image="economyCars.jpg"
-          h3="See Top best Economy cars with great service"
-          description="Our range of economy cars perfect for budget-conscious travelers. Our economy vehicles are designed to provide reliable movement without breaking the bank."
+          h3="best Economy cars with great service"
+          description="Our range of economy cars are perfect for budget-conscious travelers. "
           button="View Truck Rental Vehicles"
           routeLinks="Economy-Cars"
         />
 
         <OfferingContains
           image="standardCars Small.jpeg"
-          h3=" Standard dependable vehicles, great service"
-          description="These vehicles offer ample space for both passengers and luggage, making them ideal for business trips, family vacations, or weekend getaways.  "
+          h3="Our Standard vehicles, "
+          description="These vehicles offers ample space for both passengers and luggage,  "
           button="View Truck Rental Vehicles"
           routeLinks="Standard-Cars"
         />
 
         <OfferingContains
           image="car-9.jpg"
-          h3=" experience high-end Luxury car service"
-          description="Experience the comfort and style with our premium car rentals. From sleek sedans to spacious SUVs, our fleet offers the perfect vehicle for discerning travelers."
+          h3=" experience high-end Luxury "
+          description="Experience the comfort and style with our premium car rentals. ."
           button="View Truck Rental Vehicles"
           routeLinks="Premium-Cars"
         />
 
         <OfferingContains
           image="SuvsCar.jpg"
-          h3="rnt amazing luxury and budget friendly  SUVs, "
-          description="Our SUVs  cater to both adventure seekers and families looking to vacate or camp on holidays. with large space, comfort, and power for your on-the-go lifestyle."
+          h3=" luxury and budget friendly  SUVs, "
+          description="best adventure seekers and families looking to vacate or camp on holidays."
           button="View Truck Rental Vehicles"
           routeLinks="SUVs"
         />
@@ -148,7 +142,7 @@ const HomePage = () => {
         description="Travel is a new way of perceiving your life. It's a good passion to build it. It's a good passion to build it. Unsafe travel is a lesson for life, while safe travel is a lifetime memory. Rent a BonVoyage Car Rental."
       >
         <h3 className="text-red-500 text-3xl font-bold mb-4">
-          We are always available  <br />
+          We are always available <br />
           because we care, your satisfaction is our priority
         </h3>
         <p className="text-white text-xl mb-8">
@@ -156,46 +150,19 @@ const HomePage = () => {
           <br />
           you get free access to 24/7 customer support for every issues
         </p>
-        <Link to="Contact-Us" className="text-white bg-stone-900 uppercase py-2 px-4 border border-white hover:opacity-50 transition-all">
+        <Link
+          to="Contact-Us"
+          className="text-white bg-stone-900 uppercase py-2 px-4 border border-white hover:opacity-50 transition-all"
+        >
           Contact Us
         </Link>
-        <Link to="Overview" className="ml-10 text-white bg-stone-900 uppercase py-2 px-4 border border-white hover:opacity-50 transition-all">
+        <Link
+          to="Overview"
+          className="ml-10 text-white bg-stone-900 uppercase py-2 px-4 border border-white hover:opacity-50 transition-all"
+        >
           what we stand for
         </Link>
       </ImageTextView>
-
-      {/* //todo this is the type of deals offered section in home page */}
-      <TypesOfDealsOffered>
-        <TypesOfDealContain
-          Icons={IoPricetagsOutline}
-          title="deals"
-          NextArrow={MdNavigateNext}
-          description=" Rent-To-Own is the smart alternative to car financing for those with bad or less than perfect credit."
-        />
-
-        <TypesOfDealContain
-          Icons={IoMdBuild}
-          title="rent After Accident "
-          NextArrow={MdNavigateNext}
-          description="Rent-To-Own is the smart alternative to car financing for those with bad or less than perfect credit. "
-        />
-
-        <TypesOfDealContain
-          Icons={IoKeyOutline}
-          title="RENT-TO-OWN "
-          NextArrow={MdNavigateNext}
-          description=" Rent-To-Own is the smart alternative to car financing for those with bad or less than perfect credit. "
-        />
-
-        <TypesOfDealContain
-          Icons={IoIosCar}
-          title="Ride share "
-          NextArrow={MdNavigateNext}
-          description=" Rent-To-Own is the smart alternative to car financing for those with  bad or less than perfect credit. "
-        />
-      </TypesOfDealsOffered>
-
-
 
       {/* //todo this is the  first Offering section in home page */}
       <Offerings
@@ -211,7 +178,6 @@ const HomePage = () => {
           button="View Truck Rental Vehicles"
           routeLinksForBetterPlace="bon-voyage-reviews"
         />
-
 
         <OfferingContains
           image="bon-voyage-contactuspage.jpg"
@@ -229,17 +195,17 @@ const HomePage = () => {
           routeLinksForBetterPlace="bon-voyage-touristic-site"
         />
 
-
         <OfferingContains
           image="bon-voyage-about-us.jpg"
-          h3="bon voyage make the world a better place"
+          h3=" make the world a better place"
           description="see more about bon voyage car rentals"
           button="View Truck Rental Vehicles"
           routeLinksForBetterPlace="How-we-operate"
         />
-
       </Offerings>
 
+      {/* //todo this is the  first More Services section in home page */}
+      <MoreServices />
     </div>
   );
 };

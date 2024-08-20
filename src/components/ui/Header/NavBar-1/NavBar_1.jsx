@@ -23,10 +23,12 @@ const Div = styled.div({
 const NavBar_1B = () => {
   const [activeIndex, setActiveIndex] = useState(null);
 
+  // bg-[#279142d7]
+
   return (
-    <div className="flex justify-between items-center bg-[#928474] px-10 py-1.5">
+    <div className="flex justify-between items-center bg-[#279142d7] px-10 py-1.5">
       {/* //todothis is the head logo image  */}
-      <img src="/574.gif" alt="" className="w-24" />
+      <img src="/574.gif" alt="" className="w-24 rounded-sm" />
 
       <div className="flex items-center gap-3">
         <ul className="relative flex gap-8">

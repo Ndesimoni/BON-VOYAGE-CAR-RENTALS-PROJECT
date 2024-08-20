@@ -86,6 +86,25 @@
       "name": "Nissan Rogue White",
       "description": "SUVs",
       "price": "80"
+    },
+    {
+      "id": "bbdf",
+      "stateOfOperation": "tennessee",
+      "firstName": "nde",
+      "lastName": "Simoni che",
+      "email": "ndesimoniche@gmail.com",
+      "phone": "0551906739",
+      "pickUpLocation": "9500 Good Luck Road MD 20707",
+      "pickUpDate": "2024-08-23",
+      "dropOffLocation": "9500 Good Luck Road MD 20707",
+      "dropOffDate": "2024-08-24",
+      "IdCard": "[object FileList]",
+      "age": "39",
+      "type": "suv",
+      "image": "suv-3.jpg",
+      "description": "SUVs",
+      "name": "Chevrolet Captiva Sport",
+      "price": "80"
     }
   ],
   "userDataMinnesota": [
@@ -710,6 +729,25 @@
       "description": "Luxury-Cars",
       "name": "SXT Dodge Charger",
       "price": "120"
+    },
+    {
+      "id": "bb08",
+      "stateOfOperation": "minnesota",
+      "firstName": "nde",
+      "lastName": "Simoni che",
+      "email": "ndesimoniche@gmail.com",
+      "phone": "0551906739",
+      "pickUpLocation": "7900 International Drive Suit 300 Bloomington MN 55425",
+      "pickUpDate": "2024-08-30",
+      "dropOffLocation": "9500 Good Luck Road MD 20707",
+      "dropOffDate": "2024-08-29",
+      "IdCard": "[object FileList]",
+      "age": "26",
+      "type": "premium",
+      "image": "car-2.jpg",
+      "description": "luxury",
+      "name": "Chevrolet Camaro Convertible Yellow",
+      "price": "150"
     }
   ],
   "userDataVirginia": []

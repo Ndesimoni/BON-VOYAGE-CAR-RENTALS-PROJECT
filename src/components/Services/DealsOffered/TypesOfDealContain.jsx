@@ -14,20 +14,29 @@ export const DivStyles = styled.div({
   backgroundColor: "white",
 });
 
-const TypesOfDealContain = ({ Icons, title, NextArrow, description, linkPath }) => {
+const TypesOfDealContain = ({
+  Icons,
+  title,
+  NextArrow,
+  description,
+  linkPath,
+}) => {
   return (
-    <DivStyles className="hover:shadow-lg transition duration-300 ease-in-out">
-      <div className="my-5 text-red-600">
-        <Icons size={60} />
-      </div>
+    <DivStyles className="shadow-lg transition duration-300 ease-in-out">
+      <Link to={linkPath}>
+        <div className="my-5 text-green-600 ">
+          <Icons size={60} />
+        </div>
 
-      <Link to={linkPath} className="header_3 uppercase hover:text-green-600 hover:shadow-lg transition duration-300 ease-in-out ">
-        <span> {title} </span>
-        <NextArrow className="w-6 h-6" />
+        <p className="header_3 uppercase hover:text-green-600 hover:shadow-lg transition duration-300 ease-in-out ">
+          <span> {title} </span>
+          <NextArrow className="w-6 h-6" />
+        </p>
+
+        <div>
+          <p>{description}</p>
+        </div>
       </Link>
-      <div>
-        <p>{description}</p>
-      </div>
     </DivStyles>
   );
 };

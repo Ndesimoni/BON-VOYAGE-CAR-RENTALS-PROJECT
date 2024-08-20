@@ -12,7 +12,7 @@ const MoreServices = () => {
     <>
       <div className="flex justify-center flex-col items-center ">
         <div>
-          <div className="font-bold text-2xl mb-1">
+          <div className="font-bold text-2xl mb-1 text-green-600">
             <p>Latest Offerings</p>
           </div>
           <p>
