@@ -4,41 +4,6 @@ import FormErrors from "../FormErrors";
 import { useNavigate } from "react-router-dom";
 import WrongCredentials from "../WrongCredentials";
 
-// import styled from "styled-components";
-// import Button from "../ui/Reuseable_Ui/Button";
-
-// const RegisterSectionStyles = styled.fieldset({
-//   display: "flex",
-//   justifyContent: "center",
-//   alignItems: "center",
-//   padding: "15px 15px 0px 15px",
-// });
-
-// const DivSection = styled.div({
-//   margin: " 5px",
-//   lineHeight: "23px",
-// });
-
-// const InputStyle = styled.input({
-//   width: "260px",
-//   padding: "2px",
-//   border: "1px solid #d2d2d2",
-//   borderRadius: "3px",
-// });
-
-// const TextArea = styled.textarea({
-//   padding: "1px",
-//   border: "1px solid #d2d2d2",
-//   borderRadius: "3px",
-// });
-
-// const LogIn = styled.div({
-//   display: "flex",
-//   justifyContent: "center",
-//   alignItems: "center",
-//   padding: "15px",
-// });
-
 //todo this is the register component
 
 const RegisterAccount = () => {
@@ -290,7 +255,6 @@ const RegisterAccount = () => {
         </form>
       )}
     </>
-    // >>>>>>> 7f0fb741b90dc0e713df819053e057ef8f778a4e
   );
 };
 

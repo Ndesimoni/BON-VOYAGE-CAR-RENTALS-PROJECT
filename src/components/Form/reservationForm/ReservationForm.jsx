@@ -1,8 +1,10 @@
 import styled from "styled-components";
 import { CiCircleQuestion } from "react-icons/ci";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import ReservationDropdown from "./ReservationDropdown";
 import { useNavigate } from "react-router-dom";
+import { useMyContext } from "../../../AppContext";
+import { motion, useInView } from "framer-motion";
 
 const ReservationFormStyles = styled.div({
   backgroundColor: "white",
@@ -18,6 +20,7 @@ const ReservationForm = () => {
   const navigate = useNavigate();
   const [searchCar, setSearchCar] = useState("");
   // coming from custom hook
+  const { isLoading, setIsLoading } = useMyContext();
 
   function handleClick(e) {
     const closestParent = e.target.closest("form");
@@ -40,17 +43,30 @@ const ReservationForm = () => {
 
   function handleSearch() {
     if (searchCar === "") return;
-
+    setIsLoading(true);
     navigate(`/${searchCar}`);
+    setIsLoading(false);
   }
+
+  //todo motion design
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
 
   return (
     <ReservationFormStyles>
       <h1 className="font-extrabold capitalize text-xl py-5">
         Reserve vehicle with !{" "}
-        <span className="font-extrabold text-4xl uppercase text-green-600">
+        <motion.span
+          ref={ref}
+          style={{
+            transform: isInView ? "none" : "translateY(-50px)",
+            opacity: isInView ? 1 : 0,
+            transition: "all 0.9s cubic-bezier(0.017, 0.10, 0.2, 0.2) 0.2s",
+          }}
+          className="font-extrabold text-4xl uppercase text-green-600"
+        >
           Bon Voyage{" "}
-        </span>
+        </motion.span>
       </h1>
       <label className="flex items-center justify-between ">
         <p className="font-semibold text-sm">
@@ -60,8 +76,6 @@ const ReservationForm = () => {
       </label>
 
       <input
-        // name="stateOfOperation}"
-        // value={stateOpp}
         id=""
         className="w-full h-10 border-gray-200 border placeholder:pl-4 px-5 appearance-none"
         type="text"
@@ -101,10 +115,11 @@ const ReservationForm = () => {
           </div>
         </div>
 
-        {/* //todo this is the search car section */}
+        {/* //todo this is the search car on form left hand section */}
         <div className="text-xs text-white p-1 flex items-end">
           <button
             onClick={handleSearch}
+            disabled={isLoading}
             className="border border-r-none px-2 py-1 bg-red-500 font-semibold ring-offset ring-1 "
           >
             Search

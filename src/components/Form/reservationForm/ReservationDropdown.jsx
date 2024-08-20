@@ -45,22 +45,19 @@ export const Label = styled.label({
 
 function ReservationDropdown() {
   const { register, handleSubmit, formState } = useForm();
-
   const { setReservationFormInfo } = useMyContext();
-
+  const { isLoading, setIsLoading } = useMyContext();
   const { errors } = formState;
-
   const navigate = useNavigate();
 
   const submitFormInputField = (data) => {
-    console.log(data);
+    setIsLoading(true);
     const formData = data;
     navigate(`/All-vehicle-category/${data.category}`, { state: formData });
-
     //When a user fills the form and submits, we setReservationFormInfo to our data coming from the form submission
-
     //if the reservationFormInfo = {},then it means user did not fill the form, so we will now use this condition to build our BookNow page.
     setReservationFormInfo(data);
+    setIsLoading(true);
   };
 
   const errorState = (error) => {
@@ -253,9 +250,6 @@ function ReservationDropdown() {
                   },
                 })}
               >
-                {/* <option value="" disabled selected hidden>
-                  Choose a state of operation...
-                </option> */}
                 <option value="marryland"> marryland</option>
                 <option value="minnesota"> minnesota</option>
                 <option value="tennessee"> tennessee</option>
@@ -280,10 +274,6 @@ function ReservationDropdown() {
                   },
                 })}
               >
-                {/* <option value="" disabled selected hidden>
-                  Choose a drop oof location...
-                </option> */}
-
                 <option>9500 Good Luck Road MD 20707</option>
 
                 <option>
@@ -388,6 +378,7 @@ function ReservationDropdown() {
         <SectionStyle>
           <ItemStyle>
             <button
+              disabled={isLoading}
               type="submit"
               className=" bg-red-600 text-white px-3 py-[1px] uppercase hover:bg-stone-900  hover:text-white transition-all mr-auto rounded-md mt-3"
             >

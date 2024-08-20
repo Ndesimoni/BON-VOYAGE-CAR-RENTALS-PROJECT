@@ -1,4 +1,5 @@
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
@@ -38,6 +39,9 @@ const TypesOfDealContain = ({
   description,
   linkPath,
 }) => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+
   return (
     <MotionDivStyles
       variants={fadeInAnimation}
@@ -57,9 +61,16 @@ const TypesOfDealContain = ({
           <NextArrow className="w-6 h-6" />
         </p>
 
-        <div>
+        <motion.div
+          ref={ref}
+          style={{
+            transform: isInView ? "none" : "translateX(20px)",
+            opacity: isInView ? 1 : 0,
+            transition: "all 0.9s cubic-bezier(0.017, 0.10, 0.2, 0.2) 0.2s",
+          }}
+        >
           <p>{description}</p>
-        </div>
+        </motion.div>
       </Link>
     </MotionDivStyles>
   );
