@@ -44,10 +44,10 @@ function Nav_2() {
       {activeLink !== null && (
         <div className="absolute w-[100%] grid grid-cols-[70%_1fr] py-0.5">
           <div className=" bg-white h-[30vh] ">
-            <ul className="  justify-evenly  gap-4 mt-4   ml-4 flex">
+            <ul className="  justify-evenly  gap-4 mt-4 ml-4 flex">
               {data[activeLink].links.map((linkEl, index) => (
                 <div key={index}>
-                  <h1 className="text-red-500 uppercase font-semibold">
+                  <h1 className="text-green-600 uppercase font-semibold">
                     {linkEl.heading}
                   </h1>
                   <div>
@@ -55,7 +55,7 @@ function Nav_2() {
                     {linkEl.linkItems.map((linkItem, i) => {
                       return (
                         <div key={i} onClick={() => handleNavigate(linkItem)}>
-                          <li className=" px-[2px] py-[1px] line-clamp-1 hover:text-red-500  hover:underline hover:px-1 hover:text-base text-sm capitalize">
+                          <li className=" px-[2px] py-[1px] line-clamp-1 text-red-500 hover:text-black text-sm capitalize">
                             {linkItem.replaceAll("-", " ")}
                           </li>
                         </div>

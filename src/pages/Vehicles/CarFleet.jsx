@@ -93,7 +93,7 @@ const CarFleet = () => {
             <div className="flex flex-row justify-center items-center ">
               <button
                 onClick={() => handleSubmit(items.title)}
-                className="header_3 my-3 py-2 capitalize text-lg underline"
+                className="header_3 text-green-600 my-3 py-2 capitalize text-lg underline"
               >
                 {items.title}
               </button>
@@ -103,7 +103,7 @@ const CarFleet = () => {
       </Slider>
 
       <div className="flex justify-center items-center py-5 gap-3  my-10">
-        <button className="header_2 capitalize text-sm text-white bg-[#279142d7] py-1 px-4 rounded-lg hover:opacity-80 transition-all hover:bg-red-600 hover:text-black">
+        <button className="header_2 capitalize  text-sm text-white bg-red-500 py-1 px-4 rounded-lg hover:opacity-80 transition-all hover:bg-black hover:text-white">
           <SlArrowLeft />
         </button>
         <button
@@ -113,7 +113,7 @@ const CarFleet = () => {
           <h2> View all Vehicle</h2>
         </button>
 
-        <button className="header_2 capitalize  text-sm text-white bg-[#279142d7] py-1 px-4 rounded-lg hover:opacity-80 transition-all hover:bg-red-500 hover:text-black">
+        <button className="header_2 capitalize  text-sm text-white bg-red-500 py-1 px-4 rounded-lg hover:opacity-80 transition-all hover:bg-black hover:text-white">
           <SlArrowRight />
         </button>
       </div>
