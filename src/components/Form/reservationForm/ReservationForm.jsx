@@ -14,7 +14,6 @@ const ReservationFormStyles = styled.div({
 
 const ReservationForm = () => {
   const [showReservationForm, setShowReservationForm] = useState(false);
-
   const [showInformation, setShowInformation] = useState(false);
   const navigate = useNavigate();
   const [searchCar, setSearchCar] = useState("");

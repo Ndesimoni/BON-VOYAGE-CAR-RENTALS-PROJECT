@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
@@ -14,6 +15,22 @@ export const DivStyles = styled.div({
   backgroundColor: "white",
 });
 
+const MotionDivStyles = motion(DivStyles);
+
+export const fadeInAnimation = {
+  initial: {
+    opacity: 0,
+    y: 100,
+  },
+  animate: {
+    opacity: 1,
+    y: 0,
+  },
+  transition: {
+    delay: 0.07,
+  },
+};
+
 const TypesOfDealContain = ({
   Icons,
   title,
@@ -22,7 +39,14 @@ const TypesOfDealContain = ({
   linkPath,
 }) => {
   return (
-    <DivStyles className="shadow-lg transition duration-300 ease-in-out">
+    <MotionDivStyles
+      variants={fadeInAnimation}
+      initial="initial"
+      animate="animate"
+      whileInView="animate"
+      viewport={{ once: true }}
+      className="shadow-lg transition duration-300 ease-in-out"
+    >
       <Link to={linkPath}>
         <div className="my-5 text-green-600 ">
           <Icons size={60} />
@@ -37,7 +61,7 @@ const TypesOfDealContain = ({
           <p>{description}</p>
         </div>
       </Link>
-    </DivStyles>
+    </MotionDivStyles>
   );
 };
 

@@ -1,4 +1,5 @@
 import Button from "../../ui/Reuseable_Ui/Button";
+import { motion } from "framer-motion";
 
 const OfferingContains = ({
   image,
@@ -8,7 +9,7 @@ const OfferingContains = ({
   routeLinksForBetterPlace,
 }) => {
   return (
-    <div className=" flex gap-5  hover:shadow-lg transition duration-300 ease-in-out rounded-md shadow-xl ">
+    <motion.div className=" flex gap-5  hover:shadow-lg transition duration-300 ease-in-out rounded-md shadow-xl ">
       <div className="flex flex-col  justify-center items-center bg-white ">
         <img src={`${image}`} alt={h3} className="h-48 w-80  object-cover" />
 
@@ -25,7 +26,7 @@ const OfferingContains = ({
           </Button>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

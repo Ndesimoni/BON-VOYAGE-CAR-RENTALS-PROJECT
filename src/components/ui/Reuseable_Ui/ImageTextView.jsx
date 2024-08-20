@@ -22,9 +22,9 @@ const ImageTextView = ({
         </h3>
       </div>
 
-      <div className=" ml-20 mb-20">
-        {heading}
-        {description}
+      <div className=" ml-20 py-2 my-7">
+        <p> {heading}</p>
+        <p> {description}</p>
       </div>
 
       <div className="mb-20">

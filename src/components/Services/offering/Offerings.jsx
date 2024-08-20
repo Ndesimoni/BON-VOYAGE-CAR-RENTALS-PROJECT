@@ -8,7 +8,7 @@ const Offerings = ({ children, heading, description }) => {
           <h3 className="font-bold text-2xl mb-1 capitalize text-green-600 ">
             {heading}
           </h3>
-          <p className="capitalize">{description}</p>
+          <p className="capitalize mt-2 mb-5 py-2">{description}</p>
         </div>
       </div>
 
