@@ -1,11 +1,9 @@
 import { useState } from "react";
 
-// import NavBar_1_Items from "./NavBar_1_Items";
-// import { NavBar1Data } from "../../../../DB/Local_Data_Base";
-import RegisterAccount from "../../../Form/CreateAccountForm";
+// import RegisterAccount from "../../../Form/CreateAccountForm";
 import NavBar_1_Items from "./NavBar_1_Items";
 
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 const H4 = styled.h4({
@@ -32,18 +30,7 @@ const NavBar_1B = () => {
 
       <div className="flex items-center gap-3">
         <ul className="relative flex gap-8">
-          <NavBar_1_Items
-            index={5}
-            H2={
-              <p>
-                Register<span>/</span>Login
-              </p>
-            }
-            setActiveIndex={setActiveIndex}
-            activeIndex={activeIndex}
-          >
-            <RegisterAccount />
-          </NavBar_1_Items>
+          <Link to="/sign-up">Register/Login</Link>
 
           <NavBar_1_Items
             index={1}

@@ -1,5 +1,5 @@
 //todo // package import
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 // useLocation
 //todo // component imports
 import CLarksvilleTennessee from "./pages/Location/CLarksVilleTennessee";
@@ -55,7 +55,10 @@ import BookNow from "./pages/Vehicles/BookNow";
 
 //providing context to our entire application
 import { ContextProvider } from "./AppContext";
+
 import ReviewsAndTouristicSitesPage from "./pages/ReviewsAndTouristicSitesPage";
+
+import RegisterAccount from "./components/Form/CreateAccountForm";
 
 const App = () => {
   // const state = useLocation();
@@ -71,9 +74,11 @@ const App = () => {
               </ContextProvider>
             }
           >
-            {/* <Route index element={<Navigate replace to="home" />} /> */}
+            <Route index element={<Navigate replace to="/home" />} />
             {/* this are children nested routes */}
-            <Route path="/" element={<HomePage />} />
+            <Route path="/home" element={<HomePage />} />
+            <Route path="/sign-up" element={<RegisterAccount />} />
+
             {/* //todo //: route for navbar-_1 */}
             {/* routes for help */}
             <Route path="F-A-Q" element={<Faq />} />
@@ -205,8 +210,14 @@ const App = () => {
             <Route path="/book-now/:carDetails" element={<BookNow />} />
 
             {/* reviews and touristic sites */}
-            <Route path="/bon-voyage-reviews" element={<ReviewsAndTouristicSitesPage />} />
-            <Route path="/bon-voyage-touristic-site" element={<ReviewsAndTouristicSitesPage />} />
+            <Route
+              path="/bon-voyage-reviews"
+              element={<ReviewsAndTouristicSitesPage />}
+            />
+            <Route
+              path="/bon-voyage-touristic-site"
+              element={<ReviewsAndTouristicSitesPage />}
+            />
           </Route>
 
           <Route path="*" element={<PageNotFound />} />
