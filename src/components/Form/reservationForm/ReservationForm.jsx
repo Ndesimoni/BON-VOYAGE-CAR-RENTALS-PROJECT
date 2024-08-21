@@ -5,6 +5,7 @@ import ReservationDropdown from "./ReservationDropdown";
 import { useNavigate } from "react-router-dom";
 import { useMyContext } from "../../../AppContext";
 import { motion, useInView } from "framer-motion";
+import motionVariants from "../../../lib/motionVariants";
 
 const ReservationFormStyles = styled.div({
   backgroundColor: "white",
@@ -52,17 +53,17 @@ const ReservationForm = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
+  // transform: isInView ? "none" :,
+  // opacity: isInView ? 1 : 0,
+  // transition: "all 0.9s cubic-bezier(0.017, 0.10, 0.2, 0.2) 0.2s",
+
   return (
     <ReservationFormStyles>
       <h1 className="font-extrabold capitalize text-xl py-5">
         Reserve vehicle with !{" "}
         <motion.span
           ref={ref}
-          style={{
-            transform: isInView ? "none" : "translateY(-50px)",
-            opacity: isInView ? 1 : 0,
-            transition: "all 0.9s cubic-bezier(0.017, 0.10, 0.2, 0.2) 0.2s",
-          }}
+          style={motionVariants(isInView, "translateY(-50px)")}
           className="font-extrabold text-4xl uppercase text-green-600"
         >
           Bon Voyage{" "}
