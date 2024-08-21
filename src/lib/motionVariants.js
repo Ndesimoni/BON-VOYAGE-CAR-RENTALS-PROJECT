@@ -1,20 +1,8 @@
-const motionVariants = (direction, delay) => {
+const motionVariants = (isInView, translate) => {
   return {
-    hedden: {
-      y: direction === "up" ? 40 : direction === "down" ? -40 : 0,
-      x: direction === "left" ? 40 : direction === "right" ? -40 : 0,
-    },
-    show: {
-      y: 0,
-      x: 0,
-      opacity: 1,
-      transition: {
-        type: "tween",
-        duration: 1.2,
-        delay: delay,
-        ease: [0.25, 0.25, 0.25, 0.75],
-      },
-    },
+    transform: isInView ? "none" : translate,
+    opacity: isInView ? 1 : 0,
+    transition: "all 0.9s cubic-bezier(0.017, 0.10, 0.2, 0.2) 0.2s",
   };
 };
 
