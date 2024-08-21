@@ -30,6 +30,14 @@ const CarDetailsFormFilled = ({ carDetails }) => {
 
   const submitForm = (e) => {
     e.preventDefault();
+    //we are already in a submit handler which runs after our submit button is clicked.
+
+    //no need to pass in the navigate function and the setIsLoading() function as arguments into the bookAndPayLaterNotFillAtStart() function
+
+    // this just makes your code more complex and difficult for other developers to read
+
+    // we will then use a remote state library like rect query to handle database operations since this is a real world project
+
     bookAndPayLatterNotFillAtStart(carDetails, setIsLoading, navigate);
     console.log("yooooo man ");
   };

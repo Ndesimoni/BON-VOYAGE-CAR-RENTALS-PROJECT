@@ -4,43 +4,6 @@ import FormErrors from "../FormErrors";
 import { useNavigate } from "react-router-dom";
 import WrongCredentials from "../WrongCredentials";
 
-// import styled from "styled-components";
-// import Button from "../ui/Reuseable_Ui/Button";
-
-// const RegisterSectionStyles = styled.fieldset({
-//   display: "flex",
-//   justifyContent: "center",
-//   alignItems: "center",
-//   padding: "15px 15px 0px 15px",
-// });
-
-// const DivSection = styled.div({
-//   margin: " 5px",
-//   lineHeight: "23px",
-// });
-
-// const InputStyle = styled.input({
-//   width: "260px",
-//   padding: "2px",
-//   border: "1px solid #d2d2d2",
-//   borderRadius: "3px",
-// });
-
-// const TextArea = styled.textarea({
-//   padding: "1px",
-//   border: "1px solid #d2d2d2",
-//   borderRadius: "3px",
-// });
-
-// const LogIn = styled.div({
-//   display: "flex",
-//   justifyContent: "center",
-//   alignItems: "center",
-//   padding: "15px",
-// });
-
-//todo this is the register component
-
 const RegisterAccount = () => {
   const [showLogin, setShowLogin] = useState(false);
   const [wrongCredentials, setWrongCredentials] = useState("");
@@ -103,11 +66,11 @@ const RegisterAccount = () => {
       {!showLogin ? (
         <form
           key="register"
-          className="text-lg p-4 flex flex-col gap-4 "
+          className="text-lg p-4 flex flex-col gap-4 w-3/5 mx-auto"
           onSubmit={handleSubmit(handleRegister)}
         >
           <h1 className="text-center">Register Account</h1>
-          <div className="grid grid-cols-[1fr_2fr_1fr]  items-center">
+          <div className="grid grid-cols-3  items-center">
             <label htmlFor="firstName" className="capitalize ">
               first name
             </label>
@@ -125,7 +88,7 @@ const RegisterAccount = () => {
             )}
           </div>
 
-          <div className="grid grid-cols-[1fr_2fr_1fr]  items-center">
+          <div className="grid grid-cols-3 items-center">
             <label htmlFor="lastName" className="capitalize ">
               last name
             </label>
@@ -137,7 +100,7 @@ const RegisterAccount = () => {
             />
           </div>
 
-          <div className="grid grid-cols-[1fr_2fr_1fr]  items-center">
+          <div className="grid grid-cols-3  items-center">
             <label htmlFor="userEmail" className="capitalize ">
               Email
             </label>
@@ -155,7 +118,7 @@ const RegisterAccount = () => {
             )}
           </div>
 
-          <div className="grid grid-cols-[1fr_2fr_1fr]  items-center">
+          <div className="grid grid-cols-3  items-center">
             <label htmlFor="userNumber" className="capitalize ">
               Phone number
             </label>
@@ -173,7 +136,7 @@ const RegisterAccount = () => {
             )}
           </div>
 
-          <div className="grid grid-cols-[1fr_2fr_1fr]  items-center">
+          <div className="grid grid-cols-3  items-center">
             <label htmlFor="userPassword" className="capitalize ">
               password
             </label>
@@ -216,15 +179,15 @@ const RegisterAccount = () => {
       ) : (
         <form
           key="login"
-          className="text-lg p-4 flex flex-col gap-5 "
+          className="text-lg p-4 flex flex-col gap-5 w-3/5 mx-auto"
           onSubmit={handleSubmit(handleSubmitLogin)}
         >
           <h1 className="text-lg text-center font-bold">
             Log into your account
           </h1>
-          <div className="grid grid-cols-[1fr_2fr_1fr] items-center ">
+          <div className="grid grid-cols-3 items-center ">
             <label htmlFor="userEmail" className="capitalize font-semibold">
-              Email:
+              Email
             </label>
             <input
               type="email"
@@ -240,9 +203,9 @@ const RegisterAccount = () => {
             )}
           </div>
 
-          <div className="grid grid-cols-[1fr_2fr_1fr]  items-center">
+          <div className="grid grid-cols-3  items-center">
             <label htmlFor="userPassword" className="capitalize font-semibold">
-              password :
+              password
             </label>
             <input
               type="password"
@@ -286,7 +249,7 @@ const RegisterAccount = () => {
           {wrongCredentials && (
             <WrongCredentials>{wrongCredentials}</WrongCredentials>
           )}
-          <button className="text-stone-100 bg-red-500 w-1/3">Log in</button>
+          <button className="text-stone-100 bg-red-500 w-1/2">Log in</button>
         </form>
       )}
     </>
