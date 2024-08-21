@@ -59,18 +59,33 @@ const ReservationForm = () => {
 
   return (
     <ReservationFormStyles>
-      <h1 className="font-extrabold capitalize text-xl py-5">
+      {/* <h1 className="font-extrabold capitalize text-xl py-5 flex items-center">
+        Reserve vehicle with !{" "}
+        <motion.p
+          ref={ref}
+          style={motionVariants(isInView, "translateY(-10px)")}
+          className="font-extrabold text-4xl uppercase text-green-600"
+        >
+          Bon Voyage
+        </motion.p>
+      </h1> */}
+
+      <h1 className="font-extrabold capitalize text-xl py-5 ">
         Reserve vehicle with !{" "}
         <motion.span
           ref={ref}
-          style={motionVariants(isInView, "translateY(-50px)")}
+          style={motionVariants(isInView, "translateY(5px)")}
           className="font-extrabold text-4xl uppercase text-green-600"
         >
-          Bon Voyage{" "}
+          Bon Voyage
         </motion.span>
       </h1>
       <label className="flex items-center justify-between ">
-        <p className="font-semibold text-sm">
+        <p
+          ref={ref}
+          style={motionVariants(isInView, "translateY(-35px)")}
+          className="font-semibold text-sm"
+        >
           Pic-up & Return Location ( City, State or Airport )*
         </p>
         <span className="text-red-600 italic"> * Required Field</span>
