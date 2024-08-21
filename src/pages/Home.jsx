@@ -10,13 +10,15 @@ import { Link } from "react-router-dom";
 // components
 import MainImage from "@/components/ui/MainImage";
 import CarFleet from "./Vehicles/CarFleet";
-import MoreServices from "../components/Services/MoreServices";
+// import MoreServices from "../components/Services/MoreServices";
 
 import ImageTextView from "../components/ui/Reuseable_Ui/ImageTextView";
 import Offerings from "../components/Services/offering/Offerings";
 import OfferingContains from "../components/Services/offering/OfferingContains";
 import TypesOfDealsOffered from "../components/Services/DealsOffered/TypesOfDealsOffered";
 import TypesOfDealContain from "../components/Services/DealsOffered/TypesOfDealContain";
+
+import MoreServices from "../components/Services/MoreServices";
 
 const HomePage = () => {
   return (
@@ -206,6 +208,7 @@ const HomePage = () => {
 
       {/* //todo this is the  first More Services section in home page */}
       <MoreServices />
+      {/* <PlacesToVisit></PlacesToVisit> */}
     </div>
   );
 };
