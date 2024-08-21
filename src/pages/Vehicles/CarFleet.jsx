@@ -7,6 +7,9 @@ import { SlArrowRight } from "react-icons/sl";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { useRef } from "react";
+import { motion, useInView } from "framer-motion";
+import motionVariants from "../../lib/motionVariants";
 
 const CarFleet = () => {
   const { setReservationFormInfo } = useMyContext();
@@ -72,8 +75,15 @@ const CarFleet = () => {
     ],
   };
 
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+
   return (
-    <div className=" mt-10 mb-20">
+    <motion.div
+      ref={ref}
+      style={motionVariants(isInView, "translateX(-20px)")}
+      className=" mt-10 mb-20"
+    >
       <div className="flex justify-center items-center">
         <h2 className="header_2 mt-3  text-[#279142d7] capitalize text-2xl">
           Meet The Fleet
@@ -102,7 +112,11 @@ const CarFleet = () => {
         ))}
       </Slider>
 
-      <div className="flex justify-center items-center py-5 gap-3  my-10">
+      <motion.div
+        ref={ref}
+        style={motionVariants(isInView, "translateX(30px)")}
+        className="flex justify-center items-center py-5 gap-3  my-10"
+      >
         <button className="header_2 capitalize  text-sm text-white bg-red-500 py-1 px-4 rounded-lg hover:opacity-80 transition-all hover:bg-black hover:text-white">
           <SlArrowLeft />
         </button>
@@ -116,8 +130,8 @@ const CarFleet = () => {
         <button className="header_2 capitalize  text-sm text-white bg-red-500 py-1 px-4 rounded-lg hover:opacity-80 transition-all hover:bg-black hover:text-white">
           <SlArrowRight />
         </button>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };
 
