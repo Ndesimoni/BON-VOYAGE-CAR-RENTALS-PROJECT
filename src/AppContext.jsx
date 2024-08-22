@@ -7,8 +7,7 @@ const AppContext = createContext();
 function ContextProvider({ children }) {
   const [reservationFormInfo, setReservationFormInfo] = useState({});
   const [isLoading, setIsLoading] = useState();
-  const [scrollValue, setScrollValue] = useState(false);
-  const [scrollValue1, setScrollValue1] = useState(false);
+  const [scrollValueUp, setScrollValueUp] = useState(false);
   const [heroSection, setHeroSection] = useState(true);
   // const [previousScrollValue, , setPreviousScrollValue] = useState();
 
@@ -19,13 +18,12 @@ function ContextProvider({ children }) {
         setReservationFormInfo,
         isLoading,
         setIsLoading,
-        scrollValue,
-        setScrollValue,
+
         heroSection,
         setHeroSection,
+        scrollValueUp,
+        setScrollValueUp,
 
-        scrollValue1,
-        setScrollValue1,
         // previousScrollValue,
         // setPreviousScrollValue,
       }}

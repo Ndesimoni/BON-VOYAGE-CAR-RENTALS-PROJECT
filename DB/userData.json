@@ -748,6 +748,25 @@
       "description": "luxury",
       "name": "Chevrolet Camaro Convertible Yellow",
       "price": "150"
+    },
+    {
+      "id": "24ab",
+      "stateOfOperation": "minnesota",
+      "firstName": "nde",
+      "lastName": "Simoni che",
+      "email": "ndesimoniche@gmail.com",
+      "phone": "0551906739",
+      "pickUpLocation": "1959 for Campbell Blvd, #1 Clarksville, TN 37042",
+      "pickUpDate": "2024-08-31",
+      "dropOffLocation": "1959 for Campbell Blvd, #1 Clarksville, TN 37042",
+      "dropOffDate": "2024-08-30",
+      "IdCard": "[object FileList]",
+      "age": "22",
+      "type": "car",
+      "image": "car-9.jpg",
+      "description": "Premium-Cars",
+      "name": "SXT Dodge Challenger",
+      "price": "150"
     }
   ],
   "userDataVirginia": []

@@ -8,6 +8,7 @@ import { useMyContext } from "../../../../AppContext";
 function Nav_2() {
   const [activeLink, setActiveLink] = useState(null);
   const { isLoading, setIsLoading } = useMyContext();
+
   const navigate = useNavigate();
 
   //todo this now handles the navigation to the vehicle route
