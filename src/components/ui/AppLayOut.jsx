@@ -7,12 +7,14 @@ import { RiCustomerService2Line } from "react-icons/ri";
 import { useState } from "react";
 import Message from "./Message";
 import Footer from "./Footer/Footer";
+import { ContextProvider } from "../../AppContext";
 
 const AppLayOut = () => {
   const [showMessageForm, setShowMessageForm] = useState(false);
   return (
-    <>
+    <ContextProvider>
       <Header />
+
       <main className="py-[.5px]  bg-slate-50">
         {showMessageForm ? (
           <Message
@@ -40,7 +42,7 @@ const AppLayOut = () => {
         </div>
       </main>
       <Footer />
-    </>
+    </ContextProvider>
   );
 };
 

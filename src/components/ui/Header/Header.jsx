@@ -12,7 +12,6 @@ const Header = () => {
     <HeaderStyles>
       <NavBar_1 />
       <Nav_2 />
-      {/* this is general to tell all locations */}
     </HeaderStyles>
   );
 };
