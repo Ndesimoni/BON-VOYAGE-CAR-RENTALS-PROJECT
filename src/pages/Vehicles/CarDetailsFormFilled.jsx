@@ -40,6 +40,7 @@ const CarDetailsFormFilled = ({ carDetails }) => {
     // we will then use a remote state library like rect query to handle database operations since this is a real world project
 
     bookAndPayLatterNotFillAtStart(carDetails, setIsLoading, navigate);
+    console.log(carDetails);
     console.log("yooooo man ");
   };
 

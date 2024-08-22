@@ -3,7 +3,6 @@ import { CiCircleQuestion } from "react-icons/ci";
 import { useEffect, useRef, useState } from "react";
 import ReservationDropdown from "./ReservationDropdown";
 import { useNavigate } from "react-router-dom";
-import { useMyContext } from "../../../AppContext";
 import { motion, useInView } from "framer-motion";
 import motionVariants from "../../../lib/motionVariants";
 
@@ -21,7 +20,6 @@ const ReservationForm = () => {
   const navigate = useNavigate();
   const [searchCar, setSearchCar] = useState("");
   // coming from custom hook
-  const { isLoading, setIsLoading } = useMyContext();
 
   function handleClick(e) {
     const closestParent = e.target.closest("form");
@@ -44,32 +42,16 @@ const ReservationForm = () => {
 
   function handleSearch() {
     if (searchCar === "") return;
-    setIsLoading(true);
+
     navigate(`/${searchCar}`);
-    setIsLoading(false);
   }
 
   //todo motion design
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
-  // transform: isInView ? "none" :,
-  // opacity: isInView ? 1 : 0,
-  // transition: "all 0.9s cubic-bezier(0.017, 0.10, 0.2, 0.2) 0.2s",
-
   return (
     <ReservationFormStyles>
-      {/* <h1 className="font-extrabold capitalize text-xl py-5 flex items-center">
-        Reserve vehicle with !{" "}
-        <motion.p
-          ref={ref}
-          style={motionVariants(isInView, "translateY(-10px)")}
-          className="font-extrabold text-4xl uppercase text-green-600"
-        >
-          Bon Voyage
-        </motion.p>
-      </h1> */}
-
       <h1 className="font-extrabold capitalize text-xl py-5 ">
         Reserve vehicle with !{" "}
         <motion.span
@@ -135,7 +117,6 @@ const ReservationForm = () => {
         <div className="text-xs text-white p-1 flex items-end">
           <button
             onClick={handleSearch}
-            disabled={isLoading}
             className="border border-r-none px-2 py-1 bg-red-500 font-semibold ring-offset ring-1 "
           >
             Search
