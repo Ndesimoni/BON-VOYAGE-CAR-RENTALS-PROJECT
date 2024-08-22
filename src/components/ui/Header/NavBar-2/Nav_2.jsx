@@ -25,7 +25,8 @@ function Nav_2() {
 
   function handleClickHome() {
     setActiveLink(null);
-    navigate("/home");
+    // navigate("/home");
+    navigate("/");
   }
 
   return (

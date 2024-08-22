@@ -122,6 +122,12 @@
   position: fixed;
 }
 
+.stickyHeader {
+  position: "fixed";
+  z-index: 100;
+  width: "100%";
+}
+
 /* .slick-arrow:before {
   color: red;
   font-size: 50px;

@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import ReservationForm from "../Form/reservationForm/ReservationForm";
-import { useEffect, useRef } from "react";
-import { useInView } from "framer-motion";
+import { useEffect } from "react";
 import { useMyContext } from "../../AppContext";
 
 const MainImageDivStyle = styled.div({
@@ -14,25 +13,53 @@ const MainImageDivStyle = styled.div({
 });
 
 const MainImage = () => {
-  const { setScrollValue, setHeroSection } = useMyContext();
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: false });
+  const { setScrollValue } = useMyContext();
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrollValue(window.scrollY);
+      const newScrollValue = window.scrollY > 524;
+
+      setScrollValue(newScrollValue);
     };
 
     window.addEventListener("scroll", handleScroll);
-
-    setHeroSection(isInView);
-  }, [setHeroSection, isInView, setScrollValue]);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [setScrollValue]);
 
   return (
-    <MainImageDivStyle ref={ref}>
+    <MainImageDivStyle>
       <ReservationForm />
     </MainImageDivStyle>
   );
 };
 
 export default MainImage;
+
+// import { useEffect, useState } from "react";
+
+// const useScrollingUp = () => {
+//   let prevScroll;
+
+//   const [scrollingUp, setScrollingUp] = useState(false);
+
+//   const handleScroll = () => {
+//     const currScroll = window.pageYOffset;
+
+//     const isScrolled = prevScroll > currScroll;
+
+//     setScrollingUp(isScrolled);
+//     prevScroll = currScroll;
+//   };
+//   useEffect(() => {
+//     on(window, "scroll", handleScroll, { passive: true });
+
+//     return () => {
+//       off(window, "scroll", handleScroll, { passive: true });
+//     };
+//   }, []);
+//   return scrollingUp;
+// };
+
+// export default useScrollingUp;

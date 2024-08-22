@@ -1,5 +1,5 @@
 //todo // package import
-import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 // useLocation
 //todo // component imports
 import CLarksvilleTennessee from "./pages/Location/CLarksVilleTennessee";
@@ -74,9 +74,10 @@ const App = () => {
               </ContextProvider>
             }
           >
-            <Route index element={<Navigate replace to="/home" />} />
+            {/* <Route index element={<Navigate replace to="/home" />} /> */}
             {/* this are children nested routes */}
-            <Route path="/home" element={<HomePage />} />
+            {/* <Route path="/home" element={<HomePage />} /> */}
+            <Route path="/" element={<HomePage />} />
             <Route path="/sign-up" element={<RegisterAccount />} />
 
             {/* //todo //: route for navbar-_1 */}
