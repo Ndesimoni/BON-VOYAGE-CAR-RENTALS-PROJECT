@@ -5,6 +5,7 @@ import NavBar_1_Items from "./NavBar_1_Items";
 
 import { Link, NavLink } from "react-router-dom";
 import styled from "styled-components";
+// import { useMyContext } from "../../../../AppContext";
 
 const H4 = styled.h4({
   color: "red",
@@ -17,15 +18,22 @@ const Div = styled.div({
   padding: "0px 2px",
   lineHeight: "18px",
 });
+// const Div1 = styled.div({
+//   position: "fixed",
+// });
 
 const NavBar_1B = () => {
   const [activeIndex, setActiveIndex] = useState(null);
+  // const { scrollValue, heroSection } = useMyContext();
 
-  // bg-[#279142d7]
+  // const headerViewState = scrollValue || heroSection;
 
   return (
-    <div className="flex justify-between items-center bg-[#279142d7] px-10 py-1.5">
-      {/* //todothis is the head logo image  */}
+    <div
+      // style={headerViewState && { position: "fixed" }}
+      className="flex justify-between items-center bg-[#279142d7] px-10 py-1.5"
+    >
+      {/*this is the head logo image  */}
       <img src="/574.gif" alt="" className="w-24 rounded-sm" />
 
       <div className="flex items-center gap-3">
