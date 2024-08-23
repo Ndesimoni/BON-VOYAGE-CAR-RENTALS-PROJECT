@@ -12,18 +12,16 @@ const VehicleContain = ({ car }) => {
 
     // we ddo this update based on current state because we are going to need this data in the bookNow component to display our current vehicle image and the users form credentials
 
-
-    const confirmReservationDetails = { ...reservationFormInfo, ...car }
+    const confirmReservationDetails = { ...reservationFormInfo, ...car };
 
     setReservationFormInfo((curInfo) => {
-      return { ...curInfo, ...car, };
+      return { ...curInfo, ...car };
     });
 
     navigate({
       pathname: `/book-now/${car.description.replace(" ", "-")}`,
       search: `?${createSearchParams(confirmReservationDetails)}`,
     });
-
   }
 
   return (

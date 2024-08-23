@@ -1113,6 +1113,27 @@
       "name": "Ford Escape Sport",
       "description": "SUVs",
       "price": "80"
+    },
+    {
+      "id": "fabf",
+      "firstName": "nde",
+      "lastName": "Simoni che",
+      "email": "ndesimoniche@gmail.com",
+      "phone": "0551906739",
+      "category": "SUVs",
+      "pickUpLocation": "9500 Good Luck Road MD 20707",
+      "pickUpDate": "2024-08-28",
+      "stateOfOperation": "minnesota",
+      "dropOffLocation": "9500 Good Luck Road MD 20707",
+      "dropOffDate": "2024-08-21",
+      "IdCard": "[object FileList]",
+      "age": "30",
+      "termConditions": "true",
+      "type": "suv",
+      "image": "suv-5.jpg",
+      "description": "SUVs",
+      "name": "Dodge Journey Black",
+      "price": "80"
     }
   ],
   "userDataVirginia": []
