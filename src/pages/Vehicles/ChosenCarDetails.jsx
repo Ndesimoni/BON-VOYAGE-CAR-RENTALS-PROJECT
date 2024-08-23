@@ -23,7 +23,6 @@ const ChosenCarDetails = ({ reservationDetails }) => {
     //todo the corresponded will be match
     <div className="flex items-start flex-col">
       <img src={`/${image}`} alt={name} />
-      {/* <img src="/suv-3.jpg" alt={name} /> */}
 
       <CarInfo>
         <CarDetails>name : {name}</CarDetails>

@@ -27,6 +27,11 @@ const CarDetailsFormFilled = ({ reservationDetails }) => {
   const { setIsLoading } = useMyContext();
   const navigate = useNavigate();
 
+  const finalReservationDetailsPLusPaymentStatus = {
+    ...reservationDetails,
+    paymentStatus: "PAY LATTER",
+  };
+
   const submitForm = (e) => {
     e.preventDefault();
 
@@ -45,8 +50,12 @@ const CarDetailsFormFilled = ({ reservationDetails }) => {
 
     // we will then use a remote state library like rect query to handle database operations since this is a real world project
 
-    bookAndPayLatterNotFillAtStart(reservationDetails, setIsLoading, navigate);
-    console.log(reservationDetails);
+    bookAndPayLatterNotFillAtStart(
+      finalReservationDetailsPLusPaymentStatus,
+      setIsLoading,
+      navigate
+    );
+    console.log(finalReservationDetailsPLusPaymentStatus);
     console.log("yooooo man ");
   };
 

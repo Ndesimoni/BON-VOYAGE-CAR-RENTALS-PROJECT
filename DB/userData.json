@@ -30,7 +30,43 @@
       "dropOffDate": "2024-08-26",
       "IdCard": "[object FileList]",
       "age": "27"
+    },
+    {
+      "id": "d1e3",
+      "stateOfOperation": "minnesota",
+      "firstName": "nde",
+      "lastName": "Simoni che",
+      "email": "ndesimoniche@gmail.com",
+      "phone": "0551906739",
+      "pickUpLocation": "9500 Good Luck Road MD 20707",
+      "pickUpDate": "2024-08-31",
+      "dropOffLocation": "9500 Good Luck Road MD 20707",
+      "dropOffDate": "2024-08-30",
+      "IdCard": "[object FileList]",
+      "age": "23",
+      "type": "suv",
+      "image": "suv-2.jpg",
+      "name": "Dodge Grand Caravan Red",
+      "description": "Economy-Cars",
+      "price": "100",
+      "paymentStatus": "PAY LATTER"
     }
   ],
-  "userDataVirginia": []
+  "userDataVirginia": [
+    {
+      "id": "be8a",
+      "stateOfOperation": "virginia",
+      "firstName": "nde",
+      "lastName": "Simoni che",
+      "email": "ndesimoniche@gmail.com",
+      "phone": "0551906739",
+      "pickUpLocation": "1959 for Campbell Blvd, #1 Clarksville, TN 37042",
+      "pickUpDate": "2024-08-31",
+      "dropOffLocation": "9500 Good Luck Road MD 20707",
+      "dropOffDate": "2024-08-28",
+      "IdCard": "[object FileList]",
+      "age": "25",
+      "paymentStatus": "PAY LATTER"
+    }
+  ]
 }
