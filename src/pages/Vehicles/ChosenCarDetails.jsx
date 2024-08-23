@@ -14,15 +14,15 @@ export const CarInfo = styled.div({
   fontFamily: "monospace",
 });
 
-const ChosenCarDetails = ({ carDetails }) => {
+const ChosenCarDetails = ({ reservationDetails }) => {
   //we just immediately destructure the properties that we need from our updated object
-  const { image, name, price, type } = carDetails;
+  const { image, name, price, type } = reservationDetails;
+  console.log(name, price, type);
 
   return (
     //todo the corresponded will be match
     <div className="flex items-start flex-col">
       <img src={`/${image}`} alt={name} />
-      {/* <img src="/suv-3.jpg" alt={name} /> */}
 
       <CarInfo>
         <CarDetails>name : {name}</CarDetails>
