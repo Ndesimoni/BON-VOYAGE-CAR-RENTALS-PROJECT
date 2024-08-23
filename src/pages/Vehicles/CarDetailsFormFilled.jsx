@@ -29,6 +29,12 @@ const CarDetailsFormFilled = ({ carDetails }) => {
 
   const submitForm = (e) => {
     e.preventDefault();
+
+    // const BookingDetailsToBePayedLetter = {
+    //   ...carDetails,
+    //   paymentStatus: "PAY LATTER",
+    // };
+
     //we are already in a submit handler which runs after our submit button is clicked.
 
     //no need to pass in the navigate function and the setIsLoading() function as arguments into the bookAndPayLaterNotFillAtStart() function
