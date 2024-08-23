@@ -22,7 +22,7 @@ export const CarInfoDetails = styled.div({
   fontFamily: "roboto",
 });
 
-const CarDetailsFormFilled = ({ carDetails }) => {
+const CarDetailsFormFilled = ({ reservationDetails }) => {
   //now we need the users details and we just immediately destructure them
   const { setIsLoading } = useMyContext();
   const navigate = useNavigate();
@@ -45,15 +45,15 @@ const CarDetailsFormFilled = ({ carDetails }) => {
 
     // we will then use a remote state library like rect query to handle database operations since this is a real world project
 
-    bookAndPayLatterNotFillAtStart(carDetails, setIsLoading, navigate);
-    console.log(carDetails);
+    bookAndPayLatterNotFillAtStart(reservationDetails, setIsLoading, navigate);
+    console.log(reservationDetails);
     console.log("yooooo man ");
   };
 
   return (
     <div className="border p-3">
       <h1 className="font-extrabold text-3xl pb-5 capitalize p-2">
-        make reservation for : {carDetails.name}
+        make reservation for : {reservationDetails.name}
       </h1>
       <h2 className="px-3 capitalize font-bold text-red-600">
         please check if your booking information is correct ?
@@ -64,34 +64,38 @@ const CarDetailsFormFilled = ({ carDetails }) => {
         <CarInfoDetails>
           name:{" "}
           <UserDetailStyle>
-            {carDetails.firstName} {carDetails.lastName}
+            {reservationDetails.firstName} {reservationDetails.lastName}
           </UserDetailStyle>
         </CarInfoDetails>
         <CarInfoDetails>
-          Email: <UserDetailStyle>{carDetails.email}</UserDetailStyle>{" "}
+          Email: <UserDetailStyle>{reservationDetails.email}</UserDetailStyle>{" "}
         </CarInfoDetails>
         <CarInfoDetails>
-          contact: <UserDetailStyle>{carDetails.phone}</UserDetailStyle>
+          contact: <UserDetailStyle>{reservationDetails.phone}</UserDetailStyle>
         </CarInfoDetails>
         <CarInfoDetails>
           State:{" "}
-          <UserDetailStyle>{carDetails.stateOfOperation}</UserDetailStyle>
+          <UserDetailStyle>
+            {reservationDetails.stateOfOperation}
+          </UserDetailStyle>
         </CarInfoDetails>
         <CarInfoDetails>
           Pickup location:{" "}
-          <UserDetailStyle>{carDetails.pickUpLocation}</UserDetailStyle>
+          <UserDetailStyle>{reservationDetails.pickUpLocation}</UserDetailStyle>
         </CarInfoDetails>
         <CarInfoDetails>
           DropOff location:
-          <UserDetailStyle>{carDetails.dropOffLocation}</UserDetailStyle>
+          <UserDetailStyle>
+            {reservationDetails.dropOffLocation}
+          </UserDetailStyle>
         </CarInfoDetails>
         <CarInfoDetails>
           Pickup Date:
-          <UserDetailStyle>{carDetails.pickUpDate}</UserDetailStyle>
+          <UserDetailStyle>{reservationDetails.pickUpDate}</UserDetailStyle>
         </CarInfoDetails>
         <CarInfoDetails>
           DropOff Date:
-          <UserDetailStyle>{carDetails.dropOffDate}</UserDetailStyle>
+          <UserDetailStyle>{reservationDetails.dropOffDate}</UserDetailStyle>
         </CarInfoDetails>
       </div>
 

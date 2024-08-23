@@ -8,38 +8,24 @@ import ChosenCarDetails from "./ChosenCarDetails";
 // import Loading from "../../components/ui/Reuseable_Ui/Loading";
 
 function BookNow() {
-  // const { isLoading } = useMyContext();
-
   // here w get the code from the url query params and turn it to and object
   const [searchParams] = useSearchParams();
-  const carDetails = Object.fromEntries([...searchParams]);
+  const reservationDetails = Object.fromEntries([...searchParams]);
 
   return (
-    // <div className="flex justify-center items-center">
-    //   {/* {isLoading && <Loading />} */}
-
-    //   <div className="grid grid-cols-[0.5fr_1fr] gap-10 mb-10">
-    //     {!isLoading && (
-    //       <>
-    //         <ChosenCarDetails carDetails={carDetails} />
-
-    //         {(carDetails.firstName && (
-    //           <CarDetailsFormFilled carDetails={carDetails} />
-    //         )) || <CarDetailsFormNotFilled carDetails={carDetails} />}
-    //       </>
-    //     )}
-    //   </div>
-    // </div>
-
     <div className="flex justify-center items-center">
       <div className="grid grid-cols-[0.5fr_1fr] gap-10 mb-10">
         {
           <>
-            <ChosenCarDetails carDetails={carDetails} />
+            <ChosenCarDetails reservationDetails={reservationDetails} />
 
-            {(carDetails.firstName && (
-              <CarDetailsFormFilled carDetails={carDetails} />
-            )) || <CarDetailsFormNotFilled carDetails={carDetails} />}
+            {(reservationDetails.firstName && (
+              <CarDetailsFormFilled reservationDetails={reservationDetails} />
+            )) || (
+              <CarDetailsFormNotFilled
+                reservationDetails={reservationDetails}
+              />
+            )}
           </>
         }
       </div>
