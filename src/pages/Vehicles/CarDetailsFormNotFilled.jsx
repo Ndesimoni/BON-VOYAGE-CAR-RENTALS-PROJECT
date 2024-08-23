@@ -18,13 +18,11 @@ const CarDetailsFormNotFilled = ({ reservationDetails }) => {
   const { errors } = formState;
 
   function handleFormSubmit(data) {
-    //we get the data from the form, and the carDetails, the we reconstruct this into a single object.
+    //we get the data from the form, and the carDs, the we reconstruct this into a single object.
     const newUrl = { ...data, ...reservationDetails };
 
     // we then pass this object as an argument into the setSearchParams function
     setSearchParams(newUrl);
-    console.log(reservationDetails);
-    console.log(newUrl);
     return searchParams;
   }
   return (
