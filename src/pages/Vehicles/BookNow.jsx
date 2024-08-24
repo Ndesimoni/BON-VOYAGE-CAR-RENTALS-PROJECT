@@ -14,7 +14,7 @@ function BookNow() {
 
   return (
     <div className="flex justify-center items-center">
-      <div className="grid grid-cols-[0.5fr_1fr] gap-10 mb-10">
+      <div className="grid grid-cols-[0.5fr_1fr] gap-10 my-14 ">
         {
           <>
             <ChosenCarDetails reservationDetails={reservationDetails} />

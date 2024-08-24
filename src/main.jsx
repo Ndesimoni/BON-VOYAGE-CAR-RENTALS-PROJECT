@@ -16,6 +16,7 @@ const GlobalStyles = styled.section({
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <GlobalStyles>
+    {/* provide context all the app */}
     <ContextProvider>
       <App />
     </ContextProvider>

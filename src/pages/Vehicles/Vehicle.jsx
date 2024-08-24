@@ -14,7 +14,7 @@ function Vehicle() {
         <p className="text-yellow-50 text-lg capitalize"> sell your car</p>
       </SingleTextImageView>
       <div className="flex justify-center items-center">
-        <div className="grid grid-cols-3 gap-20 mt-10 w-[1200px]">
+        <div className="grid grid-cols-3 gap-20 my-12 w-[1200px]">
           {vehicleCategory
             .filter(
               (selectedCategory) =>

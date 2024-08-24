@@ -53,27 +53,20 @@ import AllCars from "./pages/Vehicles/AllCars";
 //When a user clicks the book now button, it takes the user to the book now page as defined in the book-now route below
 import BookNow from "./pages/Vehicles/BookNow";
 
-//providing context to our entire application
-import { ContextProvider } from "./AppContext";
-
 import ReviewsAndTouristicSitesPage from "./pages/ReviewsAndTouristicSitesPage";
 
 import RegisterAccount from "./components/Form/CreateAccountForm";
+// scroll all routes to the top when navigated
+import ScrollToTop from "./lib/ScrollToTop";
 
 const App = () => {
-  // const state = useLocation();
-  // console.log(state);
   return (
     <div>
       <BrowserRouter>
+        <ScrollToTop />
+
         <Routes>
-          <Route
-            element={
-              <ContextProvider>
-                <AppLayOut />
-              </ContextProvider>
-            }
-          >
+          <Route element={<AppLayOut />}>
             {/* <Route index element={<Navigate replace to="/home" />} /> */}
             {/* this are children nested routes */}
             {/* <Route path="/home" element={<HomePage />} /> */}
@@ -137,6 +130,8 @@ const App = () => {
             <Route path="Laurel-MD" element={<StartCarReservation />} />
 
             <Route path="clarksville-TN" element={<CLarksvilleTennessee />} />
+
+            {/* <Route path="clarksville-TN/:id" element={<Vehicle />} />   */}
             <Route path="bloomington-MT" element={<BloomingtonMinnesota />} />
             <Route path="woodbridge-VA" element={<WoodbridgeVirginia />} />
 
