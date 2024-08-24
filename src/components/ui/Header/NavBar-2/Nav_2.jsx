@@ -1,28 +1,28 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 import Nav_2Items from "./Nav_2Items";
 import { nav_2_data as data } from "../../../../../DB/Local_Data_Base";
-import { useMyContext } from "../../../../AppContext";
+// import { useMyContext } from "../../../../AppContext";
 
 function Nav_2() {
   const [activeLink, setActiveLink] = useState(null);
-  const { isLoading, setIsLoading } = useMyContext();
+  // const { isLoading, setIsLoading } = useMyContext();
 
   const navigate = useNavigate();
 
   //todo this now handles the navigation to the vehicle route
-  function handleNavigate(linkItem) {
-    setIsLoading(true);
-    setActiveLink(null);
-    navigate(
-      data[activeLink].title === "Vehicles"
-        ? `all-vehicle-category/${linkItem}`
-        : linkItem,
-      { state: linkItem }
-    );
-    setIsLoading(false);
-  }
+  // function handleNavigate(linkItem) {
+  //   setIsLoading(true);
+  //   setActiveLink(null);
+  //   navigate(
+  //     data[activeLink].title === "Vehicles"
+  //       ? `all-vehicle-category/${linkItem}`
+  //       : linkItem,
+  //     { state: linkItem }
+  //   );
+  //   setIsLoading(false);
+  // }
 
   function handleClickHome() {
     setActiveLink(null);
@@ -60,15 +60,14 @@ function Nav_2() {
                     {/* //todo this is linking to all-vehicle-category or to the corresponding link element */}
                     {linkEl.linkItems.map((linkItem, i) => {
                       return (
-                        <div
-                          disabled={isLoading}
+                        <NavLink
                           key={i}
-                          onClick={() => handleNavigate(linkItem)}
+                          to={`${data[activeLink].title === "Vehicles" ? `all-vehicle-category/${linkItem}` : linkItem}`}
                         >
                           <li className=" px-[2px] py-[1px] line-clamp-1 text-red-500 hover:text-black text-sm capitalize">
                             {linkItem.replaceAll("-", " ")}
                           </li>
-                        </div>
+                        </NavLink>
                       );
                     })}
                   </div>
