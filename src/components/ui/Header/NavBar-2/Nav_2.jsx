@@ -3,7 +3,6 @@ import { NavLink, useNavigate } from "react-router-dom";
 
 import Nav_2Items from "./Nav_2Items";
 import { nav_2_data as data } from "../../../../../DB/Local_Data_Base";
-// import { useMyContext } from "../../../../AppContext";
 
 function Nav_2() {
   const [activeLink, setActiveLink] = useState(null);
@@ -12,21 +11,12 @@ function Nav_2() {
   const navigate = useNavigate();
 
   //todo this now handles the navigation to the vehicle route
-  // function handleNavigate(linkItem) {
-  //   setIsLoading(true);
-  //   setActiveLink(null);
-  //   navigate(
-  //     data[activeLink].title === "Vehicles"
-  //       ? `all-vehicle-category/${linkItem}`
-  //       : linkItem,
-  //     { state: linkItem }
-  //   );
-  //   setIsLoading(false);
-  // }
+  function handleClose() {
+    setActiveLink(null);
+  }
 
   function handleClickHome() {
     setActiveLink(null);
-    // navigate("/home");
     navigate("/");
   }
 
@@ -64,7 +54,10 @@ function Nav_2() {
                           key={i}
                           to={`${data[activeLink].title === "Vehicles" ? `all-vehicle-category/${linkItem}` : linkItem}`}
                         >
-                          <li className=" px-[2px] py-[1px] line-clamp-1 text-red-500 hover:text-black text-sm capitalize">
+                          <li
+                            onClick={handleClose}
+                            className=" px-[2px] py-[1px] line-clamp-1 text-red-500 hover:text-black text-sm capitalize"
+                          >
                             {linkItem.replaceAll("-", " ")}
                           </li>
                         </NavLink>
