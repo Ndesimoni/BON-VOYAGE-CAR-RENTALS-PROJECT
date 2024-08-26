@@ -19,7 +19,7 @@ const NavBar_1_Items = ({
         <div className="absolute z-10 ">
           {" "}
           {activeIndex == index && (
-            <div className=" bg-slate-50 flex flex-col p-2 gap-1 rounded-b-sm border-s-black">
+            <div className="bg-slate-50 flex flex-col p-4 gap-1 rounded-b-sm border-s-black">
               {children}
             </div>
           )}

@@ -6,7 +6,6 @@ import { nav_2_data as data } from "../../../../../DB/Local_Data_Base";
 
 function Nav_2() {
   const [activeLink, setActiveLink] = useState(null);
-  // const { isLoading, setIsLoading } = useMyContext();
 
   const navigate = useNavigate();
 
