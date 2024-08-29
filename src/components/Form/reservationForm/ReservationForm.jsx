@@ -5,6 +5,7 @@ import ReservationDropdown from "./ReservationDropdown";
 import { useNavigate } from "react-router-dom";
 import { motion, useInView } from "framer-motion";
 import motionVariants from "../../../lib/motionVariants";
+import { useMyContext } from "../../../AppContext";
 
 const ReservationFormStyles = styled.div({
   backgroundColor: "white",
@@ -20,7 +21,7 @@ const ReservationForm = () => {
   const navigate = useNavigate();
   const [searchCar, setSearchCar] = useState("");
   // coming from custom hook
-
+  const { location } = useMyContext();
   function handleClick(e) {
     const closestParent = e.target.closest("form");
     if (closestParent?.id === "form") return;
@@ -59,7 +60,11 @@ const ReservationForm = () => {
           style={motionVariants(isInView, "translateY(5px)")}
           className="font-extrabold text-4xl uppercase text-green-600"
         >
-          Bon Voyage
+          Bon Voyage{" "}
+          <span className=" text-black capitalize font-thin text-lg font-serif italic">
+            {!location && null}
+            {location && location.replaceAll("/", " ")}
+          </span>
         </motion.span>
       </h1>
       <label className="flex items-center justify-between ">

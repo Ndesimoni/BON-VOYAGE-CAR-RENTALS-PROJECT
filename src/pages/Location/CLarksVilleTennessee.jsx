@@ -1,7 +1,6 @@
 import MainImage from "@/components/ui/MainImage";
 import SeeAllAvailableSection from "../../components/ui/Reuseable_Ui/SeeAllAvailableSection";
 import CarFleet from "../Vehicles/CarFleet";
-import Button from "../../components/ui/Reuseable_Ui/Button";
 import ImageTextView from "../../components/ui/Reuseable_Ui/ImageTextView";
 import TypesOfDealsOffered from "../../components/Services/DealsOffered/TypesOfDealsOffered";
 import TypesOfDealContain from "../../components/Services/DealsOffered/TypesOfDealContain";
@@ -11,6 +10,7 @@ import { IoIosCar, IoMdBuild } from "react-icons/io";
 import SeeAllAvailableSectionContains from "../../components/ui/Reuseable_Ui/SeeAllAvailableSectionContains";
 import Offerings from "../../components/Services/offering/Offerings";
 import OfferingContains from "../../components/Services/offering/OfferingContains";
+import { Link } from "react-router-dom";
 
 const CLarksVilleTennessee = () => {
   return (
@@ -19,72 +19,113 @@ const CLarksVilleTennessee = () => {
       <MainImage />
       {/* //todo // this is the see all trucks section */}
       <SeeAllAvailableSection>
-        <SeeAllAvailableSectionContains
-          image="https://www.enterprisetrucks.com/content/dam/truckrental/en_us/homepage/Truck_T13_Eng_Utility.Jobsite.jpg"
-          alt="trucks"
-        >
+        <SeeAllAvailableSectionContains image="suv-13.jpg" alt="trucks">
           <h2>Build your truck and van rental program with custom rates</h2>
-          <p>
+          <p className="mb-5">
             We’ll deliver the commercial trucks and vans you require for your
             project-based, seasonal or long-term needs. Whether you’re looking
             for a one-time rental or a long-term strategy, our experts are here
             for you
           </p>
-          <Button> See all available cars in our car fleet </Button>
+
+          <Link to="/all-available-cars" className="booking_btn py-1 ">
+            all available cars{" "}
+          </Link>
         </SeeAllAvailableSectionContains>
 
-        <SeeAllAvailableSectionContains
-          image="https://www.enterprisetrucks.com/content/dam/truckrental/en_us/homepage/Truck_Truck.Sales_Lineup_Blank_USonly.png"
-          alt="trucks"
-        >
+        <SeeAllAvailableSectionContains image="car-4.jpg" alt="trucks">
           <h2>Build your truck and van rental program with custom rates</h2>
-          <p>
+          <p className="mb-5">
             We’ll deliver the commercial trucks and vans you require for your
             project-based, seasonal or long-term needs. Whether you’re looking
             for a one-time rental or a long-term strategy, our experts are here
             for you
           </p>
-          <Button> See all available cars in our car fleet </Button>
+          <Link to="/all-vehicle-category" className="booking_btn py-1 ">
+            all available cars{" "}
+          </Link>
         </SeeAllAvailableSectionContains>
       </SeeAllAvailableSection>
 
       {/* //todo this is the car fleet section */}
       <CarFleet />
+
       {/* //todo this is the type of deals offered section in home page */}
       <TypesOfDealsOffered>
         <TypesOfDealContain
           Icons={IoPricetagsOutline}
           title="deals"
           NextArrow={MdNavigateNext}
-          description=" Rent-To-Own is the smart alternative to car financing for those with bad
- or less than perfect credit."
+          // linkPath="best-short-term-car-rental-in-lanham"
+          description=" Rent-To-Own is the smart alternative to car financing for those with bad or less than perfect credit."
         />
 
         <TypesOfDealContain
           Icons={IoMdBuild}
           title="rent After Accident "
           NextArrow={MdNavigateNext}
-          description="Rent-To-Own is the smart alternative to car financing for those with
-        bad or less than perfect credit. "
+          // linkPath="accident-in-rental-car"
+          description="Rent-To-Own is the smart alternative to car financing for those with  bad or less than perfect credit. "
         />
 
         <TypesOfDealContain
           Icons={IoKeyOutline}
           title="RENT-TO-OWN "
           NextArrow={MdNavigateNext}
-          description=" Rent-To-Own is the smart alternative to car financing for those with
-       bad or less than perfect credit. "
+          // linkPath="rent-to-own"
+          description=" Rent-To-Own is the smart alternative to car financing for those with bad or less than perfect credit. "
         />
 
         <TypesOfDealContain
           Icons={IoIosCar}
           title="Ride share "
+          // linkPath="share-a-ride"
           NextArrow={MdNavigateNext}
-          description=" Rent-To-Own is the smart alternative to car financing for those with
-   bad or less than perfect credit. "
+          description=" Rent-To-Own is the smart alternative to car financing for those with bad or less than perfect credit. "
         />
       </TypesOfDealsOffered>
       {/* //todo this is the image text view section */}
+
+      {/* //todo this is the  first Offering section in home page */}
+      <Offerings
+        heading="Bon voyage make the world a better place"
+        description="With bon voyage lets come together and connect, network share ideas and build relationships that last a life time  "
+      >
+        {/* this is the offering section which hold the image, description and button */}
+
+        <OfferingContains
+          image="bon-voyage-customer-satisfaction Small.jpeg"
+          h3="see our customers reviews"
+          description="enjoy the beauty travel with bon voyage "
+          button="View Truck Rental Vehicles"
+          routeLinksForBetterPlace="bon-voyage-reviews"
+        />
+
+        <OfferingContains
+          image="bon-voyage-contactuspage.jpg"
+          h3="have complains contact us  "
+          description="visit our contact page to leave a complain "
+          button="View Truck Rental Vehicles"
+          routeLinksForBetterPlace="Contact-us"
+        />
+
+        <OfferingContains
+          image="bon-voyage-place-to-visite-1.jpg"
+          h3="best places to visit in marry land"
+          description="enjoy the beauty travel with bon voyage"
+          button="View Truck Rental Vehicles"
+          routeLinksForBetterPlace="bon-voyage-touristic-site"
+        />
+
+        <OfferingContains
+          image="bon-voyage-about-us.jpg"
+          h3=" make the world a better place"
+          description="see more about bon voyage car rentals"
+          button="View Truck Rental Vehicles"
+          routeLinksForBetterPlace="How-we-operate"
+        />
+      </Offerings>
+
       <ImageTextView
         backgroundImage1="url(/help.jpg)"
         backgroundImage2="url(/cars-1.jpg)"
@@ -111,27 +152,41 @@ const CLarksVilleTennessee = () => {
 
       {/* //todo this is the  first Offering section in home page */}
       <Offerings
-        heading="Latest Offerings"
-        description="Trust your local Enterprise experts to help you find the light and medium-duty vehicles you need, including pickup trucks, box trucks, moving trucks and cargo vans."
+        heading="Latest  car Offering "
+        description="With our expertise knowledge, we help you find the best car that matches your need, including pickup trucks,  SUVs, and sports car ."
       >
         {/* this is the offering section which hold the image, description and button */}
+
         <OfferingContains
-          image="https://www.enterprisetrucks.com/content/dam/truckrental/en_us/homepage/Truck_T16_Eng_Branch-Lineup-375x210-new.jpeg"
-          h3="Dependable vehicles, great service"
-          description="Enterprise specializes in commercial grade cargo vans and trucks to deliver the dependability, flexibility and service you need to keep moving."
+          image="economyCars.jpg"
+          h3="best Economy cars with great service"
+          description="Our range of economy cars are perfect for budget-conscious travelers. "
           button="View Truck Rental Vehicles"
+          routeLinks="Economy-Cars"
         />
+
         <OfferingContains
-          image="https://www.enterprisetrucks.com/content/dam/truckrental/en_us/homepage/Truck_T16_Eng_Branch-Lineup-375x210-new.jpeg"
-          h3="Dependable vehicles, great service"
-          description="Enterprise specializes in commercial grade cargo vans and trucks to deliver the dependability, flexibility and service you need to keep moving."
+          image="standardCars Small.jpeg"
+          h3="Our Standard vehicles, "
+          description="These vehicles offers ample space for both passengers and luggage,  "
           button="View Truck Rental Vehicles"
+          routeLinks="Standard-Cars"
         />
+
         <OfferingContains
-          image="https://www.enterprisetrucks.com/content/dam/truckrental/en_us/homepage/Truck_T16_Eng_Branch-Lineup-375x210-new.jpeg"
-          h3="Dependable vehicles, great service"
-          description="Enterprise specializes in commercial grade cargo vans and trucks to deliver the dependability, flexibility and service you need to keep moving."
+          image="car-9.jpg"
+          h3=" experience high-end Luxury "
+          description="Experience the comfort and style with our premium car rentals. ."
           button="View Truck Rental Vehicles"
+          routeLinks="Premium-Cars"
+        />
+
+        <OfferingContains
+          image="SuvsCar.jpg"
+          h3=" luxury and budget friendly  SUVs, "
+          description="best adventure seekers and families looking to vacate or camp on holidays."
+          button="View Truck Rental Vehicles"
+          routeLinks="SUVs"
         />
       </Offerings>
 
@@ -142,13 +197,16 @@ const CLarksVilleTennessee = () => {
           alt="trucks"
         >
           <h2>Build your truck and van rental program with custom rates</h2>
-          <p>
+          <p className="mb-5">
             We’ll deliver the commercial trucks and vans you require for your
             project-based, seasonal or long-term needs. Whether you’re looking
             for a one-time rental or a long-term strategy, our experts are here
             for you
           </p>
-          <Button> See all available cars in our car fleet </Button>
+          <Link to="all-vehicle-category" className="booking_btn py-1 ">
+            {" "}
+            available cars in our car fleet{" "}
+          </Link>
         </SeeAllAvailableSectionContains>
       </SeeAllAvailableSection>
     </div>

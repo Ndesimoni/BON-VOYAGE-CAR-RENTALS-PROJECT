@@ -3,6 +3,8 @@ import ExtraFeatures from "../Reservations/ExtraFeatures";
 import ReservationForm from "../../components/Form/reservationForm/ReservationForm";
 
 import CarFleet from "../Vehicles/CarFleet";
+import Offerings from "../../components/Services/offering/Offerings";
+import OfferingContains from "../../components/Services/offering/OfferingContains";
 
 const DivInfoStyles = styled.section({
   display: "flex ",
@@ -37,122 +39,106 @@ const WoodBridgeVirginia = () => {
           />
         </div>
       </div>
-
       {/* this is the form */}
       <div className="flex justify-center">
         <ReservationForm />
       </div>
       {/* 
 
-//todo this is the Car Fleet  section */}
-      <CarFleet />
 
+ {  {/* //todo this is the  first Offering section in home page */}
+      <Offerings
+        heading="Latest  car Offering "
+        description="With our expertise knowledge, we help you find the best car that matches your need, including pickup trucks,  SUVs, and sports car ."
+      >
+        {/* this is the offering section which hold the image, description and button */}
+
+        <OfferingContains
+          image="economyCars.jpg"
+          h3="best Economy cars with great service"
+          description="Our range of economy cars are perfect for budget-conscious travelers. "
+          button="View Truck Rental Vehicles"
+          routeLinks="Economy-Cars"
+        />
+
+        <OfferingContains
+          image="standardCars Small.jpeg"
+          h3="Our Standard vehicles, "
+          description="These vehicles offers ample space for both passengers and luggage,  "
+          button="View Truck Rental Vehicles"
+          routeLinks="Standard-Cars"
+        />
+
+        <OfferingContains
+          image="car-9.jpg"
+          h3=" experience high-end Luxury "
+          description="Experience the comfort and style with our premium car rentals. ."
+          button="View Truck Rental Vehicles"
+          routeLinks="Premium-Cars"
+        />
+
+        <OfferingContains
+          image="SuvsCar.jpg"
+          h3=" luxury and budget friendly  SUVs, "
+          description="best adventure seekers and families looking to vacate or camp on holidays."
+          button="View Truck Rental Vehicles"
+          routeLinks="SUVs"
+        />
+      </Offerings>
+
+      {/* // todo this is the Car Fleet section */}
+      <CarFleet />
       {/* this is the extra features section */}
       <div className="my-10">
         <ExtraFeatures />
       </div>
 
-      <div className="flex flex-col justify-center items-center">
-        <h2 className="font-bold text-3xl mb-1">
-          Meet your preferred partner in commercial truck and van rentals.
-        </h2>
-        <p>
-          Trust your local Enterprise experts to help you find the light and
-          medium-duty vehicles you need, including pickup trucks, box trucks,
-          moving trucks and cargo vans.
-        </p>
+      {/* //todo this is the  first Offering section in home page */}
+      <Offerings
+        heading="Bon voyage make the world a better place"
+        description="With bon voyage lets come together and connect, network share ideas and build relationships that last a life time  "
+      >
+        {/* this is the offering section which hold the image, description and button */}
 
-        <div className="flex gap-8 mt-14">
-          <div className="flex flex-col  justify-center items-center bg-white">
-            <img
-              src="https://www.enterprisetrucks.com/content/dam/truckrental/en_us/homepage/Truck_T16_Eng_Branch-Lineup-375x210-new.jpeg"
-              alt=""
-            />
+        <OfferingContains
+          image="bon-voyage-customer-satisfaction Small.jpeg"
+          h3="see our customers reviews"
+          description="enjoy the beauty travel with bon voyage "
+          button="View Truck Rental Vehicles"
+          routeLinksForBetterPlace="bon-voyage-reviews"
+        />
 
-            <div className="mt-5 max-w-80 flex flex-col my-2 justify-center items-center ">
-              <h2 className="font-bold text-2xl  py-1">
-                Dependable vehicles, great service
-              </h2>
-              <p className="mt-1 mb-10">
-                Enterprise specializes in commercial-grade cargo vans and trucks
-                to deliver the dependability, flexibility and service you need
-                to keep moving.
-              </p>
-              <button className="mt-10 mb-4 font-bold  bg-green-700 px-5 py-3 text-gray-50 uppercase">
-                View Truck Rental Vehicles{" "}
-              </button>
-            </div>
-          </div>
+        <OfferingContains
+          image="bon-voyage-contactuspage.jpg"
+          h3="have complains contact us  "
+          description="visit our contact page to leave a complain "
+          button="View Truck Rental Vehicles"
+          routeLinksForBetterPlace="Contact-us"
+        />
 
-          <div className="flex flex-col  justify-center items-center bg-white">
-            <img
-              src="https://www.enterprisetrucks.com/content/dam/truckrental/en_us/homepage/Truck_T16_Eng_Branch-Lineup-375x210-new.jpeg"
-              alt=""
-            />
+        <OfferingContains
+          image="bon-voyage-place-to-visite-1.jpg"
+          h3="best places to visit in marry land"
+          description="enjoy the beauty travel with bon voyage"
+          button="View Truck Rental Vehicles"
+          routeLinksForBetterPlace="bon-voyage-touristic-site"
+        />
 
-            <div className="mt-5 max-w-80 flex flex-col my-2 justify-center items-center ">
-              <h2 className="font-bold text-2xl  py-1">
-                Dependable vehicles, great service
-              </h2>
-              <p className="mt-1 mb-10">
-                Enterprise specializes in commercial-grade cargo vans and trucks
-                to deliver the dependability, flexibility and service you need
-                to keep moving.
-              </p>
-              <button className="mt-10 mb-4 font-bold  bg-green-700 px-5 py-3 text-gray-50 uppercase">
-                View Truck Rental Vehicles{" "}
-              </button>
-            </div>
-          </div>
+        <OfferingContains
+          image="bon-voyage-about-us.jpg"
+          h3=" make the world a better place"
+          description="see more about bon voyage car rentals"
+          button="View Truck Rental Vehicles"
+          routeLinksForBetterPlace="How-we-operate"
+        />
+      </Offerings>
 
-          <div className="flex flex-col  justify-center items-center bg-white">
-            <img
-              src="https://www.enterprisetrucks.com/content/dam/truckrental/en_us/homepage/Truck_T16_Eng_Branch-Lineup-375x210-new.jpeg"
-              alt=""
-            />
-
-            <div className="mt-5 max-w-80 flex flex-col my-2 justify-center items-center ">
-              <h2 className="font-bold text-2xl  py-1">
-                Dependable vehicles, great service
-              </h2>
-              <p className="mt-1 mb-10">
-                Enterprise specializes in commercial-grade cargo vans and trucks
-                to deliver the dependability, flexibility and service you need
-                to keep moving.
-              </p>
-              <button className="mt-10 mb-4 font-bold  bg-green-700 px-5 py-3 text-gray-50 uppercase">
-                View Truck Rental Vehicles{" "}
-              </button>
-            </div>
-          </div>
-
-          <div className="flex flex-col  justify-center items-center bg-white">
-            <img
-              src="https://www.enterprisetrucks.com/content/dam/truckrental/en_us/homepage/Truck_T16_Eng_Branch-Lineup-375x210-new.jpeg"
-              alt=""
-            />
-
-            <div className="mt-5 max-w-80 flex flex-col my-2 justify-center items-center ">
-              <h2 className="font-bold text-2xl  py-1">
-                Dependable vehicles, great service
-              </h2>
-              <p className="mt-1 mb-10">
-                Enterprise specializes in commercial-grade cargo vans and trucks
-                to deliver the dependability, flexibility and service you need
-                to keep moving.
-              </p>
-              <button className="mt-10 mb-4 font-bold  bg-green-700 px-5 py-3 text-gray-50 uppercase">
-                View Truck Rental Vehicles{" "}
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="flex justify-center mt-5">
+      <div className="flex justify-center my-5 pb-5 px-1">
         <DivInfoStyles>
           <div>
-            <h2>How old do you have to be to rent a car in Europe?</h2>
+            <h2 className="header_2  text-green-600  capitalize text-2xl">
+              How old do you have to be to rent a car in Europe?
+            </h2>
             <p>
               The minimum age to rent a car in Europe ranges between 18-25
               depending on your pick-up country and selected car class.
@@ -162,7 +148,7 @@ const WoodBridgeVirginia = () => {
           </div>
 
           <div>
-            <h2>
+            <h2 className="header_2  text-green-600  capitalize text-2xl">
               What are the driver license requirements for car rental in Europe?
             </h2>
 
@@ -176,7 +162,9 @@ const WoodBridgeVirginia = () => {
           </div>
 
           <div>
-            <h2>Can you rent a car and drive across Europe?</h2>
+            <h2 className="header_2  text-green-600  capitalize text-2xl">
+              Can you rent a car and drive across Europe?
+            </h2>
 
             <p>
               Domestic one-way car rental is usually free of charge when

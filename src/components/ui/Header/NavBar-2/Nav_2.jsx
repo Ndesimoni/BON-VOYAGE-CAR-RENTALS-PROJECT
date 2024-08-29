@@ -3,9 +3,11 @@ import { NavLink, useNavigate } from "react-router-dom";
 
 import Nav_2Items from "./Nav_2Items";
 import { nav_2_data as data } from "../../../../../DB/Local_Data_Base";
+import { useMyContext } from "../../../../AppContext";
 
 function Nav_2() {
   const [activeLink, setActiveLink] = useState(null);
+  const { scrollDownValue } = useMyContext();
 
   const navigate = useNavigate();
 
@@ -20,8 +22,16 @@ function Nav_2() {
   }
 
   return (
-    <div className="relative bg-black">
-      <ul className="grid grid-cols-6 items-center gap-[1px]">
+    <div
+      style={{
+        position: scrollDownValue && "fixed",
+        width: "100%",
+        top: "0",
+        zIndex: "100",
+      }}
+      className="relative bg-black"
+    >
+      <ul className="grid grid-cols-6 items-center gap-[1px] bg-green-600">
         <li
           onClick={handleClickHome}
           className="bg-[#ebebebed] text-lg text-center cursor-pointer py-5 capitalize "

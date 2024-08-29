@@ -11,7 +11,7 @@ import { FaAmazonPay } from "react-icons/fa";
 function ExtraFeatures() {
   return (
     <>
-      <main className="text-lg w-[1200px] mx-auto  ">
+      <main className="text-lg w-[1200px] mx-auto  mb-10 p-1">
         <div className="grid grid-cols-3  gap-x-10 mt-8 gap-y-16 mb-10 ">
           <ExtraFeaturesBlog
             icon={<IoTimeOutline />}

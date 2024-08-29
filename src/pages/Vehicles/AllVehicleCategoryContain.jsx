@@ -8,7 +8,6 @@ const AllVehicleCategoryContain = ({
   carImage,
   id,
 }) => {
-
   return (
     <div
       className="grid grid-cols-2 items-center justify-between mb-2 text-lg "
@@ -19,12 +18,12 @@ const AllVehicleCategoryContain = ({
           {type}
         </span>
 
-        <p className="flex gap-2 items-center mb-4">
-          <IoPeopleOutline className="opacity-50 text-xl" color="red" />
+        <p className="flex gap-2 items-center mb-4 text-green-600">
+          <IoPeopleOutline className="opacity-50 text-xl " color="red" />
           <span>{type === "Vans" ? "8-12" : "4-5"} People</span>
         </p>
 
-        <p className="flex gap-2 items-center mb-3">
+        <p className="flex gap-2 items-center mb-3 text-green-600">
           <IoBagOutline className="opacity-50 text-xl" color="red" />
           <span>{type === "Vans" ? "7-10" : "2-5"} Bags</span>
         </p>
@@ -33,7 +32,7 @@ const AllVehicleCategoryContain = ({
 
         <Link
           to={`${categoryName}`}
-          className="px-4 py-2 bg-red-700 text-white font-bold rounded-md hover:bg-red-100 hover:text-red-700 transition-all capitalize"
+          className="header_2 capitalize  text-sm text-white bg-red-500 py-1 px-4 rounded-lg hover:opacity-80 transition-all hover:bg-black hover:text-white"
         >
           View {categoryName}
         </Link>

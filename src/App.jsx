@@ -58,8 +58,12 @@ import ReviewsAndTouristicSitesPage from "./pages/ReviewsAndTouristicSitesPage";
 import RegisterAccount from "./components/Form/CreateAccountForm";
 // scroll all routes to the top when navigated
 import ScrollToTop from "./lib/ScrollToTop";
+// import { useMyContext } from "./AppContext";
 
 const App = () => {
+  // const { location } = useMyContext();
+  // console.log(location);
+
   return (
     <div>
       <BrowserRouter>
@@ -126,14 +130,82 @@ const App = () => {
             <Route path="view-car-fleet" element={<CarFleet />} />
 
             {/* //todo location */}
+            {/* //todo landham */}
             <Route path="Lanham-MD" element={<StartCarReservation />} />
+
+            <Route
+              path="Lanham-MD/all-vehicle-category"
+              element={<AllVehicleCategory />}
+            />
+
+            <Route
+              path="Lanham-MD/all-vehicle-category/:carsId"
+              element={<Vehicle />}
+            />
+
+            {/* //todo laurel-MD*/}
             <Route path="Laurel-MD" element={<StartCarReservation />} />
 
-            <Route path="clarksville-TN" element={<CLarksvilleTennessee />} />
+            <Route
+              path="Laurel-MD/all-vehicle-category"
+              element={<AllVehicleCategory />}
+            />
 
-            {/* <Route path="clarksville-TN/:id" element={<Vehicle />} />   */}
+            <Route
+              path="Laurel-MD/all-vehicle-category/:carsId"
+              element={<Vehicle />}
+            />
+
+            {/* <Route
+              path={`${location}/all-vehicle-category`}
+              element={<AllVehicleCategory />}
+            /> */}
+
+            {/* <Route
+              path={`${location}/all-vehicle-category/:carsId`}
+              element={<Vehicle />}
+            /> */}
+
+            {/* //todo clarksville-TN */}
+            <Route
+              path="clarksville-TN"
+              element={<CLarksvilleTennessee />}
+            ></Route>
+
+            <Route
+              path="clarksville-TN/all-vehicle-category"
+              element={<AllVehicleCategory />}
+            />
+            <Route
+              path="clarksville-TN/all-vehicle-category/:carsId"
+              element={<Vehicle />}
+            />
+
+            {/* //todo this is for clarksville-TN minnesota */}
             <Route path="bloomington-MT" element={<BloomingtonMinnesota />} />
+
+            <Route
+              path="bloomington-MT/all-vehicle-category"
+              element={<AllVehicleCategory />}
+            />
+
+            <Route
+              path="bloomington-MT/all-vehicle-category/:carsId"
+              element={<Vehicle />}
+            />
+
+            {/* //todo this is for woodbridge virginia */}
             <Route path="woodbridge-VA" element={<WoodbridgeVirginia />} />
+
+            <Route
+              path="woodbridge-VA/all-vehicle-category"
+              element={<AllVehicleCategory />}
+            />
+
+            <Route
+              path="woodbridge-VA/all-vehicle-category/:carsId"
+              element={<Vehicle />}
+            />
 
             {/* //todo learn */}
             {/* safety routes */}

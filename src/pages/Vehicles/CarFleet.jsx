@@ -50,7 +50,7 @@ const CarFleet = () => {
   //todo this is navigating to the all allVehicleCategory component
 
   function allVehicleCategory() {
-    navigate(`All-vehicle-category`);
+    navigate(`all-vehicle-category`);
   }
 
   var settings = {
@@ -102,7 +102,7 @@ const CarFleet = () => {
     ],
   };
 
-  // text-[#279142d7]
+
 
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });

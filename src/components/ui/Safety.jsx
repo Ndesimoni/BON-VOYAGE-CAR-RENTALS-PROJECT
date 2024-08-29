@@ -3,7 +3,7 @@ import { IoShieldOutline } from "react-icons/io5";
 
 function Safety() {
   return (
-    <div className="w-11/12 mx-auto text-lg">
+    <div className="w-[1200px] mx-auto text-lg">
       <div className="my-20 grid grid-cols-2 gap-10 items-center">
         <div>
           <h1 className="font-bold text-2xl mb-8 text-red-700">
