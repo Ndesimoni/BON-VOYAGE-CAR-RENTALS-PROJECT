@@ -155,14 +155,17 @@ const App = () => {
               path="Laurel-MD/all-vehicle-category/:carsId"
               element={<Vehicle />}
             />
+            {/* ///////////////////////////////////////////////////////// */}
+            {/* 
+            <Route path={`/${location}`} element={<StartCarReservation />} />
 
-            {/* <Route
-              path={`${location}/all-vehicle-category`}
+            <Route
+              path={`/${location}/all-vehicle-category`}
               element={<AllVehicleCategory />}
-            /> */}
+            />
 
-            {/* <Route
-              path={`${location}/all-vehicle-category/:carsId`}
+            <Route
+              path={`/${location}/all-vehicle-category/:carsId`}
               element={<Vehicle />}
             /> */}
 
@@ -180,6 +183,8 @@ const App = () => {
               path="clarksville-TN/all-vehicle-category/:carsId"
               element={<Vehicle />}
             />
+
+            {/* /////////////////////////////////////////////////////////// */}
 
             {/* //todo this is for clarksville-TN minnesota */}
             <Route path="bloomington-MT" element={<BloomingtonMinnesota />} />
