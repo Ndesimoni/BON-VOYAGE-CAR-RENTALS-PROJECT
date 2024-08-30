@@ -18,9 +18,14 @@ const Div = styled.div({
 const MenuNotOnScroll = () => {
   const [activeIndex, setActiveIndex] = useState(null);
 
+  const userEmail = localStorage.getItem("bonVoyageUserEmail");
+
   return (
     <ul className="relative flex gap-8">
-      <Link to="/sign-up">Register/Login</Link>
+      {
+        // we will still think on how to implement this sign up button.
+        !userEmail && <Link to="/sign-up">SignUp</Link>
+      }
 
       <NavBar_1_Items
         index={1}

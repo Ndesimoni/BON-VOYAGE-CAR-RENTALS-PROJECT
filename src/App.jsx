@@ -1,4 +1,5 @@
 //todo // package import
+
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 // useLocation
 //todo // component imports
@@ -55,27 +56,37 @@ import BookNow from "./pages/Vehicles/BookNow";
 
 import ReviewsAndTouristicSitesPage from "./pages/ReviewsAndTouristicSitesPage";
 
-import RegisterAccount from "./components/Form/CreateAccountForm";
 // scroll all routes to the top when navigated
 import ScrollToTop from "./lib/ScrollToTop";
-// import { useMyContext } from "./AppContext";
+import Login from "./components/ui/Login";
+import { GoogleOAuthProvider } from "@react-oauth/google";
 
 const App = () => {
-  // const { location } = useMyContext();
-  // console.log(location);
+  //code to import the client id from our .env file. Without this id, the google sign in will not work.
+
+  //this id must be kept secret because it can be used to log into your google account without your permission.
+
+  const clientID = import.meta.env.VITE_APP_CLIENT_ID;
 
   return (
     <div>
       <BrowserRouter>
         <ScrollToTop />
-
         <Routes>
-          <Route element={<AppLayOut />}>
-            {/* <Route index element={<Navigate replace to="/home" />} /> */}
-            {/* this are children nested routes */}
-            {/* <Route path="/home" element={<HomePage />} /> */}
+          <Route
+            element={
+              //providing our google auth provider to the entire application
+
+              // <GoogleOAuthProvider clientId="a clientId will be provided by google that we will use here. this id is private and should not be leaked to the browser">
+
+              // for now, the sign in will not work untill we specify our client id
+              <GoogleOAuthProvider clientId={clientID}>
+                <AppLayOut />
+              </GoogleOAuthProvider>
+            }
+          >
             <Route path="/" element={<HomePage />} />
-            <Route path="/sign-up" element={<RegisterAccount />} />
+            <Route path="/sign-up" element={<Login />} />
 
             {/* //todo //: route for navbar-_1 */}
             {/* routes for help */}

@@ -1,4 +1,12 @@
+import { useNavigate } from "react-router-dom";
+import DashboardHeading from "./DashboardHeading";
 import DashboardItems from "./DashboardItems";
+
+import { useEffect } from "react";
+import NoRentalActivity from "./ui/NoRentalActivity";
+
+//this is just a place value and will be replaced by the data coming from supabase
+const reservations = [];
 
 const data = [
   {
@@ -11,28 +19,34 @@ const data = [
   },
 ];
 function UserDashboard() {
-  const user = localStorage.getItem("userData");
+  //check if user email is stored in their local storage. if not, redirect them to the login page
+  const navigate = useNavigate();
 
-  if (!user)
-    return <p>You are not signed in. Sign in to see your rental activities</p>;
+  useEffect(() => {
+    const userEmail = localStorage.getItem("bonVoyageUserEmail");
+    if (userEmail) return;
+
+    //if there is no userEmail in our local storage, then we navigate to the login page where a user can then login
+    navigate("/login");
+  }, [navigate]);
+
+  //fetch user data from database based on login credentials
+
+  // if logged in, display list of rental activities else display protected dashboard component
+
   return (
-    <div className="p-4">
-      <h1 className="font-bold text-xl mb-4 text-red-500">
-        All My Rental Activities
-      </h1>
-
-      <ul className="grid grid-cols-[1fr_2fr_2fr_1fr_1fr_1fr] place-items-center mb-4">
-        <li className="capitalize font-semibold text-lg">car type</li>
-        <li className="capitalize font-semibold text-lg"> pick up location</li>
-        <li className="capitalize font-semibold text-lg"> dropOff location</li>
-        <li className="capitalize font-semibold text-lg"> pick up date</li>
-        <li className="capitalize font-semibold text-lg"> dropOff date</li>
-        <li className="capitalize font-semibold text-lg"> amount paid</li>
-      </ul>
-      {data.map((item, i) => (
-        <DashboardItems key={i} item={item} />
-      ))}
-    </div>
+    <>
+      {reservations.length ? (
+        <div className="p-4">
+          <DashboardHeading />
+          {data.map((item, i) => (
+            <DashboardItems key={i} item={item} />
+          ))}
+        </div>
+      ) : (
+        <NoRentalActivity />
+      )}
+    </>
   );
 }
 
