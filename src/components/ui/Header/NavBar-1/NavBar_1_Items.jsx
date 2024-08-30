@@ -11,7 +11,7 @@ const NavBar_1_Items = ({
 
   return (
     <>
-      <div>
+      <div className="z-[5]]">
         <div onClick={handleClick}>
           <h2>{H2}</h2>
         </div>

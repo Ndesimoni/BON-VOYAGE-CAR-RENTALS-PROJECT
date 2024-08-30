@@ -27,7 +27,7 @@ function Nav_2() {
         position: scrollDownValue && "fixed",
         width: "100%",
         top: "0",
-        zIndex: "100",
+        zIndex: "4",
       }}
       className="relative bg-black"
     >

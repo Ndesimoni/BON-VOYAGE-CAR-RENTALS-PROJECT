@@ -2,6 +2,12 @@ import styled from "styled-components";
 import NavBar_1_Items from "./NavBar_1_Items";
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
+import {
+  IoLogoFacebook,
+  IoLogoInstagram,
+  IoLogoLinkedin,
+  IoLogoTiktok,
+} from "react-icons/io5";
 
 const H4 = styled.h4({
   color: "red",
@@ -20,6 +26,18 @@ const MenuNotOnScroll = () => {
 
   return (
     <ul className="relative flex gap-8">
+      <div className="flex items-center gap-5">
+        <Link to="">
+          {" "}
+          <IoLogoFacebook />
+        </Link>
+        <IoLogoInstagram className="text-red-500" />
+        <IoLogoTiktok />
+
+        <Link to="https://www.linkedin.com/company/bon-voyage-car-rental/">
+          <IoLogoLinkedin />{" "}
+        </Link>
+      </div>
       <Link to="/sign-up">Register/Login</Link>
 
       <NavBar_1_Items

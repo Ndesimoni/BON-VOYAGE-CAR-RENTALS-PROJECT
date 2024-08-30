@@ -1,5 +1,10 @@
 import { Link } from "react-router-dom";
-import { IoLogoFacebook, IoLogoInstagram, IoLogoTiktok } from "react-icons/io5";
+import {
+  IoLogoFacebook,
+  IoLogoInstagram,
+  IoLogoLinkedin,
+  IoLogoTiktok,
+} from "react-icons/io5";
 import { handleScroll } from "./scroll";
 
 function Footer() {
@@ -125,10 +130,11 @@ function Footer() {
               Chetech.io
             </span>
           </p>
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-5">
             <IoLogoFacebook className="text-blue-500 " />
             <IoLogoInstagram className="text-red-500" />
             <IoLogoTiktok />
+            <IoLogoLinkedin className="text-blue-500" />
           </div>
         </div>
       </div>
