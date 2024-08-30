@@ -7,6 +7,7 @@ import { GoogleOAuthProvider } from "@react-oauth/google";
 // import AppTest from "./Test_PlayGround/AppTest";
 
 // this are global styles for
+const clientID = import.meta.env.VITE_GOOGLE_CLIENT;
 
 const GlobalStyles = styled.section({
   fontFamily: "roboto",
@@ -19,7 +20,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <GlobalStyles>
     {/* provide context all the app */}
     <ContextProvider>
-      <GoogleOAuthProvider clientId="916488120429-1jo4ipopp3k650lagv0oapgmoaerhnea.apps.googleusercontent.com">
+      <GoogleOAuthProvider clientId={clientID}>
         <App />
         {/* <AppTest /> */}
       </GoogleOAuthProvider>

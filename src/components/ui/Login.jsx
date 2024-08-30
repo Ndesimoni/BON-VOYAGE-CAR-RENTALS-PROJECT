@@ -36,24 +36,3 @@ function Login() {
 }
 
 export default Login;
-
-// import { GoogleLogin } from "@react-oauth/google";
-
-// const Login = () => {
-//   return (
-//     <div className="flex items-center justify-center h-[100vh]">
-//       <GoogleLogin
-//         onSuccess={(credentialResponse) => {
-//           console.log(credentialResponse);
-//         }}
-//         onError={() => {
-//           console.log("Login Failed");
-//         }}
-//       />
-
-//       <h1>google log in </h1>
-//     </div>
-//   );
-// };
-
-// export default Login;
