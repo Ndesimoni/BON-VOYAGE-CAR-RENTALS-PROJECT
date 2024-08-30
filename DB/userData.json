@@ -1,6 +1,52 @@
 {
-  "userDataMarryLand": [],
-  "userDataTennessee": [],
+  "userDataMarryLand": [
+    {
+      "id": "d7d5",
+      "firstName": "nde",
+      "lastName": "Simoni che",
+      "email": "ndesimoniche@gmail.com",
+      "phone": "0551906739",
+      "category": "SUVs",
+      "pickUpLocation": "9500 Good Luck Road MD 20707",
+      "pickUpDate": "2024-08-31",
+      "stateOfOperation": "marryland",
+      "dropOffLocation": "9500 Good Luck Road MD 20707",
+      "dropOffDate": "2024-08-31",
+      "IdCard": "[object FileList]",
+      "age": "20",
+      "termConditions": "true",
+      "type": "suv",
+      "image": "suv-3.jpg",
+      "description": "SUVs",
+      "name": "Chevrolet Captiva Sport",
+      "price": "80",
+      "paymentStatus": "PAY LATTER"
+    }
+  ],
+  "userDataTennessee": [
+    {
+      "id": "0a4c",
+      "firstName": "nde",
+      "lastName": "Simoni che",
+      "email": "ndesimoniche@gmail.com",
+      "phone": "0551906739",
+      "category": "SUVs",
+      "pickUpLocation": "9500 Good Luck Road MD 20707",
+      "pickUpDate": "2024-08-31",
+      "stateOfOperation": "tennessee",
+      "dropOffLocation": "9500 Good Luck Road MD 20707",
+      "dropOffDate": "2024-08-31",
+      "IdCard": "[object FileList]",
+      "age": "27",
+      "termConditions": "true",
+      "type": "suv",
+      "image": "suv-3.jpg",
+      "description": "SUVs",
+      "name": "Chevrolet Captiva Sport",
+      "price": "80",
+      "paymentStatus": "PAY LATTER"
+    }
+  ],
   "userDataMinnesota": [],
   "userDataVirginia": []
 }

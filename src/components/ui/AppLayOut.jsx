@@ -7,11 +7,14 @@ import { RiCustomerService2Line } from "react-icons/ri";
 import { useState } from "react";
 import Message from "./Message";
 import Footer from "./Footer/Footer";
+// import { GoogleOAuthProvider } from "@react-oauth/google";
 
 const AppLayOut = () => {
   const [showMessageForm, setShowMessageForm] = useState(false);
+  // const clientID = import.meta.env.VITE_APP_CLIENT_ID;
   return (
     <>
+      {/* <GoogleOAuthProvider clientId={clientID}> */}
       <Header />
 
       <main className="py-[.5px]  bg-slate-50">
@@ -41,6 +44,7 @@ const AppLayOut = () => {
         </div>
       </main>
       <Footer />
+      {/* </GoogleOAuthProvider> */}
     </>
   );
 };

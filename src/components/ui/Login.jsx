@@ -11,6 +11,7 @@ function Login() {
     if (userEmail) navigate("/dashboard");
   }, [navigate]);
 
+  //todo look at the testFolder and read my comment in it
   return (
     <div className="h-[80vh] flex items-center justify-center">
       <GoogleLogin
