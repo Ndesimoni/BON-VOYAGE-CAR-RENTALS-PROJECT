@@ -3,6 +3,7 @@ import App from "./App.jsx";
 import "./index.css";
 import styled from "styled-components";
 import { ContextProvider } from "./AppContext.jsx";
+import { GoogleOAuthProvider } from "@react-oauth/google";
 // import AppTest from "./Test_PlayGround/AppTest";
 
 // this are global styles for
@@ -18,8 +19,10 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <GlobalStyles>
     {/* provide context all the app */}
     <ContextProvider>
-      <App />
+      <GoogleOAuthProvider clientId="916488120429-1jo4ipopp3k650lagv0oapgmoaerhnea.apps.googleusercontent.com">
+        <App />
+        {/* <AppTest /> */}
+      </GoogleOAuthProvider>
     </ContextProvider>
-    {/* <AppTest /> */}
   </GlobalStyles>
 );
