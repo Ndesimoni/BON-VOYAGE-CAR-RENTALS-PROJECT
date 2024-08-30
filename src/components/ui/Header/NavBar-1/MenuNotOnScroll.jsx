@@ -24,8 +24,19 @@ const Div = styled.div({
 const MenuNotOnScroll = () => {
   const [activeIndex, setActiveIndex] = useState(null);
 
+  // const userEmail = localStorage.getItem("bonVoyageUserEmail");
+
   return (
     <ul className="relative flex gap-8">
+      {/* <<<<<<< HEAD
+=======
+      {/* <<<<<<< HEAD
+      {
+        // we will still think on how to implement this sign up button.
+        !userEmail && <Link to="/sign-up">SignUp</Link>
+      }
+======= */}
+
       <div className="flex items-center gap-5">
         <Link to="">
           {" "}
@@ -39,6 +50,7 @@ const MenuNotOnScroll = () => {
         </Link>
       </div>
       <Link to="/sign-up">Register/Login</Link>
+      {/* >>>>>>> 8305377 (added links to nav) */}
 
       <NavBar_1_Items
         index={1}
