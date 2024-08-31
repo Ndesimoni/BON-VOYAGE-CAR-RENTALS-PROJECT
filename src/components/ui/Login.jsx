@@ -2,6 +2,8 @@ import { GoogleLogin } from "@react-oauth/google";
 import { jwtDecode } from "jwt-decode";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+// import { useEffect } from "react";
+// import { useNavigate } from "react-router-dom";
 
 function Login() {
   const navigate = useNavigate();
@@ -26,7 +28,7 @@ function Login() {
           // we still store this email on our data base as we will use it anytime a user logs in on another device
 
           //as a user signs up, we navigate to the the user dashboard
-          navigate("/dashboard");
+          // navigate("/dashboard");
         }}
         onError={() => {
           console.log("Login Failed");
