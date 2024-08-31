@@ -59,14 +59,11 @@ import ReviewsAndTouristicSitesPage from "./pages/ReviewsAndTouristicSitesPage";
 // scroll all routes to the top when navigated
 import ScrollToTop from "./lib/ScrollToTop";
 import Login from "./components/ui/Login";
-import { GoogleOAuthProvider } from "@react-oauth/google";
 
 const App = () => {
   //code to import the client id from our .env file. Without this id, the google sign in will not work.
 
   //this id must be kept secret because it can be used to log into your google account without your permission.
-
-  const clientID = import.meta.env.VITE_APP_CLIENT_ID;
 
   return (
     <div>
@@ -80,9 +77,8 @@ const App = () => {
               // <GoogleOAuthProvider clientId="a clientId will be provided by google that we will use here. this id is private and should not be leaked to the browser">
 
               // for now, the sign in will not work untill we specify our client id
-              <GoogleOAuthProvider clientId={clientID}>
-                <AppLayOut />
-              </GoogleOAuthProvider>
+
+              <AppLayOut />
             }
           >
             <Route path="/" element={<HomePage />} />
