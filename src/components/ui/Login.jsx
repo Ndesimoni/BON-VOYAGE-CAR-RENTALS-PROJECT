@@ -1,7 +1,7 @@
 import { GoogleLogin } from "@react-oauth/google";
 import { jwtDecode } from "jwt-decode";
-import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+// import { useEffect } from "react";
+// import { useNavigate } from "react-router-dom";
 
 function Login() {
   const navigate = useNavigate();
