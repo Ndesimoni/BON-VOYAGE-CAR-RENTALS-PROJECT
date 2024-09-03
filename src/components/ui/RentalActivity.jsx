@@ -27,7 +27,11 @@ function RentalActivity({ data }) {
         <div className="grid grid-cols-2 gap-10 ">
           <ul className="flex flex-col gap-4">
             <li>
-              <span>name of vehicle: {data[activeIndex].name}</span>
+              <span>State {data[activeIndex].state}</span>
+            </li>
+
+            <li>
+              <span>name of vehicle: {data[activeIndex].carType}</span>
             </li>
 
             <li>
@@ -50,10 +54,10 @@ function RentalActivity({ data }) {
 
             <li>
               <span>drop off date</span>
-              <span>{data[activeIndex].DropOffDate}</span>
+              <span>{data[activeIndex].dropOffDate}</span>
             </li>
           </ul>
-          <img src={data[activeIndex].image} alt="car" />
+          <img src="car-1.jpg" alt="car" />
         </div>
       </div>
     </div>
