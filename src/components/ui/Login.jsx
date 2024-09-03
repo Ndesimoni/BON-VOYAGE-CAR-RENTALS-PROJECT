@@ -1,20 +1,34 @@
 import { GoogleLogin } from "@react-oauth/google";
 import { jwtDecode } from "jwt-decode";
+// <<<<<<< HEAD
 
 import { useNavigate } from "react-router-dom";
 import { createUser } from "../../lib/supabaseApi";
-import { useEffect } from "react";
+// import { useEffect } from "react";
+
+// function Login() {
+//   const navigate = useNavigate();
+
+//   const userCredentials = JSON.parse(localStorage.getItem("userCredentials"));
+
+//   useEffect(() => {
+//     //if user credentials is available in localStorage, then navigate to the dashboard
+//     if (userCredentials?.email && userCredentials?.name && userCredentials?.id)
+//       navigate("/dashboard");
+//   }, [navigate, userCredentials]);
+// =======
+// import { useEffect } from "react";
+// import { useNavigate } from "react-router-dom";
 
 function Login() {
+  // <<<<<<< HEAD
   const navigate = useNavigate();
-
-  const userCredentials = JSON.parse(localStorage.getItem("userCredentials"));
-
-  useEffect(() => {
-    //if user credentials is available in localStorage, then navigate to the dashboard
-    if (userCredentials?.email && userCredentials?.name && userCredentials?.id)
-      navigate("/dashboard");
-  }, [navigate, userCredentials]);
+  //   // localStorage.removeItem("bonVoyageUserEmail");
+  //   useEffect(() => {
+  //     const userEmail = localStorage.getItem("bonVoyageUserEmail");
+  //     //if there is no userEmail in our local storage, then we navigate to the dashboard page where a user sees their rental activities
+  //     if (userEmail) navigate("/dashboard");
+  //   }, [navigate]);
 
   //todo look at the testFolder and read my comment in it
   return (
