@@ -19,16 +19,8 @@ import TypesOfDealsOffered from "../components/Services/DealsOffered/TypesOfDeal
 import TypesOfDealContain from "../components/Services/DealsOffered/TypesOfDealContain";
 
 import MoreServices from "../components/Services/MoreServices";
-import { useQuery } from "@tanstack/react-query";
-import { getAllGuestReservations } from "../lib/supabaseApi";
 
 const HomePage = () => {
-  const data = useQuery({
-    queryKey: ["reservations"],
-    queryFn: getAllGuestReservations,
-  });
-  console.log(data);
-
   return (
     <div>
       {/* //todo this is the main image section in home page */}
