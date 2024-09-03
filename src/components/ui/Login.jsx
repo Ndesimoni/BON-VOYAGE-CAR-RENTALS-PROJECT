@@ -4,6 +4,16 @@ import { jwtDecode } from "jwt-decode";
 // import { useNavigate } from "react-router-dom";
 
 function Login() {
+  // <<<<<<< HEAD
+  //   const navigate = useNavigate();
+  //   // localStorage.removeItem("bonVoyageUserEmail");
+  //   useEffect(() => {
+  //     const userEmail = localStorage.getItem("bonVoyageUserEmail");
+  //     //if there is no userEmail in our local storage, then we navigate to the dashboard page where a user sees their rental activities
+  //     if (userEmail) navigate("/dashboard");
+  //   }, [navigate]);
+  // =======
+
   // const navigate = useNavigate();
   // useEffect(() => {
   //   const userEmail = localStorage.getItem("bonVoyageUserEmail");

@@ -1,21 +1,31 @@
 import { useNavigate } from "react-router-dom";
-import DashboardHeading from "./DashboardHeading";
-import DashboardItems from "./DashboardItems";
 
 import { useEffect } from "react";
 import NoRentalActivity from "./ui/NoRentalActivity";
+import RentalActivity from "./ui/RentalActivity";
 
 //this is just a place value and will be replaced by the data coming from supabase
-const reservations = [];
 
 const data = [
   {
-    carType: "mecerdes",
-    pickLocation: "7900 International Drive Suit 300 Bloomington MN 55425",
-    dropLocation: "7900 International Drive Suit 300 Bloomington MN 55425",
-    pickUp: "12 july 2024 ",
-    dropOff: "19 july 2024",
-    amount: 200,
+    name: "mecerdes",
+    pickUpLocation: "7900 International Drive Suit 300 Bloomington MN 55425",
+    dropOffLocation: "1959 for Campbell Blvd, #1 Clarksville, TN",
+    pickUpDate: "12 july 2024 ",
+    dropOffDate: "19 july 2024",
+    price: 200,
+    date: "1 sep 2024",
+    image: "car-1.jpg",
+  },
+  {
+    name: "hondai genesis black",
+    pickUpLocation: "9500 good luck road md 20707",
+    dropOffLocation: "7900 International Drive Suit 300 Bloomington MN 55425",
+    pickUpDate: "30 july 2024 ",
+    dropOffDate: "31 july 2024",
+    price: 200,
+    date: "1 sep 2024",
+    image: "car-2.jpg",
   },
 ];
 function UserDashboard() {
@@ -35,18 +45,7 @@ function UserDashboard() {
   // if logged in, display list of rental activities else display protected dashboard component
 
   return (
-    <>
-      {reservations.length ? (
-        <div className="p-4">
-          <DashboardHeading />
-          {data.map((item, i) => (
-            <DashboardItems key={i} item={item} />
-          ))}
-        </div>
-      ) : (
-        <NoRentalActivity />
-      )}
-    </>
+    <>{data.length ? <RentalActivity data={data} /> : <NoRentalActivity />}</>
   );
 }
 

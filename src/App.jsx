@@ -1,8 +1,9 @@
-//todo // package import
+//imports for react query
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-// useLocation
-//todo // component imports
+
 import CLarksvilleTennessee from "./pages/Location/CLarksVilleTennessee";
 import BloomingtonMinnesota from "./pages/Location/BloomingtonMinnesota";
 import WoodbridgeVirginia from "./pages/Location/WoodBridgeVirginia";
@@ -60,13 +61,16 @@ import ReviewsAndTouristicSitesPage from "./pages/ReviewsAndTouristicSitesPage";
 import ScrollToTop from "./lib/ScrollToTop";
 import Login from "./components/ui/Login";
 
+// DO NOT MOVE THE CODE RELATED TO THE REACT QUERY INTO THE MAIN FILE
+const queryClient = new QueryClient();
 const App = () => {
   //code to import the client id from our .env file. Without this id, the google sign in will not work.
 
   //this id must be kept secret because it can be used to log into your google account without your permission.
 
   return (
-    <div>
+    <QueryClientProvider client={queryClient}>
+      <ReactQueryDevtools initialIsOpen={false} />
       <BrowserRouter>
         <ScrollToTop />
         <Routes>
@@ -303,7 +307,7 @@ const App = () => {
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </BrowserRouter>
-    </div>
+    </QueryClientProvider>
   );
 };
 
