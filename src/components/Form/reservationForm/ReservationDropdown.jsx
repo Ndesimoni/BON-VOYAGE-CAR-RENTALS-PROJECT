@@ -4,8 +4,6 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { useMyContext } from "../../../AppContext";
 
-// import { useNavigate } from "react-router-dom";
-
 //todo this are styles
 export const InputStyles = styled.input({
   border: "1px solid #d2d2d2",
@@ -45,19 +43,24 @@ export const Label = styled.label({
 
 function ReservationDropdown() {
   const { register, handleSubmit, formState } = useForm();
-  const { setReservationFormInfo } = useMyContext();
-  const { isLoading, setIsLoading } = useMyContext();
+  const { setReservationFormInfo, bookAsGuest } = useMyContext();
+
+  localStorage.setItem(
+    "userCredentials",
+    JSON.stringify({
+      name: "Nde simoni",
+      email: "Ndesimoniche@gmail.com",
+      id: 14,
+    })
+  );
+
   const { errors } = formState;
   const navigate = useNavigate();
 
   const submitFormInputField = (data) => {
-    setIsLoading(true);
-    const formData = data;
-    navigate(`/All-vehicle-category/${data.category}`, { state: formData });
-    //When a user fills the form and submits, we setReservationFormInfo to our data coming from the form submission
-    //if the reservationFormInfo = {},then it means user did not fill the form, so we will now use this condition to build our BookNow page.
-    setReservationFormInfo(data);
-    setIsLoading(true);
+    navigate(`/All-vehicle-category/${data.category}`, { state: data });
+
+    setReservationFormInfo({ ...data, bookAsGuest });
   };
 
   const errorState = (error) => {
@@ -66,77 +69,74 @@ function ReservationDropdown() {
 
   return (
     <div className="flex text-lg mx-1 absolute justify-center z-10">
-      {/* //todo this is the form starting */}
       <form
         onSubmit={handleSubmit(submitFormInputField, errorState)}
         className=" gap-10 px-4 py-6 text-lg bg-slate-50 w-[912px] border rounded-b-lg"
         id="form"
       >
-        {/* //todo this is the names */}
+        {bookAsGuest ? (
+          <>
+            <SectionStyle className=" flex justify-between ">
+              <ItemStyle>
+                <Label>First Name: </Label>
+                <InputStyles
+                  type="text"
+                  placeholder="First Name"
+                  {...register("firstName", {
+                    required: {
+                      value: true,
+                      message: "this field is required",
+                    },
+                  })}
+                />
+                <p className="text-red-500">
+                  {errors?.firstName && errors?.firstName?.message}
+                </p>
+              </ItemStyle>
 
-        <SectionStyle className=" flex justify-between ">
-          {/* this is for first name */}
-          <ItemStyle>
-            <Label>First Name: </Label>
-            <InputStyles
-              type="text"
-              placeholder="First Name"
-              {...register("firstName", {
-                required: {
-                  value: true,
-                  message: "this field is required",
-                },
-              })}
-            />
-            <p className="text-red-500">
-              {errors?.firstName && errors?.firstName?.message}
-            </p>
-          </ItemStyle>
+              <ItemStyle>
+                <Label>Last Name: </Label>
+                <InputStyles
+                  type="text"
+                  placeholder="Last Name"
+                  {...register("lastName", {
+                    required: {
+                      value: true,
+                      message: "this field is required",
+                    },
+                  })}
+                />
+                <p className="text-red-500">
+                  {errors?.lastName && errors?.lastName?.message}
+                </p>
+              </ItemStyle>
+            </SectionStyle>
 
-          {/* this is for last name */}
-          <ItemStyle>
-            <Label>Last Name: </Label>
-            <InputStyles
-              type="text"
-              placeholder="Last Name"
-              {...register("lastName", {
-                required: {
-                  value: true,
-                  message: "this field is required",
-                },
-              })}
-            />
-            <p className="text-red-500">
-              {errors?.lastName && errors?.lastName?.message}
-            </p>
-          </ItemStyle>
-        </SectionStyle>
+            <SectionStyle>
+              <ItemStyle>
+                <Label>Email: </Label>
+                <InputStylesEmail
+                  id="email"
+                  type="text"
+                  placeholder="boyz@email.com"
+                  className="w-full"
+                  {...register("email", {
+                    require: "this field is required",
+                    pattern: {
+                      value:
+                        /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
+                      message: "email not valid, input a valid email ",
+                    },
+                  })}
+                />
+                <p className="text-red-500">
+                  {errors?.email && errors?.email?.message}
+                </p>
+              </ItemStyle>
+            </SectionStyle>
+          </>
+        ) : null}
 
-        {/* //todo this is the email */}
-        <SectionStyle>
-          <ItemStyle>
-            <Label>Email: </Label>
-            <InputStylesEmail
-              id="email"
-              type="text"
-              placeholder="boyz@email.com"
-              className="w-full"
-              {...register("email", {
-                require: "this field is required",
-                pattern: {
-                  value:
-                    /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
-                  message: "email not valid, input a valid email ",
-                },
-              })}
-            />
-            <p className="text-red-500">
-              {errors?.email && errors?.email?.message}
-            </p>
-          </ItemStyle>
-        </SectionStyle>
-
-        {/* //todo this is the phone number and Type of car  */}
         <SectionStyle className="flex justify-between mt-3">
           {/* this is for phone number */}
           <ItemStyle>
@@ -182,7 +182,6 @@ function ReservationDropdown() {
             </p>
           </ItemStyle>
         </SectionStyle>
-
         {/* //todo this is the location  and dates  */}
         <SectionStyle
           className="flex  flex-row justify-between mt-3"
@@ -311,7 +310,6 @@ function ReservationDropdown() {
             </ItemStyle>
           </div>
         </SectionStyle>
-
         <div className="mb-3">
           <ItemStyle className="p-2">
             <p className="text-base p-1">Id Card:</p>
@@ -330,7 +328,6 @@ function ReservationDropdown() {
             {errors?.IdCard && errors?.IdCard?.message}
           </p>
         </div>
-
         <div className="mb-4">
           <ItemStyle className="p-2">
             <p className="text-base p-1">Age:</p>
@@ -351,7 +348,6 @@ function ReservationDropdown() {
             </p>
           </ItemStyle>
         </div>
-
         <div className=" ml-3 flex align-center gap-2">
           <div>
             <input
@@ -374,11 +370,9 @@ function ReservationDropdown() {
             conditions
           </Label>
         </div>
-
         <SectionStyle>
           <ItemStyle>
             <button
-              disabled={isLoading}
               type="submit"
               className=" bg-red-600 text-white px-3 py-[1px] uppercase hover:bg-stone-900  hover:text-white transition-all mr-auto rounded-md mt-3"
             >

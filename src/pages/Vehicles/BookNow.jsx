@@ -19,7 +19,7 @@ function BookNow() {
           <>
             <ChosenCarDetails reservationDetails={reservationDetails} />
 
-            {(reservationDetails.firstName && (
+            {(reservationDetails.IdCard && (
               <CarDetailsFormFilled reservationDetails={reservationDetails} />
             )) || (
               <CarDetailsFormNotFilled

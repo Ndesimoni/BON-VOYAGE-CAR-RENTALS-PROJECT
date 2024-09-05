@@ -20,16 +20,20 @@ const ReservationForm = () => {
   const [showInformation, setShowInformation] = useState(false);
   const navigate = useNavigate();
   const [searchCar, setSearchCar] = useState("");
+
+  const userCredentials = JSON.parse(localStorage.getItem("userCredentials"));
+
   // coming from custom hook
-  const { location } = useMyContext();
+  const { location, setBookAsGuest, bookAsGuest } = useMyContext();
   function handleClick(e) {
     const closestParent = e.target.closest("form");
     if (closestParent?.id === "form") return;
     setShowReservationForm(false);
   }
-
+  console.log(bookAsGuest);
   function GuestReservation() {
     setShowReservationForm(true);
+    setBookAsGuest(true);
   }
 
   useEffect(() => {
@@ -67,6 +71,7 @@ const ReservationForm = () => {
           </span>
         </motion.span>
       </h1>
+
       <label className="flex items-center justify-between ">
         <p
           ref={ref}
@@ -82,9 +87,11 @@ const ReservationForm = () => {
         id=""
         className="w-full h-10 border-gray-200 border placeholder:pl-4 px-5 appearance-none"
         type="text"
+        role="button"
         placeholder="Click here to start a reservation"
         onClick={() => {
           setShowReservationForm(true);
+          setBookAsGuest(userCredentials ? false : true);
         }}
       />
 
@@ -113,6 +120,7 @@ const ReservationForm = () => {
             <CiCircleQuestion
               size={20}
               color="green"
+              role="button"
               onClick={onHandleInformation}
             />
           </div>

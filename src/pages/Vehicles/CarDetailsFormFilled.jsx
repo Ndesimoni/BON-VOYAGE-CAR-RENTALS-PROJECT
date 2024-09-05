@@ -1,8 +1,10 @@
 import styled from "styled-components";
-import { useMyContext } from "../../AppContext";
-import bookAndPayLatterNotFillAtStart from "../../lib/bookAndPayLatterNotFillAtStart";
-import { useNavigate } from "react-router-dom";
+
 import { ItemStyle } from "../../components/Form/reservationForm/ReservationDropdown";
+import { useMutation } from "@tanstack/react-query";
+import { createReservation } from "../../lib/supabaseApi";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 export const UserDetailStyle = styled.span({
   textTransform: "capitalize",
@@ -23,41 +25,52 @@ export const CarInfoDetails = styled.div({
 });
 
 const CarDetailsFormFilled = ({ reservationDetails }) => {
-  //now we need the users details and we just immediately destructure them
-  const { setIsLoading } = useMyContext();
   const navigate = useNavigate();
 
-  const finalReservationDetailsPLusPaymentStatus = {
-    ...reservationDetails,
-    paymentStatus: "PAY LATTER",
-  };
+  //getting user credentials from localStorage if they are signed in already
+  const userCredentials = JSON.parse(localStorage.getItem("userCredentials"));
 
-  const submitForm = (e) => {
-    e.preventDefault();
+  // making a reservation
+  //condition checks if user is booking as a guest.
 
-    // const BookingDetailsToBePayedLetter = {
-    //   ...carDetails,
-    //   paymentStatus: "PAY LATTER",
-    // };
+  // if true, then means there is no user in our database with this credentials, so we set the reservationId to null
 
-    //we are already in a submit handler which runs after our submit button is clicked.
+  // if user is not a guest, then get the id from local storage.
 
-    //no need to pass in the navigate function and the setIsLoading() function as arguments into the bookAndPayLaterNotFillAtStart() function
+  // we store this reservationDetails state in the url and  and all state in the url is stored as a string. So we need to convert this state back to a boolean
+  const guest = reservationDetails.bookAsGuest === "false" ? false : true;
 
-    // this just makes your code more complex and difficult for other developers to read
+  const reservationId = guest ? null : userCredentials?.id;
 
-    //We will need to pass ony the carDetails data into the bookAndPayLaterNotFilledAtStart() function which will be sent to the data base
+  const { mutate, data, isPending } = useMutation({
+    mutationFn: () =>
+      createReservation({
+        ...reservationDetails,
+        bookAsGuest: guest,
+        reservationId,
+      }),
 
-    // we will then use a remote state library like rect query to handle database operations since this is a real world project
+    onSuccess: () => {
+      Swal.fire({
+        title: "Booking successful",
+        text: "Thanks for trusting bon voyage car rentals 😊",
+        icon: "success",
+        confirmButtonColor: "green",
+      }).then(() => navigate("/", { replace: true }));
+    },
 
-    bookAndPayLatterNotFillAtStart(
-      finalReservationDetailsPLusPaymentStatus,
-      setIsLoading,
-      navigate
-    );
-    console.log(finalReservationDetailsPLusPaymentStatus);
-    console.log("yooooo man ");
-  };
+    onError: (err) => {
+      Swal.fire({
+        text: err.message,
+        icon: "error",
+        color: "red",
+        confirmButtonColor: "red",
+      }).then(() => {
+        navigate("/", { replace: true });
+      });
+    },
+  });
+  console.log(data);
 
   return (
     <div className="border p-3">
@@ -68,16 +81,22 @@ const CarDetailsFormFilled = ({ reservationDetails }) => {
         please check if your booking information is correct ?
       </h2>
 
-      {/* >>>>>>> uptodate */}
       <div className="py-2 px-3 ">
         <CarInfoDetails>
           name:{" "}
           <UserDetailStyle>
-            {reservationDetails.firstName} {reservationDetails.lastName}
+            {reservationDetails.bookAsGuest
+              ? userCredentials.name
+              : `${reservationDetails.firstName} ${reservationDetails.lastName}`}
           </UserDetailStyle>
         </CarInfoDetails>
         <CarInfoDetails>
-          Email: <UserDetailStyle>{reservationDetails.email}</UserDetailStyle>{" "}
+          Email:{" "}
+          <UserDetailStyle>
+            {reservationDetails.bookAsGuest
+              ? userCredentials.email
+              : reservationDetails.email}
+          </UserDetailStyle>{" "}
         </CarInfoDetails>
         <CarInfoDetails>
           contact: <UserDetailStyle>{reservationDetails.phone}</UserDetailStyle>
@@ -100,11 +119,15 @@ const CarDetailsFormFilled = ({ reservationDetails }) => {
         </CarInfoDetails>
         <CarInfoDetails>
           Pickup Date:
-          <UserDetailStyle>{reservationDetails.pickUpDate}</UserDetailStyle>
+          <UserDetailStyle>
+            {new Date(reservationDetails.pickUpDate).toDateString()}
+          </UserDetailStyle>
         </CarInfoDetails>
         <CarInfoDetails>
           DropOff Date:
-          <UserDetailStyle>{reservationDetails.dropOffDate}</UserDetailStyle>
+          <UserDetailStyle>
+            {new Date(reservationDetails.dropOffDate).toDateString()}
+          </UserDetailStyle>
         </CarInfoDetails>
       </div>
 
@@ -116,8 +139,13 @@ const CarDetailsFormFilled = ({ reservationDetails }) => {
         </ItemStyle>
 
         <ItemStyle>
-          <button onClick={submitForm} className="booking_btn" type="submit">
-            book & pay later
+          <button
+            disabled={isPending}
+            onClick={mutate}
+            className="booking_btn"
+            type="submit"
+          >
+            {isPending ? "booking..." : "book & pay later"}
           </button>
         </ItemStyle>
       </div>

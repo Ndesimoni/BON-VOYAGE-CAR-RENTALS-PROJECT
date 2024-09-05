@@ -6,7 +6,7 @@ const AppContext = createContext();
 //we will provide this variables to our entire application
 function ContextProvider({ children }) {
   const [reservationFormInfo, setReservationFormInfo] = useState({});
-  const [isLoading, setIsLoading] = useState();
+  const [bookAsGuest, setBookAsGuest] = useState(false);
   const [scrollValueUp, setScrollValueUp] = useState(false);
   const [heroSection, setHeroSection] = useState(true);
   const [location, setLocation] = useState(false);
@@ -16,16 +16,16 @@ function ContextProvider({ children }) {
     <AppContext.Provider
       value={{
         reservationFormInfo,
-        setReservationFormInfo,
-        isLoading,
-        setIsLoading,
+        bookAsGuest,
         heroSection,
-        setHeroSection,
         scrollValueUp,
-        setScrollValueUp,
         location,
-        setLocation,
         scrollDownValue,
+        setReservationFormInfo,
+        setBookAsGuest,
+        setHeroSection,
+        setScrollValueUp,
+        setLocation,
         setScrollDownValue,
       }}
     >

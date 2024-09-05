@@ -44,12 +44,16 @@ function RentalActivity({ data }) {
             </li>
             <li>
               <span>drop off Location: </span>
-              <span>{data[activeIndex].dropOffLocation}</span>
+              <span>
+                {new Date(data[activeIndex].dropOffLocation).toDateString()}
+              </span>
             </li>
 
             <li>
               <span>pick up date: </span>
-              <span>{data[activeIndex].pickUpDate}</span>
+              <span>
+                {new Date(data[activeIndex].pickUpDate).toDateString()}
+              </span>
             </li>
 
             <li>

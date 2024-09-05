@@ -12,26 +12,20 @@ function UserDashboard() {
   //reading user data from localStorage
   const userCredentials = JSON.parse(localStorage.getItem("userCredentials"));
 
-  //fetch user data from database based on login credentials
-  const { data, isLoading, isFetching, isError, error } = useQuery({
-    queryKey: ["userReservations"],
+  //fetch user reservations from database based on login credentials
+  const { data, isLoading, isError } = useQuery({
+    queryKey: ["signedInReservations"],
     queryFn: () => getUserReservations(userCredentials.id),
   });
 
+  //checking for our signed up user details from our local storage
   useEffect(() => {
-    //checking for our signed up user details from our local storage
-    if (userCredentials?.email && userCredentials?.name && userCredentials?.id)
-      return;
-
-    //if the above condition is false, user navigates to sign-up page so they can create an account
-    navigate("/sign-up");
+    if (!userCredentials?.email) return navigate("/sign-up");
   }, [navigate, userCredentials]);
 
-  if (isLoading && isFetching) return <p>Loading...</p>;
+  if (isLoading) return <p>Loading...</p>;
 
-  if (isLoading && !isFetching) return <p>No internet connection</p>;
-
-  if (isError) return <p>{error}</p>;
+  if (isError) return <p>there was an error</p>;
 
   return (
     <>{data.length ? <RentalActivity data={data} /> : <NoRentalActivity />}</>
