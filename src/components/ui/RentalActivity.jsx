@@ -3,7 +3,6 @@ import ActivityList from "./ActivityList";
 
 function RentalActivity({ data }) {
   const [activeIndex, setActiveIndex] = useState(0);
-  console.log(setActiveIndex);
 
   return (
     <div className="mx-auto w-11/12 py-10">
