@@ -5,39 +5,33 @@ function RentalActivity({ data }) {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <div className="flex justify-center items-center">
-      <div>
-        <h1 className=" text-green-700 font-bold mb-4 text-xl">
-          Rental activities
-        </h1>
+    <div className="mx-auto w-11/12 py-10">
+      <h1 className=" text-green-700 font-bold mb-4 text-xl">
+        Rental activities
+      </h1>
 
-        <div className="grid grid-cols-[.3fr_1fr] gap-10">
-          <div>
-            {data.map((el, i) => (
-              <ActivityList
-                activity={el}
-                key={i}
-                setActiveIndex={setActiveIndex}
-                activeIndex={activeIndex}
-                index={i}
-              />
-            ))}
-          </div>
+      <div className="grid grid-cols-[.3fr_1fr] gap-10">
+        <div>
+          {data.map((el, i) => (
+            <ActivityList
+              activity={el}
+              key={i}
+              setActiveIndex={setActiveIndex}
+              activeIndex={activeIndex}
+              index={i}
+            />
+          ))}
+        </div>
 
-          <ul className="flex flex-row gap-4">
-            <div>
-              <li className="text-green-700 font-bold mb-4 text-sm border text-center px-2 border-green-600">
-                car name:
-              </li>
-              <span className=" text-lime-950"> {data[activeIndex].name}</span>
-            </div>
+        <div className="grid grid-cols-2 gap-10 ">
+          <ul className="flex flex-col gap-4">
+            <li>
+              <span>State {data[activeIndex].state}</span>
+            </li>
 
-            <div>
-              <li className="text-green-700 font-bold mb-4 text-sm border text-center px-2 border-green-600">
-                price:
-              </li>
-              <span>${data[activeIndex].price}</span>
-            </div>
+            <li>
+              <span>name of vehicle: {data[activeIndex].carType}</span>
+            </li>
 
             <li>
               <span>price: ${data[activeIndex].price}</span>
@@ -61,31 +55,12 @@ function RentalActivity({ data }) {
               </span>
             </li>
 
-            <div>
-              <li className="text-green-700  font-bold mb-4 text-sm border text-center px-2 border-green-600">
-                <span>drop off date</span>
-              </li>
-              <span>{data[activeIndex].DropOffDate}</span>
-            </div>
-
-            <div>
-              <li className="text-green-700 font-bold mb-4 text-sm border text-center px-2 border-green-600">
-                <span>pick up Location: </span>
-              </li>
-              <span>{data[activeIndex].pickUpLocation}</span>
-            </div>
-
-            <div>
-              <li className="text-green-700 font-bold mb-4 text-sm border text-center px-2 border-green-600">
-                <span>drop off Location: </span>
-              </li>
-              <span>{data[activeIndex].dropOffLocation}</span>
-            </div>
-
-            <div>
-              <img src={data[activeIndex].image} alt="car" />
-            </div>
+            <li>
+              <span>drop off date</span>
+              <span>{data[activeIndex].dropOffDate}</span>
+            </li>
           </ul>
+          <img src="car-1.jpg" alt="car" />
         </div>
       </div>
     </div>
