@@ -41,7 +41,7 @@ const MenuNotOnScroll = () => {
         </Link>
       </div>
       {userCredentials?.email ? (
-        <Link to="/dashboard">activities</Link>
+        <Link to="/dashboard">Activities</Link>
       ) : (
         <Link to="/sign-up">Register/Login</Link>
       )}

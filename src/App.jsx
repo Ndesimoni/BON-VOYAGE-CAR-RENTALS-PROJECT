@@ -64,13 +64,27 @@ import Login from "./components/ui/Login";
 // DO NOT MOVE THE CODE RELATED TO THE REACT QUERY INTO THE MAIN FILE
 const queryClient = new QueryClient();
 const App = () => {
+  //code to import the client id from our .env file. Without this id, the google sign in will not work.
+
+  //this id must be kept secret because it can be used to log into your google account without your permission.
+
   return (
     <QueryClientProvider client={queryClient}>
       <ReactQueryDevtools initialIsOpen={false} />
       <BrowserRouter>
         <ScrollToTop />
         <Routes>
-          <Route element={<AppLayOut />}>
+          <Route
+            element={
+              //providing our google auth provider to the entire application
+
+              // <GoogleOAuthProvider clientId="a clientId will be provided by google that we will use here. this id is private and should not be leaked to the browser">
+
+              // for now, the sign in will not work untill we specify our client id
+
+              <AppLayOut />
+            }
+          >
             <Route path="/" element={<HomePage />} />
             <Route path="/sign-up" element={<Login />} />
 

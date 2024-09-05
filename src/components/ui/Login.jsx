@@ -6,6 +6,8 @@ import { createUser, getUser } from "../../lib/supabaseApi";
 import { useEffect } from "react";
 
 function Login() {
+  // <<<<<<< HEAD
+
   const navigate = useNavigate();
 
   // if user is in localStorage, then navigate to the dashboard
@@ -13,6 +15,7 @@ function Login() {
     const userData = JSON.parse(localStorage.getItem("userCredentials"));
     if (userData?.email) navigate("/dashboard");
   }, [navigate]);
+
   return (
     <div className="h-[80vh] flex items-center justify-center">
       <GoogleLogin
