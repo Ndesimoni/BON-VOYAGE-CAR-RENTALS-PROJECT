@@ -11,7 +11,7 @@ function ActivityList({ activity, index, setActiveIndex, activeIndex }) {
       onClick={handleActiveIndex}
     >
       <CiCalendar className="text-xl" />
-      <p>{activity.created_at}</p>
+      <p>{new Date(activity.created_at).toDateString()}</p>
     </div>
   );
 }
