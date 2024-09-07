@@ -3,7 +3,8 @@ import ActivityList from "./ActivityList";
 
 function RentalActivity({ data }) {
   const [activeIndex, setActiveIndex] = useState(0);
-  console.log(setActiveIndex);
+  // console.log(data[activeIndex].pickUpDate);
+  console.log(data[activeIndex]);
 
   return (
     <div className="flex justify-center items-center">
@@ -30,7 +31,10 @@ function RentalActivity({ data }) {
               <li className="text-green-700 font-bold mb-4 text-sm border text-center px-2 border-green-600">
                 car name:
               </li>
-              <span className=" text-lime-950"> {data[activeIndex].name}</span>
+              <span className=" text-lime-950">
+                {" "}
+                {data[activeIndex].carType}
+              </span>
             </div>
 
             <div>
@@ -51,7 +55,7 @@ function RentalActivity({ data }) {
               <li className="text-green-700  font-bold mb-4 text-sm border text-center px-2 border-green-600">
                 <span>drop off date</span>
               </li>
-              <span>{data[activeIndex].DropOffDate}</span>
+              <span>{data[activeIndex].dropOffDate}</span>
             </div>
 
             <div>
