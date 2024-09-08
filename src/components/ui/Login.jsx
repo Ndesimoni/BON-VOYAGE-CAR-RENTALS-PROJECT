@@ -6,8 +6,6 @@ import { createUser, getUser } from "../../lib/supabaseApi";
 import { useEffect } from "react";
 
 function Login() {
-  // <<<<<<< HEAD
-
   const navigate = useNavigate();
 
   // if user is in localStorage, then navigate to the dashboard
