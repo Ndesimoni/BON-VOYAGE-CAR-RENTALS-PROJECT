@@ -127,9 +127,7 @@ const CarDetailsFormNotFilled = ({ reservationDetails }) => {
         </ItemStyle>
       </SectionStyle>
 
-      {/* //todo this is the phone number and Type of car  */}
       <SectionStyle className="flex justify-between mt-3">
-        {/* this is for phone number */}
         <ItemStyle>
           <Label>Phone:</Label>
           <InputStyles
@@ -155,10 +153,7 @@ const CarDetailsFormNotFilled = ({ reservationDetails }) => {
         id="select-box"
       >
         <div>
-          {/* this is for pick up location */}
           <ItemStyle>
-            <Label>choose Pick-up Location</Label>
-
             <Select
               {...register("pickUpLocation", {
                 required: {
@@ -167,6 +162,7 @@ const CarDetailsFormNotFilled = ({ reservationDetails }) => {
                 },
               })}
             >
+              <option value="">Choose a pick up location</option>
               <option>9500 Good Luck Road MD 20707</option>
               <option>
                 7900 International Drive Suit 300 Bloomington MN 55425
@@ -199,10 +195,8 @@ const CarDetailsFormNotFilled = ({ reservationDetails }) => {
           </ItemStyle>
         </div>
 
-        {/* this is for drop off */}
         <div>
           <ItemStyle>
-            <Label>Choose Drop Off Location</Label>
             <Select
               {...register("dropOffLocation", {
                 required: {
@@ -211,6 +205,7 @@ const CarDetailsFormNotFilled = ({ reservationDetails }) => {
                 },
               })}
             >
+              <option value="">Choose a drop off location</option>
               <option>9500 Good Luck Road MD 20707</option>
 
               <option>
@@ -249,22 +244,25 @@ const CarDetailsFormNotFilled = ({ reservationDetails }) => {
 
       <div className="mb-3">
         <ItemStyle className="p-2">
-          <p className="text-base p-1">Id Card:</p>
+          <label className="text-base mr-2">Id Card:</label>
           <input
-            type="file"
-            className=" text-sm "
-            {...register("IdCard", {
-              required: {
-                value: true,
-                message: "this field is required",
+            type="text"
+            className=" text-base border px-1 py-2 focus:outline-none"
+            placeholder="55555-9999-4444"
+            {...register("userNationalId", {
+              required: "this field is required",
+              pattern: {
+                value: /^\d{5,}$/,
+                message: "invalid national Id ",
               },
             })}
           />
-          <p className="text-red-500">
-            {errors?.IdCard && errors?.IdCard?.message}
-          </p>
         </ItemStyle>
+        <p className="text-red-500">
+          {errors?.userNationalId && errors?.userNationalId?.message}
+        </p>
       </div>
+
       <div className="mb-4">
         <ItemStyle className="p-2">
           <p className="text-base p-1">Age:</p>

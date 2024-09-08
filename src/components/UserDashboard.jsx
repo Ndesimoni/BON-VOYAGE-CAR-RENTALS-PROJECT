@@ -1,10 +1,10 @@
 import { useNavigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
-import { useEffect } from "react";
 
 import NoRentalActivity from "./ui/NoRentalActivity";
 import RentalActivity from "./ui/RentalActivity";
 import { getUserReservations } from "../lib/supabaseApi";
+import Loading from "./ui/Reuseable_Ui/Loading";
 
 function UserDashboard() {
   const navigate = useNavigate();
@@ -14,16 +14,14 @@ function UserDashboard() {
 
   //fetch user reservations from database based on login credentials
   const { data, isLoading, isError } = useQuery({
-    queryKey: ["signedInReservations"],
-    queryFn: () => getUserReservations(userCredentials.id),
+    queryKey: ["userReservations"],
+    queryFn: () => {
+      if (!userCredentials?.email) return navigate("/sign-up");
+      return getUserReservations(userCredentials.id);
+    },
   });
 
-  //checking for our signed up user details from our local storage
-  useEffect(() => {
-    if (!userCredentials?.email) return navigate("/sign-up");
-  }, [navigate, userCredentials]);
-
-  if (isLoading) return <p>Loading...</p>;
+  if (isLoading) return <Loading />;
 
   if (isError) return <p>there was an error</p>;
 

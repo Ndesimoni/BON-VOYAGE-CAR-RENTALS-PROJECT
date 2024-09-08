@@ -1,13 +1,8 @@
 import { IoBagOutline, IoPeopleOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
 
-const AllVehicleCategoryContain = ({
-  type,
-  categoryName,
-  description,
-  carImage,
-  id,
-}) => {
+const AllVehicleCategoryContain = ({ data, id }) => {
+  const { type, categoryName, description, carImage } = data;
   return (
     <div
       className="grid grid-cols-2 items-center justify-between mb-2 text-lg "

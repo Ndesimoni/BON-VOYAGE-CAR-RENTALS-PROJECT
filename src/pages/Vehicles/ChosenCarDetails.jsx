@@ -16,18 +16,17 @@ export const CarInfo = styled.div({
 
 const ChosenCarDetails = ({ reservationDetails }) => {
   //we just immediately destructure the properties that we need from our updated object
-  const { image, name, price, type } = reservationDetails;
-  console.log(name, price, type);
+  const { image, name, price, description } = reservationDetails;
 
   return (
     //todo the corresponded will be match
     <div className="flex items-start flex-col">
-      <img src={`/${image}`} alt={name} />
+      <img src={image} alt={name} />
 
       <CarInfo>
         <CarDetails>name : {name}</CarDetails>
         <CarDetails>price:{price}</CarDetails>
-        <CarDetails>type : {type}</CarDetails>
+        <CarDetails>type : {description}</CarDetails>
       </CarInfo>
     </div>
   );

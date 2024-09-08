@@ -1,7 +1,6 @@
 import { CarFleetSVGs } from "../../../DB/Local_Data_Base";
 import { useNavigate } from "react-router-dom";
 import { useMyContext } from "../../AppContext";
-// import { SlArrowLeft } from "react-icons/sl";
 import { SlArrowLeft, SlArrowRight } from "react-icons/sl";
 
 import Slider from "react-slick";
@@ -102,8 +101,6 @@ const CarFleet = () => {
     ],
   };
 
-
-
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
@@ -113,11 +110,9 @@ const CarFleet = () => {
       style={motionVariants(isInView, "translateX(-20px)")}
       className=" mt-10 mb-20"
     >
-      <div className="flex justify-center items-center">
-        <h2 className="header_2 mt-3 text-green-600  capitalize text-2xl">
-          Meet The Fleet
-        </h2>
-      </div>
+      <h2 className="header_2 mt-3 text-green-600  capitalize text-2xl  text-center">
+        Meet The Fleet
+      </h2>
 
       <Slider {...settings}>
         {CarFleetSVGs.map((items, index) => (
@@ -151,7 +146,7 @@ const CarFleet = () => {
           onClick={allVehicleCategory}
           className="header_2 capitalize  text-sm text-white bg-red-500 py-1 px-4 rounded-lg hover:opacity-80 transition-all hover:bg-black hover:text-white"
         >
-          <h2> View all Vehicle</h2>
+          View all Vehicle
         </button>
       </motion.div>
     </motion.div>

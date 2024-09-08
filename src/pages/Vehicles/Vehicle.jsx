@@ -1,12 +1,20 @@
-import { vehicleCategory } from "../../../DB/Local_Data_Base";
 import { useParams } from "react-router-dom";
 
 import SingleTextImageView from "../../components/ui/Reuseable_Ui/SingleTextImageView";
 import VehicleContain from "./VehicleContain";
+import { useQuery } from "@tanstack/react-query";
+import { getAllCars } from "../../lib/supabaseApi";
+import Loading from "../../components/ui/Reuseable_Ui/Loading";
 
 function Vehicle() {
   const { carsId: incomingPath } = useParams();
 
+  const { data: vehicleCategory, isLoading } = useQuery({
+    queryKey: ["cars"],
+    queryFn: getAllCars,
+  });
+
+  if (isLoading) return <Loading />;
   return (
     <>
       <SingleTextImageView image="url(/help.jpg)">

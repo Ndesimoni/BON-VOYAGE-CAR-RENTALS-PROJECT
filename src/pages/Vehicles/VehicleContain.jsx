@@ -2,21 +2,18 @@ import { createSearchParams, useNavigate } from "react-router-dom";
 import { useMyContext } from "../../AppContext";
 
 const VehicleContain = ({ car }) => {
-  const { reservationFormInfo, setReservationFormInfo } = useMyContext();
+  const { reservationFormInfo } = useMyContext();
   const navigate = useNavigate();
 
+  const newCar = {
+    name: car.name,
+    price: car.price,
+    description: car.description,
+    image: car.image,
+  };
+
   function handleBooking() {
-    //we are updating the state of our reservationFormInfo with our selected car object.
-
-    //this update is based on our current form state.
-
-    // we ddo this update based on current state because we are going to need this data in the bookNow component to display our current vehicle image and the users form credentials
-
-    const confirmReservationDetails = { ...reservationFormInfo, ...car };
-
-    setReservationFormInfo((curInfo) => {
-      return { ...curInfo, ...car };
-    });
+    const confirmReservationDetails = { ...reservationFormInfo, ...newCar };
 
     navigate({
       pathname: `/book-now/${car.description.replace(" ", "-")}`,
@@ -27,11 +24,11 @@ const VehicleContain = ({ car }) => {
   return (
     <div className="shadow-lg relative">
       <div className="overflow-hidden">
-        <img src={`/${car.image}`} alt={car.name} />
+        <img src={car.image} alt={car.name} />
       </div>
       <p className="text-lg font-bold my-4 ml-4">{car.name}</p>
 
-      {car.price > 100 && <p className="italic mb-4 ml-4">{car.description}</p>}
+      <p className="italic mb-4 ml-4">{car.description}</p>
 
       <p className="ml-4 mb-16 ">
         <strong>${car.price}</strong>

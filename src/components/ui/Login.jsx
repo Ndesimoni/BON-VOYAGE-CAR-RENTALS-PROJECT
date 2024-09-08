@@ -35,7 +35,7 @@ function Login() {
 
           //if no user with this email, create a new user
           const [user] = await createUser({ email, name });
-          console.log(user);
+
           localStorage.setItem("userCredentials", JSON.stringify(user));
           navigate("/dashboard");
         }}

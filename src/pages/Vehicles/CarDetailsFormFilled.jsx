@@ -1,10 +1,6 @@
 import styled from "styled-components";
 
 import { ItemStyle } from "../../components/Form/reservationForm/ReservationDropdown";
-import { useMutation } from "@tanstack/react-query";
-import { createReservation } from "../../lib/supabaseApi";
-import Swal from "sweetalert2";
-import { useNavigate } from "react-router-dom";
 
 export const UserDetailStyle = styled.span({
   textTransform: "capitalize",
@@ -24,53 +20,9 @@ export const CarInfoDetails = styled.div({
   fontFamily: "roboto",
 });
 
-const CarDetailsFormFilled = ({ reservationDetails }) => {
-  const navigate = useNavigate();
-
-  //getting user credentials from localStorage if they are signed in already
+const CarDetailsFormFilled = ({ reservationDetails, mutate }) => {
+  // //getting user credentials from localStorage if they are signed in already
   const userCredentials = JSON.parse(localStorage.getItem("userCredentials"));
-
-  // making a reservation
-  //condition checks if user is booking as a guest.
-
-  // if true, then means there is no user in our database with this credentials, so we set the reservationId to null
-
-  // if user is not a guest, then get the id from local storage.
-
-  // we store this reservationDetails state in the url and  and all state in the url is stored as a string. So we need to convert this state back to a boolean
-  const guest = reservationDetails.bookAsGuest === "false" ? false : true;
-
-  const reservationId = guest ? null : userCredentials?.id;
-
-  const { mutate, data, isPending } = useMutation({
-    mutationFn: () =>
-      createReservation({
-        ...reservationDetails,
-        bookAsGuest: guest,
-        reservationId,
-      }),
-
-    onSuccess: () => {
-      Swal.fire({
-        title: "Booking successful",
-        text: "Thanks for trusting bon voyage car rentals 😊",
-        icon: "success",
-        confirmButtonColor: "green",
-      }).then(() => navigate("/", { replace: true }));
-    },
-
-    onError: (err) => {
-      Swal.fire({
-        text: err.message,
-        icon: "error",
-        color: "red",
-        confirmButtonColor: "red",
-      }).then(() => {
-        navigate("/", { replace: true });
-      });
-    },
-  });
-  console.log(data);
 
   return (
     <div className="border p-3">
@@ -139,13 +91,8 @@ const CarDetailsFormFilled = ({ reservationDetails }) => {
         </ItemStyle>
 
         <ItemStyle>
-          <button
-            disabled={isPending}
-            onClick={mutate}
-            className="booking_btn"
-            type="submit"
-          >
-            {isPending ? "booking..." : "book & pay later"}
+          <button onClick={mutate} className="booking_btn" type="submit">
+            book & pay later
           </button>
         </ItemStyle>
       </div>
