@@ -513,98 +513,112 @@ export const carTypeCategory = [
 export const vehicleCategory = [
   {
     type: "car",
-    image: "car-1.jpg",
+    image:
+      "https://suucgaxzlsmlnwvsuukw.supabase.co/storage/v1/object/public/bon-voyage-images/cars/car-1.jpg?t=2024-09-07T19%3A24%3A58.089Z",
     name: "Hyundai Genesis Black",
     price: 120,
   },
 
   {
     type: "car",
-    image: "car-2.jpg",
+    image:
+      "https://suucgaxzlsmlnwvsuukw.supabase.co/storage/v1/object/public/bon-voyage-images/cars/car-2.jpg?t=2024-09-07T19%3A25%3A29.380Z",
     description: "Luxury-Cars",
     name: "Chevrolet Camaro Convertible Yellow",
     price: 150,
   },
   {
     type: "car",
-    image: "car-3.jpg",
+    image:
+      "https://suucgaxzlsmlnwvsuukw.supabase.co/storage/v1/object/public/bon-voyage-images/cars/car-3.jpg?t=2024-09-07T19%3A26%3A00.869Z",
     description: "SUVs",
     name: "Hyundai Genesis White",
     price: 120,
   },
   {
     type: "car",
-    image: "car-4.jpg",
+    image:
+      "https://suucgaxzlsmlnwvsuukw.supabase.co/storage/v1/object/public/bon-voyage-images/cars/car-4.jpg?t=2024-09-07T19%3A26%3A11.159Z",
     description: "Standard-Cars",
     name: "Suzuki Kizashi Silver",
     price: 70,
   },
   {
     type: "car",
-    image: "car-5.jpg",
+    image:
+      "https://suucgaxzlsmlnwvsuukw.supabase.co/storage/v1/object/public/bon-voyage-images/cars/car-5.jpg?t=2024-09-07T19%3A26%3A19.724Z",
     description: "Standard-Cars",
     name: "Subaru Legacy Premium",
     price: 70,
   },
   {
     type: "car",
-    image: "car-13.jpg",
+    image:
+      "https://suucgaxzlsmlnwvsuukw.supabase.co/storage/v1/object/public/bon-voyage-images/cars/car-6.jpg?t=2024-09-07T19%3A26%3A28.744Z",
     description: "Economy-Cars",
     name: "Toyota Corolla White",
     price: 80,
   },
   {
     type: "suv",
-    image: "suv-2.jpg",
+    image:
+      "https://suucgaxzlsmlnwvsuukw.supabase.co/storage/v1/object/public/bon-voyage-images/cars/suv-2.jpg?t=2024-09-07T19%3A26%3A47.597Z",
     name: "Dodge Grand Caravan Red",
     description: "Economy-Cars",
     price: 100,
   },
   {
     type: "suv",
-    image: "suv-3.jpg",
+    image:
+      "https://suucgaxzlsmlnwvsuukw.supabase.co/storage/v1/object/public/bon-voyage-images/cars/suv-3.jpg?t=2024-09-07T19%3A28%3A12.869Z",
     description: "SUVs",
     name: "Chevrolet Captiva Sport",
     price: 80,
   },
   {
     type: "car",
-    image: "car-14.jpg",
+    image:
+      "https://suucgaxzlsmlnwvsuukw.supabase.co/storage/v1/object/public/bon-voyage-images/cars/suv-14.jpg?t=2024-09-07T19%3A28%3A38.843Z",
     description: "SUVs",
     name: "Chevrolet Sonic Ltz",
     price: 70,
   },
   {
     type: "suv",
-    image: "suv-5.jpg",
+    image:
+      "https://suucgaxzlsmlnwvsuukw.supabase.co/storage/v1/object/public/bon-voyage-images/cars/suv-5.jpg?t=2024-09-07T19%3A28%3A58.312Z",
     description: "SUVs",
     name: "Dodge Journey Black",
     price: 80,
   },
   {
     type: "suv",
-    image: "suv-6.jpg",
+    image:
+      "https://suucgaxzlsmlnwvsuukw.supabase.co/storage/v1/object/public/bon-voyage-images/cars/suv-6.jpg?t=2024-09-07T19%3A29%3A12.537Z",
     description: "Luxury-Cars",
     name: "Dodge Journey Red",
     price: 80,
   },
   {
     type: "car",
-    image: "car-15.jpg",
+    image:
+      "https://suucgaxzlsmlnwvsuukw.supabase.co/storage/v1/object/public/bon-voyage-images/cars/car-15.jpg?t=2024-09-07T19%3A31%3A54.504Z",
     description: "Luxury-Cars",
     name: "Toyota Corolla Black",
     price: 120,
   },
   {
     type: "suv",
-    image: "suv-8.jpg",
+    image:
+      "https://suucgaxzlsmlnwvsuukw.supabase.co/storage/v1/object/public/bon-voyage-images/cars/suv-8.jpg?t=2024-09-07T19%3A29%3A50.932Z",
     description: "Luxury-Cars",
     name: "Mercedes MI350 Red",
     price: 180,
   },
   {
     type: "car",
-    image: "car-6.jpg",
+    image:
+      "https://suucgaxzlsmlnwvsuukw.supabase.co/storage/v1/object/public/bon-voyage-images/cars/car-6.jpg?t=2024-09-07T19%3A26%3A28.744Z",
     description: "Standard-Cars",
     name: "Hyundai Elantra Grey",
     price: 80,
@@ -612,35 +626,40 @@ export const vehicleCategory = [
 
   {
     type: "car",
-    image: "car-7.jpg",
+    image:
+      "https://suucgaxzlsmlnwvsuukw.supabase.co/storage/v1/object/public/bon-voyage-images/cars/car-7.jpg?t=2024-09-07T19%3A32%3A10.934Z",
     description: "Premium-Cars",
     name: "Mustang Premium",
     price: 100,
   },
   {
     type: "car",
-    image: "car-8.jpg",
+    image:
+      "https://suucgaxzlsmlnwvsuukw.supabase.co/storage/v1/object/public/bon-voyage-images/cars/car-8.jpg?t=2024-09-07T19%3A32%3A24.098Z",
     description: "Luxury-Cars",
     name: "SXT Dodge Charger",
     price: 120,
   },
   {
     type: "suv",
-    image: "suv-9.jpg",
+    image:
+      "https://suucgaxzlsmlnwvsuukw.supabase.co/storage/v1/object/public/bon-voyage-images/cars/suv-9.jpg?t=2024-09-07T19%3A32%3A40.711Z",
     description: "SUVs",
     name: "Ford Escape Sport",
     price: 80,
   },
   {
     type: "car",
-    image: "car-9.jpg",
+    image:
+      "https://suucgaxzlsmlnwvsuukw.supabase.co/storage/v1/object/public/bon-voyage-images/cars/car-9.jpg?t=2024-09-07T19%3A33%3A43.500Z",
     description: "Premium-Cars",
     name: "SXT Dodge Challenger",
     price: 150,
   },
   {
     type: "suv",
-    image: "suv-10.jpg",
+    image:
+      "https://suucgaxzlsmlnwvsuukw.supabase.co/storage/v1/object/public/bon-voyage-images/cars/suv-10.jpg?t=2024-09-07T19%3A34%3A16.100Z",
     description: "luxury SUVs",
     name: "Mercedes Gle black",
     price: 200,
@@ -648,7 +667,8 @@ export const vehicleCategory = [
 
   {
     type: "suv",
-    image: "suv-11.jpg",
+    image:
+      "https://suucgaxzlsmlnwvsuukw.supabase.co/storage/v1/object/public/bon-voyage-images/cars/suv-11.jpg?t=2024-09-07T19%3A34%3A26.050Z",
     description: "luxury SUVs",
     name: "Mercedes Gle White",
     price: 160,
@@ -656,49 +676,56 @@ export const vehicleCategory = [
 
   {
     type: "car",
-    image: "car-10.jpg",
+    image:
+      "https://suucgaxzlsmlnwvsuukw.supabase.co/storage/v1/object/public/bon-voyage-images/cars/car-10.jpg?t=2024-09-07T19%3A34%3A45.429Z",
     description: "Economy-Cars",
     name: "Toyota Camry Black",
     price: 89,
   },
   {
     type: "car",
-    image: "car-11.jpg",
+    image:
+      "https://suucgaxzlsmlnwvsuukw.supabase.co/storage/v1/object/public/bon-voyage-images/cars/car-11.jpg",
     description: "Standard-Cars",
     name: "Buick Lacrosse Black",
     price: 140,
   },
   {
     type: "car",
-    image: "car-12.jpg",
+    image:
+      "https://suucgaxzlsmlnwvsuukw.supabase.co/storage/v1/object/public/bon-voyage-images/cars/car-12.jpg?t=2024-09-07T19%3A35%3A10.475Z",
     description: "luxury SUVs",
     name: "Chrysler 300 Silver",
     price: 140,
   },
   {
     type: "suv",
-    image: "suv-12.jpg",
+    image:
+      "https://suucgaxzlsmlnwvsuukw.supabase.co/storage/v1/object/public/bon-voyage-images/cars/suv-12.jpg?t=2024-09-07T19%3A35%3A36.739Z",
     description: "Luxury-Cars",
     name: "Ford Focus Black",
     price: 70,
   },
   {
     type: "truck",
-    image: "truck-1.jpg",
+    image:
+      "https://suucgaxzlsmlnwvsuukw.supabase.co/storage/v1/object/public/bon-voyage-images/cars/truck-1.jpg?t=2024-09-07T19%3A35%3A49.120Z",
     description: "Trucks",
     name: "Dodge Dakota Red",
     price: 100,
   },
   {
     type: "suv",
-    image: "suv-13.jpg",
+    image:
+      "https://suucgaxzlsmlnwvsuukw.supabase.co/storage/v1/object/public/bon-voyage-images/cars/suv-13.jpg?t=2024-09-07T19%3A36%3A07.404Z",
     name: "Nissan Rogue White",
     description: "SUVs",
     price: 80,
   },
   {
     type: "car",
-    image: "car-16.jpg",
+    image:
+      "https://suucgaxzlsmlnwvsuukw.supabase.co/storage/v1/object/public/bon-voyage-images/cars/car-16.jpg?t=2024-09-07T19%3A37%3A16.131Z",
     description: "Economy-Cars",
     name: "Toyota Venza",
     price: 75,

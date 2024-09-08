@@ -23,45 +23,46 @@ function RentalActivity({ data }) {
           ))}
         </div>
 
-        <div className="grid grid-cols-2 gap-10 ">
-          <ul className="flex flex-col gap-4">
-            <li>
-              <span>State {data[activeIndex].stateOfOperation}</span>
+        <ul className="flex flex-row gap-4">
+          <div>
+            <li className="text-green-700 font-bold mb-4 text-sm border text-center px-2 border-green-600">
+              car name:
             </li>
+            <span className=" text-lime-950"> {data[activeIndex].carType}</span>
+          </div>
 
-            <li>
-              <span>name of vehicle: {data[activeIndex].carType}</span>
-            </li>
-
-            <li>
-              <span>price: ${data[activeIndex].price}</span>
-            </li>
-
-            <li>
-              <span>pick up Location: </span>
-              <span>{data[activeIndex].pickUpLocation}</span>
-            </li>
-            <li>
-              <span>drop off Location: </span>
-              <span>{data[activeIndex].dropOffLocation}</span>
-            </li>
-
-            <li>
+          <div>
+            <li className="text-green-700 font-bold mb-4 text-sm border text-center px-2 border-green-600">
               <span>pick up date: </span>
-              <span>
-                {new Date(data[activeIndex].pickUpDate).toDateString()}
-              </span>
             </li>
+            <span>{data[activeIndex].pickUpDate}</span>
+          </div>
 
-            <li>
+          <div>
+            <li className="text-green-700  font-bold mb-4 text-sm border text-center px-2 border-green-600">
               <span>drop off date</span>
-              <span>
-                {new Date(data[activeIndex].dropOffDate).toDateString()}
-              </span>
             </li>
-          </ul>
-          <img src="car-1.jpg" alt="car" />
-        </div>
+            <span>{data[activeIndex].dropOffDate}</span>
+          </div>
+
+          <div>
+            <li className="text-green-700 font-bold mb-4 text-sm border text-center px-2 border-green-600">
+              <span>pick up Location: </span>
+            </li>
+            <span>{data[activeIndex].pickUpLocation}</span>
+          </div>
+
+          <div>
+            <li className="text-green-700 font-bold mb-4 text-sm border text-center px-2 border-green-600">
+              <span>drop off Location: </span>
+            </li>
+            <span>{data[activeIndex].dropOffLocation}</span>
+          </div>
+
+          <div>
+            <img src={data[activeIndex].image} alt="car" />
+          </div>
+        </ul>
       </div>
     </div>
   );

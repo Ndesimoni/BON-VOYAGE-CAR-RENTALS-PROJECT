@@ -33,7 +33,7 @@ export async function getUserReservations(userId) {
   const { data, error } = await supabase
     .from("userReservations")
     .select("*")
-    .eq("reservationId", userId);
+    .eq("userReservationId", userId);
 
   if (error) throw new Error("unable to find user reservations");
   return data;
@@ -43,12 +43,15 @@ function createReservationObj(obj) {
   const {
     dropOffDate,
     name: carType,
-    reservationId,
+    userReservationId,
     pickUpDate,
     price,
     pickUpLocation,
     dropOffLocation,
     stateOfOperation,
+    isPaid,
+    image,
+    userNationalId,
   } = obj;
 
   //converting dates to the format supported by our database
@@ -58,12 +61,15 @@ function createReservationObj(obj) {
   return {
     dropOffDate: drop,
     carType,
-    reservationId: +reservationId || null,
+    userReservationId: +userReservationId || null,
     pickUpDate: pick,
     price: Number(price),
     pickUpLocation,
     dropOffLocation,
     stateOfOperation,
+    isPaid,
+    image,
+    userNationalId,
   };
 }
 
@@ -71,12 +77,19 @@ function createReservationObj(obj) {
 export async function createReservation(reservationObj) {
   //refactoring the reservationObj to createReservationObj to keep our code clean
   const dataObj = createReservationObj(reservationObj);
+  console.log(dataObj);
+  // const { data, error } = await supabase
+  //   .from("userReservations")
+  //   .insert([dataObj])
+  //   .select("*");
 
-  const { data, error } = await supabase
-    .from("userReservations")
-    .insert([dataObj])
-    .select("*");
+  // if (error) throw new Error("unable to make reservation");
+  // return data;
+}
 
-  if (error) throw new Error("unable to make reservation");
+export async function getAllCars() {
+  const { data, error } = await supabase.from("cars").select("*");
+
+  if (error) throw new Error("unable to fetch vehicle data");
   return data;
 }

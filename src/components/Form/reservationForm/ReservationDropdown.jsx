@@ -42,17 +42,8 @@ export const Label = styled.label({
 });
 
 function ReservationDropdown() {
-  const { register, handleSubmit, formState } = useForm();
+  const { register, handleSubmit, formState, reset } = useForm();
   const { setReservationFormInfo, bookAsGuest } = useMyContext();
-
-  localStorage.setItem(
-    "userCredentials",
-    JSON.stringify({
-      name: "Nde simoni",
-      email: "Ndesimoniche@gmail.com",
-      id: 14,
-    })
-  );
 
   const { errors } = formState;
   const navigate = useNavigate();
@@ -61,6 +52,8 @@ function ReservationDropdown() {
     navigate(`/All-vehicle-category/${data.category}`, { state: data });
 
     setReservationFormInfo({ ...data, bookAsGuest });
+
+    reset();
   };
 
   const errorState = (error) => {
@@ -163,8 +156,6 @@ function ReservationDropdown() {
           {/* this is for Type of car */}
 
           <ItemStyle>
-            <Label>choose a vehicle category</Label>
-            {/* <Label>Vehicle Category</Label> */}
             <Select
               {...register("category", {
                 required: {
@@ -173,6 +164,7 @@ function ReservationDropdown() {
                 },
               })}
             >
+              <option value="">choose a vehicle category</option>
               {carMakeList.map((items, index) => (
                 <option key={index}>{items.category}</option>
               ))}
@@ -188,10 +180,7 @@ function ReservationDropdown() {
           id="select-box"
         >
           <div>
-            {/* this is for pick up location */}
             <ItemStyle>
-              <Label>Choose a Pick-up Location</Label>
-
               <Select
                 {...register("pickUpLocation", {
                   required: {
@@ -200,9 +189,7 @@ function ReservationDropdown() {
                   },
                 })}
               >
-                {/* <option value="" disabled selected hidden>
-                  Choose a pick up location...
-                </option> */}
+                <option value="">Choose a pick-up location</option>
                 <option>9500 Good Luck Road MD 20707</option>
                 <option>
                   7900 International Drive Suit 300 Bloomington MN 55425
@@ -239,8 +226,6 @@ function ReservationDropdown() {
 
             {/* this is for pick up location */}
             <ItemStyle>
-              <Label> Choose a State of operation</Label>
-
               <Select
                 {...register("stateOfOperation", {
                   required: {
@@ -249,6 +234,7 @@ function ReservationDropdown() {
                   },
                 })}
               >
+                <option value=""> chose a state of operation</option>
                 <option value="marryland"> marryland</option>
                 <option value="minnesota"> minnesota</option>
                 <option value="tennessee"> tennessee</option>
@@ -264,7 +250,6 @@ function ReservationDropdown() {
           {/* this is for drop off */}
           <div>
             <ItemStyle>
-              <Label>Choose a Drop Off Location</Label>
               <Select
                 {...register("dropOffLocation", {
                   required: {
@@ -273,6 +258,7 @@ function ReservationDropdown() {
                   },
                 })}
               >
+                <option value="">Choose drop off location</option>
                 <option>9500 Good Luck Road MD 20707</option>
 
                 <option>
@@ -310,24 +296,30 @@ function ReservationDropdown() {
             </ItemStyle>
           </div>
         </SectionStyle>
+
         <div className="mb-3">
           <ItemStyle className="p-2">
-            <p className="text-base p-1">Id Card:</p>
+            <label className="text-base mr-2">Id Card:</label>
             <input
-              type="file"
-              className=" text-sm "
-              {...register("IdCard", {
-                required: {
-                  value: true,
-                  message: "this field is required",
+              type="text"
+              className=" text-base border px-1 py-2 focus:outline-none"
+              placeholder="55555-9999-4444"
+              {...register("userNationalId", {
+                required: "this field is required",
+                pattern: {
+                  //regex for US id.
+                  //eg: 5555-4563-3423
+                  value: /^\d{5}-\d{4}-\d{4}$/,
+                  message: "invalid national Id ",
                 },
               })}
             />
           </ItemStyle>
           <p className="text-red-500">
-            {errors?.IdCard && errors?.IdCard?.message}
+            {errors?.userNationalId && errors?.userNationalId?.message}
           </p>
         </div>
+
         <div className="mb-4">
           <ItemStyle className="p-2">
             <p className="text-base p-1">Age:</p>
