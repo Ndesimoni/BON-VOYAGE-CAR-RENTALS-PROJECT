@@ -3,8 +3,8 @@ import styled from "styled-components";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { useMyContext } from "../../../AppContext";
+import { SECONDS } from "../../../lib/constants";
 
-const SECONDS = 86400000;
 //todo this are styles
 export const InputStyles = styled.input({
   border: "1px solid #d2d2d2",

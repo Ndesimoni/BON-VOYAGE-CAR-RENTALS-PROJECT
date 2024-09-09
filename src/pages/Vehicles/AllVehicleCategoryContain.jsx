@@ -2,7 +2,8 @@ import { IoBagOutline, IoPeopleOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
 
 const AllVehicleCategoryContain = ({ data, id }) => {
-  const { type, categoryName, description, carImage } = data;
+  const { type, title, description, carImage } = data;
+  console.log(data);
   return (
     <div
       className="grid grid-cols-2 items-center justify-between mb-2 text-lg "
@@ -26,10 +27,10 @@ const AllVehicleCategoryContain = ({ data, id }) => {
         <p className="mb-8">{description}</p>
 
         <Link
-          to={`${categoryName}`}
+          to={`${title}`}
           className="header_2 capitalize  text-sm text-white bg-red-500 py-1 px-4 rounded-lg hover:opacity-80 transition-all hover:bg-black hover:text-white"
         >
-          View {categoryName}
+          View {title}
         </Link>
       </div>
 

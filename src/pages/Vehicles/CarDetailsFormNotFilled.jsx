@@ -8,8 +8,7 @@ import {
   Select,
 } from "../../components/Form/reservationForm/ReservationDropdown";
 import { useSearchParams } from "react-router-dom";
-
-const SECONDS = 86400000;
+import { SECONDS } from "../../lib/constants";
 
 const CarDetailsFormNotFilled = ({ reservationDetails }) => {
   //use the useSearchParams() hook provided by react-router-dom  to update our url
@@ -20,7 +19,6 @@ const CarDetailsFormNotFilled = ({ reservationDetails }) => {
   const { errors } = formState;
 
   function handleFormSubmit(data) {
-    console.log(new Date(data.pickUpDate));
     //we get the data from the form, and the carDs, the we reconstruct this into a single object.
     const newUrl = { ...data, ...reservationDetails };
 
