@@ -32,9 +32,13 @@ export const sendEmail = async (reservationInfo) => {
   };
 
   //todo  API request to email
-  await axios.post(
-    "https://api.emailjs.com/api/v1.0/email/send",
-    JSON.stringify(sendDataToEmail),
-    { headers: { "Content-Type": "application/json" } }
-  );
+  try {
+    await axios.post(
+      "https://api.emailjs.com/api/v1.0/email/send",
+      JSON.stringify(sendDataToEmail),
+      { headers: { "Content-Type": "application/json" } }
+    );
+  } catch (err) {
+    console.log(err);
+  }
 };

@@ -9,15 +9,18 @@ import {
 } from "../../components/Form/reservationForm/ReservationDropdown";
 import { useSearchParams } from "react-router-dom";
 
+const SECONDS = 86400000;
+
 const CarDetailsFormNotFilled = ({ reservationDetails }) => {
   //use the useSearchParams() hook provided by react-router-dom  to update our url
   //This method takes in an object with key value pairs of the search params that we want to set in the url.
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const { register, handleSubmit, formState } = useForm();
+  const { register, handleSubmit, formState, getValues } = useForm();
   const { errors } = formState;
 
   function handleFormSubmit(data) {
+    console.log(new Date(data.pickUpDate));
     //we get the data from the form, and the carDs, the we reconstruct this into a single object.
     const newUrl = { ...data, ...reservationDetails };
 
@@ -131,7 +134,7 @@ const CarDetailsFormNotFilled = ({ reservationDetails }) => {
         <ItemStyle>
           <Label>Phone:</Label>
           <InputStyles
-            type="number"
+            type="tel"
             placeholder="000 000 000"
             {...register("phone", {
               required: "This field is required",
@@ -229,10 +232,12 @@ const CarDetailsFormNotFilled = ({ reservationDetails }) => {
             <InputStyles
               type="date"
               {...register("dropOffDate", {
-                required: {
-                  value: true,
-                  message: "this field is required",
-                },
+                required: "This field is required",
+                validate: (value) =>
+                  (new Date(value).getTime() -
+                    new Date(getValues().pickUpDate).getTime()) /
+                    SECONDS <=
+                    0 && "drop off date cant't be a day before pickup date",
               })}
             />
             <p className="text-red-500">
@@ -252,7 +257,9 @@ const CarDetailsFormNotFilled = ({ reservationDetails }) => {
             {...register("userNationalId", {
               required: "this field is required",
               pattern: {
-                value: /^\d{5,}$/,
+                //regex for US id.
+                //eg: 5555-4563-3423
+                value: /^\d{5}-\d{4}-\d{4}$/,
                 message: "invalid national Id ",
               },
             })}

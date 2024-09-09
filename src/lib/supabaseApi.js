@@ -77,14 +77,14 @@ function createReservationObj(obj) {
 export async function createReservation(reservationObj) {
   //refactoring the reservationObj to createReservationObj to keep our code clean
   const dataObj = createReservationObj(reservationObj);
-  console.log(dataObj);
-  // const { data, error } = await supabase
-  //   .from("userReservations")
-  //   .insert([dataObj])
-  //   .select("*");
 
-  // if (error) throw new Error("unable to make reservation");
-  // return data;
+  const { data, error } = await supabase
+    .from("userReservations")
+    .insert([dataObj])
+    .select("*");
+
+  if (error) throw new Error("unable to make reservation");
+  return data;
 }
 
 export async function getAllCars() {

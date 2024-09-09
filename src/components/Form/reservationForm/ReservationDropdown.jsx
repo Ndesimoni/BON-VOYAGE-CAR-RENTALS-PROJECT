@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { useMyContext } from "../../../AppContext";
 
+const SECONDS = 86400000;
 //todo this are styles
 export const InputStyles = styled.input({
   border: "1px solid #d2d2d2",
@@ -42,8 +43,9 @@ export const Label = styled.label({
 });
 
 function ReservationDropdown() {
-  const { register, handleSubmit, formState, reset } = useForm();
   const { setReservationFormInfo, bookAsGuest } = useMyContext();
+
+  const { register, handleSubmit, formState, reset, getValues } = useForm();
 
   const { errors } = formState;
   const navigate = useNavigate();
@@ -136,7 +138,7 @@ function ReservationDropdown() {
             <Label>Phone:</Label>
 
             <InputStyles
-              type="number"
+              type="tel"
               placeholder="000 000 000"
               {...register("phone", {
                 required: "This field is required",
@@ -284,10 +286,12 @@ function ReservationDropdown() {
               <InputStyles
                 type="date"
                 {...register("dropOffDate", {
-                  required: {
-                    value: true,
-                    message: "this field is required",
-                  },
+                  required: "This field is required",
+                  validate: (value) =>
+                    (new Date(value).getTime() -
+                      new Date(getValues().pickUpDate).getTime()) /
+                      SECONDS <=
+                      0 && "drop off date cant't be a day before pickup date",
                 })}
               />
               <p className="text-red-500">

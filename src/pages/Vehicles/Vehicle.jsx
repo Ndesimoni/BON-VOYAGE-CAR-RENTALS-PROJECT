@@ -9,12 +9,13 @@ import Loading from "../../components/ui/Reuseable_Ui/Loading";
 function Vehicle() {
   const { carsId: incomingPath } = useParams();
 
-  const { data: vehicleCategory, isLoading } = useQuery({
+  const { data: vehicleCategory = [], isLoading } = useQuery({
     queryKey: ["cars"],
     queryFn: getAllCars,
   });
 
   if (isLoading) return <Loading />;
+
   return (
     <>
       <SingleTextImageView image="url(/help.jpg)">
